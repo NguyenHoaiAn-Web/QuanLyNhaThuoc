@@ -198,6 +198,7 @@ public class LoginForm extends javax.swing.JFrame {
                 	
                     LoadingPage loadingPage = new LoadingPage();
                     loadingPage.setVisible(true);
+                    setVisible(false);
                     loadingPage.load_To_StartProgram();
                 } else {
                     JOptionPane.showMessageDialog(null, "Sai thông tin đăng nhập!", "Lỗi", JOptionPane.ERROR_MESSAGE);
