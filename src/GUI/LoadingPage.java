@@ -227,6 +227,12 @@ public class LoadingPage extends javax.swing.JFrame {
                 for (int i = 0; i <= 100; i++) {
                     Thread.sleep(10); // Mô phỏng tiến trình
                     publish(i); // Gửi giá trị cập nhật
+                    if(i==100) {
+                    	TongQuanGUI tongquan = new TongQuanGUI();
+                    	tongquan.setVisible(true);
+                    	setVisible(false);
+                    	
+                    }
                 }
                 return null;
             }
