@@ -4,6 +4,7 @@
  */
 package GUI;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -15,6 +16,10 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import javax.swing.JPanel;
+import GUI.TestChart;
 /**
  *
  * @author 44ong
@@ -58,6 +63,9 @@ public class TongQuanGUI extends javax.swing.JFrame {
         panel_tongquan = new javax.swing.JPanel();
         label_tongquan = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
+        panel_dangxuat = new javax.swing.JPanel();
+        label_dangxuat = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
         panel_header = new javax.swing.JPanel();
         icon_close_fullscreen = new javax.swing.JPanel();
         panel_fullscreen = new javax.swing.JPanel();
@@ -82,7 +90,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
         panel_left.setBackground(new java.awt.Color(4, 71, 126));
         panel_left.setPreferredSize(new java.awt.Dimension(200, 470));
-        panel_left.setLayout(new java.awt.GridLayout(7, 1));
+        panel_left.setLayout(new java.awt.GridLayout(8, 1));
 
         panel_logo.setBackground(new java.awt.Color(4, 71, 126));
         panel_logo.setLayout(new java.awt.BorderLayout());
@@ -200,6 +208,23 @@ public class TongQuanGUI extends javax.swing.JFrame {
         panel_tongquan.add(jSeparator7);
 
         panel_left.add(panel_tongquan);
+
+        panel_dangxuat.setBackground(new java.awt.Color(4, 71, 126));
+        panel_dangxuat.setLayout(new java.awt.GridLayout(2, 1));
+
+        label_dangxuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_dangxuat.setForeground(new java.awt.Color(255, 255, 255));
+        label_dangxuat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_dangxuat.setText("Đăng Xuất");
+        label_dangxuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_dangxuatMouseClicked(evt);
+            }
+        });
+        panel_dangxuat.add(label_dangxuat);
+        panel_dangxuat.add(jSeparator3);
+
+        panel_left.add(panel_dangxuat);
 
         getContentPane().add(panel_left, java.awt.BorderLayout.LINE_START);
 
@@ -343,9 +368,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
         panel_thongso.add(panel_doanhthu_homnay);
 
         panel_right.add(panel_thongso);
-        
-        
-        
+
         panel_chart.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panel_chartLayout = new javax.swing.GroupLayout(panel_chart);
@@ -358,14 +381,15 @@ public class TongQuanGUI extends javax.swing.JFrame {
             panel_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 230, Short.MAX_VALUE)
         );
-        
-        // ve bieu do
-       ChartPanel chartPanel = TestChart.createSampleChartPanel();
-        
-        panel_right.add(chartPanel);
 
-        getContentPane().add(panel_right, java.awt.BorderLayout.LINE_END);
+     // ve bieu do
+        ChartPanel chartPanel = TestChart.createSampleChartPanel();
+         
+         panel_right.add(chartPanel);
 
+         getContentPane().add(panel_right, java.awt.BorderLayout.LINE_END);
+        
+  
         setSize(new java.awt.Dimension(900, 500));
         setLocationRelativeTo(null);
     }// </editor-fold>                        
@@ -428,7 +452,12 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private void label_tongquanMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
         System.out.println("GUI.MainForm_NhanVIen.label_tongquanMouseClicked()");
-    }                                           
+    } 
+    
+    private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
+        // TODO add your handling code here:
+        System.out.println("GUI.MainForm_NhanVIen.label_dangxuatMouseClicked()");
+    }
     
     /**
      * @param args the command line arguments
@@ -461,11 +490,11 @@ public class TongQuanGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TongQuanGUI().setVisible(true);
             }
-        });*/
+        });
     }
 
     // Variables declaration - do not modify                     
@@ -473,12 +502,14 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private javax.swing.JPanel icon_close_fullscreen;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel label_capnhat;
     private javax.swing.JLabel label_close;
+    private javax.swing.JLabel label_dangxuat;
     private javax.swing.JLabel label_doanhthu;
     private javax.swing.JLabel label_doanhthu_homnay;
     private javax.swing.JLabel label_fullscreen;
@@ -492,6 +523,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_capnhat;
     private javax.swing.JPanel panel_chart;
     private javax.swing.JPanel panel_close;
+    private javax.swing.JPanel panel_dangxuat;
     private javax.swing.JPanel panel_doanhthu;
     private javax.swing.JPanel panel_doanhthu_homnay;
     private javax.swing.JPanel panel_fullscreen;
@@ -508,8 +540,5 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_tongsanpham;
     private javax.swing.JLabel sanpham_saphethan;
     private javax.swing.JLabel tongsanpham;
-    
-    // End of variables declaration      
-    
-    
+    // End of variables declaration                   
 }
