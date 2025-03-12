@@ -4,22 +4,12 @@
  */
 package GUI;
 
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import javax.swing.JPanel;
 
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import javax.swing.JPanel;
-import GUI.TestChart;
 /**
  *
  * @author 44ong
@@ -45,27 +35,20 @@ public class TongQuanGUI extends javax.swing.JFrame {
         panel_left = new javax.swing.JPanel();
         panel_logo = new javax.swing.JPanel();
         label_logo = new javax.swing.JLabel();
-        panel_nhapthuoc = new javax.swing.JPanel();
-        label_nhapthuoc = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        panel_capnhat = new javax.swing.JPanel();
-        label_capnhat = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        panel_hoadon = new javax.swing.JPanel();
-        label_hoadon = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        panel_lendonthuoc = new javax.swing.JPanel();
-        label_lendonthuoc = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        panel_doanhthu = new javax.swing.JPanel();
-        label_doanhthu = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         panel_tongquan = new javax.swing.JPanel();
         label_tongquan = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
+        panel_capnhat = new javax.swing.JPanel();
+        label_capnhat = new javax.swing.JLabel();
+        panel_hoadon = new javax.swing.JPanel();
+        label_hoadon = new javax.swing.JLabel();
+        panel_laphoadon = new javax.swing.JPanel();
+        label_laphoadon = new javax.swing.JLabel();
+        panel_doanhthu = new javax.swing.JPanel();
+        label_doanhthu = new javax.swing.JLabel();
+        panel_nhapthuoc = new javax.swing.JPanel();
+        label_nhapthuoc = new javax.swing.JLabel();
         panel_dangxuat = new javax.swing.JPanel();
         label_dangxuat = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         panel_header = new javax.swing.JPanel();
         icon_close_fullscreen = new javax.swing.JPanel();
         panel_fullscreen = new javax.swing.JPanel();
@@ -88,7 +71,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        panel_left.setBackground(new java.awt.Color(4, 71, 126));
+        panel_left.setBackground(new java.awt.Color(255, 255, 255));
         panel_left.setPreferredSize(new java.awt.Dimension(200, 470));
         panel_left.setLayout(new java.awt.GridLayout(8, 1));
 
@@ -102,98 +85,8 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
         panel_left.add(panel_logo);
 
-        panel_nhapthuoc.setBackground(new java.awt.Color(4, 71, 126));
-        panel_nhapthuoc.setLayout(new java.awt.GridLayout(2, 1));
-
-        label_nhapthuoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        label_nhapthuoc.setForeground(new java.awt.Color(255, 255, 255));
-        label_nhapthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_nhapthuoc.setText("Nhập Thuốc");
-        label_nhapthuoc.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        label_nhapthuoc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        label_nhapthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_nhapthuocMouseClicked(evt);
-            }
-        });
-        panel_nhapthuoc.add(label_nhapthuoc);
-
-        jSeparator1.setPreferredSize(new java.awt.Dimension(40, 10));
-        panel_nhapthuoc.add(jSeparator1);
-
-        panel_left.add(panel_nhapthuoc);
-
-        panel_capnhat.setBackground(new java.awt.Color(4, 71, 126));
-        panel_capnhat.setLayout(new java.awt.GridLayout(2, 1));
-
-        label_capnhat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        label_capnhat.setForeground(new java.awt.Color(255, 255, 255));
-        label_capnhat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_capnhat.setText("Cập Nhật");
-        label_capnhat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_capnhatMouseClicked(evt);
-            }
-        });
-        panel_capnhat.add(label_capnhat);
-        panel_capnhat.add(jSeparator2);
-
-        panel_left.add(panel_capnhat);
-
-        panel_hoadon.setBackground(new java.awt.Color(4, 71, 126));
-        panel_hoadon.setForeground(new java.awt.Color(255, 255, 255));
-        panel_hoadon.setLayout(new java.awt.GridLayout(2, 1));
-
-        label_hoadon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        label_hoadon.setForeground(new java.awt.Color(255, 255, 255));
-        label_hoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_hoadon.setText("Hóa Đơn");
-        label_hoadon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_hoadonMouseClicked(evt);
-            }
-        });
-        panel_hoadon.add(label_hoadon);
-        panel_hoadon.add(jSeparator4);
-
-        panel_left.add(panel_hoadon);
-
-        panel_lendonthuoc.setBackground(new java.awt.Color(4, 71, 126));
-        panel_lendonthuoc.setLayout(new java.awt.GridLayout(2, 1));
-
-        label_lendonthuoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        label_lendonthuoc.setForeground(new java.awt.Color(255, 255, 255));
-        label_lendonthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_lendonthuoc.setText("Lên Đơn Thuốc");
-        label_lendonthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_lendonthuocMouseClicked(evt);
-            }
-        });
-        panel_lendonthuoc.add(label_lendonthuoc);
-        panel_lendonthuoc.add(jSeparator5);
-
-        panel_left.add(panel_lendonthuoc);
-
-        panel_doanhthu.setBackground(new java.awt.Color(4, 71, 126));
-        panel_doanhthu.setLayout(new java.awt.GridLayout(2, 1));
-
-        label_doanhthu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        label_doanhthu.setForeground(new java.awt.Color(255, 255, 255));
-        label_doanhthu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_doanhthu.setText("Doanh Thu");
-        label_doanhthu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_doanhthuMouseClicked(evt);
-            }
-        });
-        panel_doanhthu.add(label_doanhthu);
-        panel_doanhthu.add(jSeparator6);
-
-        panel_left.add(panel_doanhthu);
-
-        panel_tongquan.setBackground(new java.awt.Color(4, 71, 126));
-        panel_tongquan.setLayout(new java.awt.GridLayout(2, 1));
+        panel_tongquan.setBackground(new java.awt.Color(32, 86, 161));
+        panel_tongquan.setLayout(new java.awt.BorderLayout());
 
         label_tongquan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         label_tongquan.setForeground(new java.awt.Color(255, 255, 255));
@@ -204,13 +97,92 @@ public class TongQuanGUI extends javax.swing.JFrame {
                 label_tongquanMouseClicked(evt);
             }
         });
-        panel_tongquan.add(label_tongquan);
-        panel_tongquan.add(jSeparator7);
+        panel_tongquan.add(label_tongquan, java.awt.BorderLayout.CENTER);
 
         panel_left.add(panel_tongquan);
 
+        panel_capnhat.setBackground(new java.awt.Color(4, 71, 126));
+        panel_capnhat.setLayout(new java.awt.BorderLayout());
+
+        label_capnhat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_capnhat.setForeground(new java.awt.Color(255, 255, 255));
+        label_capnhat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_capnhat.setText("Cập Nhật");
+        label_capnhat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_capnhatMouseClicked(evt);
+            }
+        });
+        panel_capnhat.add(label_capnhat, java.awt.BorderLayout.CENTER);
+
+        panel_left.add(panel_capnhat);
+
+        panel_hoadon.setBackground(new java.awt.Color(4, 71, 126));
+        panel_hoadon.setLayout(new java.awt.BorderLayout());
+
+        label_hoadon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_hoadon.setForeground(new java.awt.Color(255, 255, 255));
+        label_hoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_hoadon.setText("Hóa Đơn");
+        label_hoadon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_hoadonMouseClicked(evt);
+            }
+        });
+        panel_hoadon.add(label_hoadon, java.awt.BorderLayout.CENTER);
+
+        panel_left.add(panel_hoadon);
+
+        panel_laphoadon.setBackground(new java.awt.Color(4, 71, 126));
+        panel_laphoadon.setLayout(new java.awt.BorderLayout());
+
+        label_laphoadon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_laphoadon.setForeground(new java.awt.Color(255, 255, 255));
+        label_laphoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_laphoadon.setText("Lập Hóa Đơn");
+        label_laphoadon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laphoadonMouseClicked(evt);
+            }
+        });
+        panel_laphoadon.add(label_laphoadon, java.awt.BorderLayout.CENTER);
+
+        panel_left.add(panel_laphoadon);
+
+        panel_doanhthu.setBackground(new java.awt.Color(4, 71, 126));
+        panel_doanhthu.setLayout(new java.awt.BorderLayout());
+
+        label_doanhthu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_doanhthu.setForeground(new java.awt.Color(255, 255, 255));
+        label_doanhthu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_doanhthu.setText("Doanh Thu");
+        label_doanhthu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_doanhthuMouseClicked(evt);
+            }
+        });
+        panel_doanhthu.add(label_doanhthu, java.awt.BorderLayout.CENTER);
+
+        panel_left.add(panel_doanhthu);
+
+        panel_nhapthuoc.setBackground(new java.awt.Color(4, 71, 126));
+        panel_nhapthuoc.setLayout(new java.awt.BorderLayout());
+
+        label_nhapthuoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_nhapthuoc.setForeground(new java.awt.Color(255, 255, 255));
+        label_nhapthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_nhapthuoc.setText("Nhập Thuốc");
+        label_nhapthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_nhapthuocMouseClicked(evt);
+            }
+        });
+        panel_nhapthuoc.add(label_nhapthuoc, java.awt.BorderLayout.CENTER);
+
+        panel_left.add(panel_nhapthuoc);
+
         panel_dangxuat.setBackground(new java.awt.Color(4, 71, 126));
-        panel_dangxuat.setLayout(new java.awt.GridLayout(2, 1));
+        panel_dangxuat.setLayout(new java.awt.BorderLayout());
 
         label_dangxuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         label_dangxuat.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,8 +193,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
                 label_dangxuatMouseClicked(evt);
             }
         });
-        panel_dangxuat.add(label_dangxuat);
-        panel_dangxuat.add(jSeparator3);
+        panel_dangxuat.add(label_dangxuat, java.awt.BorderLayout.CENTER);
 
         panel_left.add(panel_dangxuat);
 
@@ -381,17 +352,21 @@ public class TongQuanGUI extends javax.swing.JFrame {
             panel_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 230, Short.MAX_VALUE)
         );
-
+        
      // ve bieu do
+        
+
+        // ve bieu do
         ChartPanel chartPanel = TestChart.createSampleChartPanel();
          
          panel_right.add(chartPanel);
 
          getContentPane().add(panel_right, java.awt.BorderLayout.LINE_END);
-        
-  
-        setSize(new java.awt.Dimension(900, 500));
-        setLocationRelativeTo(null);
+
+         setSize(new java.awt.Dimension(900, 500));
+         setLocationRelativeTo(null);
+
+
     }// </editor-fold>                        
     
     // chinh sua nut close
@@ -424,40 +399,40 @@ public class TongQuanGUI extends javax.swing.JFrame {
         }  
     }                                             
 
-    private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {                                             
+    private void label_tongquanMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.label_nhapthuocMouseClicked()");
-    }                                            
+        System.out.println("GUI.TongQuanGUI.label_tongquanMouseClicked()");
+    }                                           
 
     private void label_capnhatMouseClicked(java.awt.event.MouseEvent evt) {                                           
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.capnhatMouseClicked()");
+        System.out.println("GUI.TongQuanGUI.label_capnhatMouseClicked()");
     }                                          
 
     private void label_hoadonMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.hoadonMouseClicked()");
+        System.out.println("GUI.TongQuanGUI.label_hoadonMouseClicked()");
     }                                         
 
-    private void label_lendonthuocMouseClicked(java.awt.event.MouseEvent evt) {                                               
+    private void label_laphoadonMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.lendonthuocMouseClicked()");
-    }                                              
+        System.out.println("GUI.TongQuanGUI.label_laphoadonMouseClicked()");
+    }                                            
 
     private void label_doanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.doanhthuMouseClicked()");
+        System.out.println("GUI.TongQuanGUI.label_doanhthuMouseClicked()");
     }                                           
 
-    private void label_tongquanMouseClicked(java.awt.event.MouseEvent evt) {                                            
+    private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.label_tongquanMouseClicked()");
-    } 
-    
+        System.out.println("GUI.TongQuanGUI.label_nhapthuocMouseClicked()");
+    }                                            
+
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-        System.out.println("GUI.MainForm_NhanVIen.label_dangxuatMouseClicked()");
-    }
+        System.out.println("GUI.TongQuanGUI.label_dangxuatMouseClicked()");
+    }                                           
     
     /**
      * @param args the command line arguments
@@ -500,13 +475,6 @@ public class TongQuanGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JLabel doanhthu_homnay;
     private javax.swing.JPanel icon_close_fullscreen;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel label_capnhat;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_dangxuat;
@@ -514,7 +482,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private javax.swing.JLabel label_doanhthu_homnay;
     private javax.swing.JLabel label_fullscreen;
     private javax.swing.JLabel label_hoadon;
-    private javax.swing.JLabel label_lendonthuoc;
+    private javax.swing.JLabel label_laphoadon;
     private javax.swing.JLabel label_logo;
     private javax.swing.JLabel label_nhapthuoc;
     private javax.swing.JLabel label_saphethan;
@@ -529,8 +497,8 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_fullscreen;
     private javax.swing.JPanel panel_header;
     private javax.swing.JPanel panel_hoadon;
+    private javax.swing.JPanel panel_laphoadon;
     private javax.swing.JPanel panel_left;
-    private javax.swing.JPanel panel_lendonthuoc;
     private javax.swing.JPanel panel_logo;
     private javax.swing.JPanel panel_nhapthuoc;
     private javax.swing.JPanel panel_right;
