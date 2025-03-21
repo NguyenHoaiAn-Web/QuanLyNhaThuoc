@@ -71,7 +71,7 @@ public class TongQuanGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        panel_left.setBackground(new java.awt.Color(255, 255, 255));
+        panel_left.setBackground(new java.awt.Color(4,71,126));
         panel_left.setPreferredSize(new java.awt.Dimension(200, 470));
         panel_left.setLayout(new java.awt.GridLayout(8, 1));
 
@@ -426,12 +426,16 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
     private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-        System.out.println("GUI.TongQuanGUI.label_nhapthuocMouseClicked()");
+        this.setVisible(false);
+        NhapThuocGUI nhapthuocform = new NhapThuocGUI();
+        nhapthuocform.setVisible(true);
     }                                            
 
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-        System.out.println("GUI.TongQuanGUI.label_dangxuatMouseClicked()");
+        this.setVisible(false);
+        LoginForm loginform = new LoginForm();
+        loginform.setVisible(true);
     }                                           
     
     /**

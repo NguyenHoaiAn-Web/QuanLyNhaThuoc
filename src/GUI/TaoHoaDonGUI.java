@@ -17,12 +17,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author 44ong
  */
-public class NhapThuocGUI extends javax.swing.JFrame {
+public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForm
      */
-    public NhapThuocGUI() {
+    public TaoHoaDonGUI() {
         initComponents();
     }
 
@@ -60,33 +60,28 @@ public class NhapThuocGUI extends javax.swing.JFrame {
         panel_close = new javax.swing.JPanel();
         label_close = new javax.swing.JLabel();
         panel_right = new javax.swing.JPanel();
-        panel_right_top = new javax.swing.JPanel();
-        label_mathuoc = new javax.swing.JLabel();
-        field_mathuoc = new javax.swing.JTextField();
-        label_tenthuoc = new javax.swing.JLabel();
-        field_tenthuoc = new javax.swing.JTextField();
-        label_ngaynhap = new javax.swing.JLabel();
-        field_ngaynhap = new javax.swing.JTextField();
-        label_ngayhethan = new javax.swing.JLabel();
-        field_ngayhethan = new javax.swing.JTextField();
-        label_gia = new javax.swing.JLabel();
-        field_gia = new javax.swing.JTextField();
-        label_soluong = new javax.swing.JLabel();
-        field_soluong = new javax.swing.JTextField();
-        label_phanloai = new javax.swing.JLabel();
-        field_phanloai = new javax.swing.JTextField();
-        label_hinhanh = new javax.swing.JLabel();
-        field_donvitinh = new javax.swing.JTextField();
-        label_hamluong = new javax.swing.JLabel();
-        field_hamluong = new javax.swing.JTextField();
-        label_donvitinh = new javax.swing.JLabel();
-        button_hinhanh = new javax.swing.JButton();
-        button_them = new javax.swing.JButton();
-        button_hoantac = new javax.swing.JButton();
-        button_xoa = new javax.swing.JButton();
-        panel_right_bot = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        panel_timkiem = new javax.swing.JPanel();
+        field_timkiem = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -185,10 +180,9 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
         panel_left.add(panel_doanhthu);
 
-        panel_nhapthuoc.setBackground(new java.awt.Color(32, 86, 161));
+        panel_nhapthuoc.setBackground(new java.awt.Color(4, 71, 126));
         panel_nhapthuoc.setLayout(new java.awt.BorderLayout());
 
-        label_nhapthuoc.setBackground(new java.awt.Color(32, 86, 161));
         label_nhapthuoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         label_nhapthuoc.setForeground(new java.awt.Color(255, 255, 255));
         label_nhapthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -293,254 +287,189 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
         panel_right.setForeground(new java.awt.Color(255, 255, 255));
         panel_right.setPreferredSize(new java.awt.Dimension(700, 470));
-        panel_right.setLayout(new java.awt.GridLayout(2, 1));
+        panel_right.setLayout(new java.awt.GridLayout(1, 2));
 
-        panel_right_top.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(2, 1));
 
-        label_mathuoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_mathuoc.setText("Mã Thuốc");
+        jPanel7.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Tên Khách Hảng");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_mathuoc, gridBagConstraints);
+        jPanel7.add(jLabel1, gridBagConstraints);
+
+        jTextField1.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_mathuoc, gridBagConstraints);
+        jPanel7.add(jTextField1, gridBagConstraints);
 
-        label_tenthuoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_tenthuoc.setText("Tên Thuốc");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_tenthuoc, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_tenthuoc, gridBagConstraints);
-
-        label_ngaynhap.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_ngaynhap.setText("Ngày Nhập");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Số Điện Thoại");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_ngaynhap, gridBagConstraints);
+        jPanel7.add(jLabel2, gridBagConstraints);
 
-        field_ngaynhap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field_ngaynhapActionPerformed(evt);
-            }
-        });
+        jTextField2.setText("jTextField2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_ngaynhap, gridBagConstraints);
+        jPanel7.add(jTextField2, gridBagConstraints);
 
-        label_ngayhethan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_ngayhethan.setText("Ngày Hết Hạn");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_ngayhethan, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_ngayhethan, gridBagConstraints);
-
-        label_gia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_gia.setText("Giá");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Địa Chỉ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_gia, gridBagConstraints);
+        jPanel7.add(jLabel3, gridBagConstraints);
+
+        jTextField3.setText("jTextField3");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_gia, gridBagConstraints);
+        jPanel7.add(jTextField3, gridBagConstraints);
 
-        label_soluong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_soluong.setText("Số Lượng");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_soluong, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_soluong, gridBagConstraints);
-
-        label_phanloai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_phanloai.setText("Phân Loại");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Tên Nhân Viên");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_phanloai, gridBagConstraints);
+        jPanel7.add(jLabel4, gridBagConstraints);
+
+        jTextField4.setText("jTextField4");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_phanloai, gridBagConstraints);
+        jPanel7.add(jTextField4, gridBagConstraints);
 
-        label_hinhanh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_hinhanh.setText("Hình Ảnh");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_hinhanh, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_donvitinh, gridBagConstraints);
-
-        label_hamluong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_hamluong.setText("Hàm Lượng");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Ngày Bán");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_hamluong, gridBagConstraints);
+        jPanel7.add(jLabel5, gridBagConstraints);
+
+        jTextField5.setText("jTextField5");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(field_hamluong, gridBagConstraints);
+        jPanel7.add(jTextField5, gridBagConstraints);
 
-        label_donvitinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_donvitinh.setText("Đơn Vị Tính");
+        jLabel6.setText("jLabel6");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(label_donvitinh, gridBagConstraints);
+        jPanel7.add(jLabel6, gridBagConstraints);
 
-        button_hinhanh.setText("Upload");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(button_hinhanh, gridBagConstraints);
-
-        button_them.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        button_them.setText("Thêm");
-        button_them.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_themMouseClicked(evt);
-            }
-        });
+        jTextField6.setText("jTextField6");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(button_them, gridBagConstraints);
+        jPanel7.add(jTextField6, gridBagConstraints);
 
-        button_hoantac.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        button_hoantac.setText("Hoàn Tác");
-        button_hoantac.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_hoantacMouseClicked(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(button_hoantac, gridBagConstraints);
+        jPanel1.add(jPanel7);
 
-        button_xoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        button_xoa.setText("Xóa");
-        button_xoa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_xoaMouseClicked(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_right_top.add(button_xoa, gridBagConstraints);
-
-        panel_right.add(panel_right_top);
-
-        panel_right_bot.setLayout(new java.awt.BorderLayout());
+        jPanel8.setLayout(new java.awt.BorderLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mã Thuốc", "Tên Thuốc", "Ngày Nhập", "Ngày Hết Hạn", "Giá", "Số Lương", "Phân Loại", "Đơn Vị Tính", "Hàm Lượng"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panel_right_bot.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel8.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        panel_right.add(panel_right_bot);
+        jPanel1.add(jPanel8);
+
+        panel_right.add(jPanel1);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 388, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 396, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        panel_timkiem.setPreferredSize(new java.awt.Dimension(350, 30));
+        panel_timkiem.setLayout(new java.awt.BorderLayout());
+
+        field_timkiem.setText("thanh tim kiem");
+        panel_timkiem.add(field_timkiem, java.awt.BorderLayout.CENTER);
+
+        jPanel2.add(panel_timkiem, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 388, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+
+        panel_right.add(jPanel2);
 
         getContentPane().add(panel_right, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(900, 500));
+        setSize(new java.awt.Dimension(976, 556));
         setLocationRelativeTo(null);
     }// </editor-fold>                        
     
@@ -567,34 +496,15 @@ public class NhapThuocGUI extends javax.swing.JFrame {
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
-        if(this.getExtendedState()!=NhapThuocGUI.MAXIMIZED_BOTH){
-            this.setExtendedState(NhapThuocGUI.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!=TaoHoaDonGUI.MAXIMIZED_BOTH){
+            this.setExtendedState(TaoHoaDonGUI.MAXIMIZED_BOTH);
         }else{
-           this.setExtendedState(NhapThuocGUI.NORMAL);
+           this.setExtendedState(TaoHoaDonGUI.NORMAL);
         }  
     }                                             
 
-    private void field_ngaynhapActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
-    }                                              
-
-    private void button_themMouseClicked(java.awt.event.MouseEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
-
-    private void button_hoantacMouseClicked(java.awt.event.MouseEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void button_xoaMouseClicked(java.awt.event.MouseEvent evt) {                                        
-        // TODO add your handling code here:
-    }                                       
-
     private void label_tongquanMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-    	this.setVisible(false);
-    	TongQuanGUI tongquangui = new TongQuanGUI();
-    	tongquangui.setVisible(true);
     }                                           
 
     private void label_capnhatMouseClicked(java.awt.event.MouseEvent evt) {                                           
@@ -615,9 +525,6 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-        this.setVisible(false);
-        LoginForm loginform = new LoginForm();
-        loginform.setVisible(true);
     }                                           
     
     /**
@@ -637,14 +544,22 @@ public class NhapThuocGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -655,49 +570,45 @@ public class NhapThuocGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NhapThuocGUI().setVisible(true);
+                new TaoHoaDonGUI().setVisible(true);
             }
-        });*/
+        });
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton button_hinhanh;
-    private javax.swing.JButton button_hoantac;
-    private javax.swing.JButton button_them;
-    private javax.swing.JButton button_xoa;
-    private javax.swing.JTextField field_donvitinh;
-    private javax.swing.JTextField field_gia;
-    private javax.swing.JTextField field_hamluong;
-    private javax.swing.JTextField field_mathuoc;
-    private javax.swing.JTextField field_ngayhethan;
-    private javax.swing.JTextField field_ngaynhap;
-    private javax.swing.JTextField field_phanloai;
-    private javax.swing.JTextField field_soluong;
-    private javax.swing.JTextField field_tenthuoc;
+    private javax.swing.JTextField field_timkiem;
     private javax.swing.JPanel icon_close_fullscreen;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel label_capnhat;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_dangxuat;
     private javax.swing.JLabel label_doanhthu;
-    private javax.swing.JLabel label_donvitinh;
     private javax.swing.JLabel label_fullscreen;
-    private javax.swing.JLabel label_gia;
-    private javax.swing.JLabel label_hamluong;
-    private javax.swing.JLabel label_hinhanh;
     private javax.swing.JLabel label_hoadon;
     private javax.swing.JLabel label_laphoadon;
     private javax.swing.JLabel label_logo;
-    private javax.swing.JLabel label_mathuoc;
-    private javax.swing.JLabel label_ngayhethan;
-    private javax.swing.JLabel label_ngaynhap;
     private javax.swing.JLabel label_nhapthuoc;
-    private javax.swing.JLabel label_phanloai;
-    private javax.swing.JLabel label_soluong;
-    private javax.swing.JLabel label_tenthuoc;
     private javax.swing.JLabel label_tongquan;
     private javax.swing.JPanel panel_capnhat;
     private javax.swing.JPanel panel_close;
@@ -711,8 +622,7 @@ public class NhapThuocGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_logo;
     private javax.swing.JPanel panel_nhapthuoc;
     private javax.swing.JPanel panel_right;
-    private javax.swing.JPanel panel_right_bot;
-    private javax.swing.JPanel panel_right_top;
+    private javax.swing.JPanel panel_timkiem;
     private javax.swing.JPanel panel_tongquan;
     // End of variables declaration                   
 }
