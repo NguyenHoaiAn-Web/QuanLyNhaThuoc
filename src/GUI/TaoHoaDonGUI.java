@@ -36,6 +36,8 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLabel8 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         panel_left = new javax.swing.JPanel();
         panel_logo = new javax.swing.JPanel();
         label_logo = new javax.swing.JLabel();
@@ -61,27 +63,51 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         label_close = new javax.swing.JLabel();
         panel_right = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        panel_thongtin = new javax.swing.JPanel();
+        label_tenkhachhang = new javax.swing.JLabel();
+        field_tenkhachhang = new javax.swing.JTextField();
+        label_sdt = new javax.swing.JLabel();
+        field_sdt = new javax.swing.JTextField();
+        label_diachi = new javax.swing.JLabel();
+        field_diachi = new javax.swing.JTextField();
+        label_tennhanvien = new javax.swing.JLabel();
+        field_tennhanvien = new javax.swing.JTextField();
+        label_ngayban = new javax.swing.JLabel();
+        field_ngayban = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jPanel8 = new javax.swing.JPanel();
+        panel_table = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        panel_sanpham = new javax.swing.JPanel();
+        panel_thongtinsanpham = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        panel_hinhanhsanpham = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
         panel_timkiem = new javax.swing.JPanel();
         field_timkiem = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
+        panel_button = new javax.swing.JPanel();
+        button_them = new javax.swing.JButton();
+        button_xoa = new javax.swing.JButton();
+        button_luu = new javax.swing.JButton();
+
+        jLabel8.setText("jLabel8");
+
+        jLabel13.setText("jLabel13");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -148,7 +174,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
         panel_left.add(panel_hoadon);
 
-        panel_laphoadon.setBackground(new java.awt.Color(4, 71, 126));
+        panel_laphoadon.setBackground(new java.awt.Color(32, 86, 161));
         panel_laphoadon.setLayout(new java.awt.BorderLayout());
 
         label_laphoadon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -188,7 +214,11 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         label_nhapthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_nhapthuoc.setText("Nhập Thuốc");
         panel_nhapthuoc.add(label_nhapthuoc, java.awt.BorderLayout.CENTER);
-
+        label_dangxuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_nhapthuocMouseClicked(evt);
+            }
+        });
         panel_left.add(panel_nhapthuoc);
 
         panel_dangxuat.setBackground(new java.awt.Color(4, 71, 126));
@@ -291,102 +321,98 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel7.setLayout(new java.awt.GridBagLayout());
+        panel_thongtin.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Tên Khách Hảng");
+        label_tenkhachhang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_tenkhachhang.setText("Tên Khách Hàng");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jLabel1, gridBagConstraints);
-
-        jTextField1.setText("jTextField1");
+        panel_thongtin.add(label_tenkhachhang, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField1, gridBagConstraints);
+        panel_thongtin.add(field_tenkhachhang, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Số Điện Thoại");
+        label_sdt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_sdt.setText("Số Điện Thoại");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jLabel2, gridBagConstraints);
-
-        jTextField2.setText("jTextField2");
+        panel_thongtin.add(label_sdt, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField2, gridBagConstraints);
+        panel_thongtin.add(field_sdt, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Địa Chỉ");
+        label_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_diachi.setText("Địa Chỉ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jLabel3, gridBagConstraints);
+        panel_thongtin.add(label_diachi, gridBagConstraints);
 
-        jTextField3.setText("jTextField3");
+        field_diachi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_diachiActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField3, gridBagConstraints);
+        panel_thongtin.add(field_diachi, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Tên Nhân Viên");
+        label_tennhanvien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_tennhanvien.setText("Tên Nhân Viên");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jLabel4, gridBagConstraints);
-
-        jTextField4.setText("jTextField4");
+        panel_thongtin.add(label_tennhanvien, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField4, gridBagConstraints);
+        panel_thongtin.add(field_tennhanvien, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Ngày Bán");
+        label_ngayban.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_ngayban.setText("Ngày Bán");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jLabel5, gridBagConstraints);
-
-        jTextField5.setText("jTextField5");
+        panel_thongtin.add(label_ngayban, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField5, gridBagConstraints);
+        panel_thongtin.add(field_ngayban, gridBagConstraints);
 
         jLabel6.setText("jLabel6");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -395,20 +421,18 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jLabel6, gridBagConstraints);
-
-        jTextField6.setText("jTextField6");
+        panel_thongtin.add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField6, gridBagConstraints);
+        panel_thongtin.add(jTextField6, gridBagConstraints);
 
-        jPanel1.add(jPanel7);
+        jPanel1.add(panel_thongtin);
 
-        jPanel8.setLayout(new java.awt.BorderLayout());
+        panel_table.setLayout(new java.awt.BorderLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -418,52 +442,213 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Thuốc", "Tên Thuốc", "Số Lượng", "Giá"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel8.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        panel_table.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(jPanel8);
+        jPanel1.add(panel_table);
 
         panel_right.add(jPanel1);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
-        );
+        panel_sanpham.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel2.add(jPanel3, java.awt.BorderLayout.CENTER);
+        panel_thongtinsanpham.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setText("Mã Thuốc");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
+        panel_thongtinsanpham.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setText("jLabel2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setText("Tên Thuốc");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
+        panel_thongtinsanpham.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("jLabel4");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel4, gridBagConstraints);
+
+        jLabel5.setText("Hàm Lượng");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
+        panel_thongtinsanpham.add(jLabel5, gridBagConstraints);
+
+        jLabel7.setText("jLabel7");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel7, gridBagConstraints);
+
+        jLabel9.setText("Phân Loại");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
+        panel_thongtinsanpham.add(jLabel9, gridBagConstraints);
+
+        jLabel10.setText("jLabel10");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel10, gridBagConstraints);
+
+        jLabel11.setText("Giá TIền");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
+        panel_thongtinsanpham.add(jLabel11, gridBagConstraints);
+
+        jLabel12.setText("jLabel12");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel12, gridBagConstraints);
+
+        jLabel14.setText("Đơn Vị");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
+        panel_thongtinsanpham.add(jLabel14, gridBagConstraints);
+
+        jLabel15.setText("jLabel15");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel15, gridBagConstraints);
+
+        jLabel16.setText("Thành Phần Chính");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
+        panel_thongtinsanpham.add(jLabel16, gridBagConstraints);
+
+        jLabel17.setText("jLabel17");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel17, gridBagConstraints);
+
+        panel_sanpham.add(panel_thongtinsanpham);
+
+        panel_hinhanhsanpham.setLayout(new java.awt.BorderLayout());
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Picture1.png"))); // NOI18N
+        panel_hinhanhsanpham.add(jLabel18, java.awt.BorderLayout.CENTER);
+
+        panel_sanpham.add(panel_hinhanhsanpham);
+
+        jPanel2.add(panel_sanpham, java.awt.BorderLayout.CENTER);
 
         panel_timkiem.setPreferredSize(new java.awt.Dimension(350, 30));
         panel_timkiem.setLayout(new java.awt.BorderLayout());
 
         field_timkiem.setText("thanh tim kiem");
+        field_timkiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_timkiemActionPerformed(evt);
+            }
+        });
         panel_timkiem.add(field_timkiem, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(panel_timkiem, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        panel_button.setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+        button_them.setText("Thêm");
+        button_them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_themActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(40, 31, 37, 25);
+        panel_button.add(button_them, gridBagConstraints);
+
+        button_xoa.setText("Xóa");
+        button_xoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_xoaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 31, 37, 25);
+        panel_button.add(button_xoa, gridBagConstraints);
+
+        button_luu.setText("Lưu");
+        button_luu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_luuActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 31, 37, 25);
+        panel_button.add(button_luu, gridBagConstraints);
+
+        jPanel2.add(panel_button, java.awt.BorderLayout.PAGE_END);
 
         panel_right.add(jPanel2);
 
@@ -505,6 +690,10 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void label_tongquanMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	TongQuanGUI tongquangui = new TongQuanGUI();
+    	tongquangui.setVisible(true);
+    			
     }                                           
 
     private void label_capnhatMouseClicked(java.awt.event.MouseEvent evt) {                                           
@@ -517,7 +706,15 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void label_laphoadonMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-    }                                            
+    }                   
+    
+    private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {
+    	this.setVisible(false);
+    	NhapThuocGUI nhapthuocgui = new NhapThuocGUI();
+    	nhapthuocgui.setVisible(true);
+    			
+    	
+    }
 
     private void label_doanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
@@ -525,7 +722,30 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	LoginForm loginform = new LoginForm();
+    	loginform.setVisible(true);
     }                                           
+
+    private void field_diachiActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
+
+    private void button_themActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    }                                           
+
+    private void button_xoaActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
+
+    private void button_luuActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
+
+    private void field_timkiemActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }                                             
     
     /**
      * @param args the command line arguments
@@ -570,58 +790,80 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TaoHoaDonGUI().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton button_luu;
+    private javax.swing.JButton button_them;
+    private javax.swing.JButton button_xoa;
+    private javax.swing.JTextField field_diachi;
+    private javax.swing.JTextField field_ngayban;
+    private javax.swing.JTextField field_sdt;
+    private javax.swing.JTextField field_tenkhachhang;
+    private javax.swing.JTextField field_tennhanvien;
     private javax.swing.JTextField field_timkiem;
     private javax.swing.JPanel icon_close_fullscreen;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel label_capnhat;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_dangxuat;
+    private javax.swing.JLabel label_diachi;
     private javax.swing.JLabel label_doanhthu;
     private javax.swing.JLabel label_fullscreen;
     private javax.swing.JLabel label_hoadon;
     private javax.swing.JLabel label_laphoadon;
     private javax.swing.JLabel label_logo;
+    private javax.swing.JLabel label_ngayban;
     private javax.swing.JLabel label_nhapthuoc;
+    private javax.swing.JLabel label_sdt;
+    private javax.swing.JLabel label_tenkhachhang;
+    private javax.swing.JLabel label_tennhanvien;
     private javax.swing.JLabel label_tongquan;
+    private javax.swing.JPanel panel_button;
     private javax.swing.JPanel panel_capnhat;
     private javax.swing.JPanel panel_close;
     private javax.swing.JPanel panel_dangxuat;
     private javax.swing.JPanel panel_doanhthu;
     private javax.swing.JPanel panel_fullscreen;
     private javax.swing.JPanel panel_header;
+    private javax.swing.JPanel panel_hinhanhsanpham;
     private javax.swing.JPanel panel_hoadon;
     private javax.swing.JPanel panel_laphoadon;
     private javax.swing.JPanel panel_left;
     private javax.swing.JPanel panel_logo;
     private javax.swing.JPanel panel_nhapthuoc;
     private javax.swing.JPanel panel_right;
+    private javax.swing.JPanel panel_sanpham;
+    private javax.swing.JPanel panel_table;
+    private javax.swing.JPanel panel_thongtin;
+    private javax.swing.JPanel panel_thongtinsanpham;
     private javax.swing.JPanel panel_timkiem;
     private javax.swing.JPanel panel_tongquan;
     // End of variables declaration                   

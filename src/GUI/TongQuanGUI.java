@@ -416,7 +416,9 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
     private void label_laphoadonMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-        System.out.println("GUI.TongQuanGUI.label_laphoadonMouseClicked()");
+        this.setVisible(false);
+        TaoHoaDonGUI taohoadongui = new TaoHoaDonGUI();
+        taohoadongui.setVisible(true);
     }                                            
 
     private void label_doanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                            
