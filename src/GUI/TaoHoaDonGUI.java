@@ -96,10 +96,13 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         panel_hinhanhsanpham = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         panel_timkiem = new javax.swing.JPanel();
         field_timkiem = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         panel_button = new javax.swing.JPanel();
         button_them = new javax.swing.JButton();
         button_xoa = new javax.swing.JButton();
@@ -213,12 +216,13 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         label_nhapthuoc.setForeground(new java.awt.Color(255, 255, 255));
         label_nhapthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_nhapthuoc.setText("Nhập Thuốc");
-        panel_nhapthuoc.add(label_nhapthuoc, java.awt.BorderLayout.CENTER);
-        label_dangxuat.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_nhapthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_nhapthuocMouseClicked(evt);
             }
         });
+        panel_nhapthuoc.add(label_nhapthuoc, java.awt.BorderLayout.CENTER);
+
         panel_left.add(panel_nhapthuoc);
 
         panel_dangxuat.setBackground(new java.awt.Color(4, 71, 126));
@@ -585,6 +589,22 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         panel_thongtinsanpham.add(jLabel17, gridBagConstraints);
 
+        jLabel19.setText("Ngày Hết Hạn");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
+        panel_thongtinsanpham.add(jLabel19, gridBagConstraints);
+
+        jLabel20.setText("jLabel20");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        panel_thongtinsanpham.add(jLabel20, gridBagConstraints);
+
         panel_sanpham.add(panel_thongtinsanpham);
 
         panel_hinhanhsanpham.setLayout(new java.awt.BorderLayout());
@@ -600,13 +620,20 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_timkiem.setPreferredSize(new java.awt.Dimension(350, 30));
         panel_timkiem.setLayout(new java.awt.BorderLayout());
 
-        field_timkiem.setText("thanh tim kiem");
         field_timkiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 field_timkiemActionPerformed(evt);
             }
         });
         panel_timkiem.add(field_timkiem, java.awt.BorderLayout.CENTER);
+
+        jButton1.setText("Tìm Kiếm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panel_timkiem.add(jButton1, java.awt.BorderLayout.LINE_END);
 
         jPanel2.add(panel_timkiem, java.awt.BorderLayout.PAGE_START);
 
@@ -693,7 +720,6 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     	this.setVisible(false);
     	TongQuanGUI tongquangui = new TongQuanGUI();
     	tongquangui.setVisible(true);
-    			
     }                                           
 
     private void label_capnhatMouseClicked(java.awt.event.MouseEvent evt) {                                           
@@ -706,25 +732,16 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void label_laphoadonMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-    }                   
-    
-    private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {
-    	this.setVisible(false);
-    	NhapThuocGUI nhapthuocgui = new NhapThuocGUI();
-    	nhapthuocgui.setVisible(true);
-    			
-    	
-    }
+    }                                            
 
     private void label_doanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
-        // TODO add your handling code here:
-    	this.setVisible(false);
-    	LoginForm loginform = new LoginForm();
-    	loginform.setVisible(true);
+        this.setVisible(false);
+        LoginForm loginform = new LoginForm();
+        loginform.setVisible(true);
     }                                           
 
     private void field_diachiActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -746,6 +763,17 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private void field_timkiemActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
     }                                             
+
+    private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {                                             
+        this.setVisible(false);
+        NhapThuocGUI nhapthuocgui = new NhapThuocGUI();
+        nhapthuocgui.setVisible(true);
+        		
+    }                                            
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
     
     /**
      * @param args the command line arguments
@@ -790,11 +818,11 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TaoHoaDonGUI().setVisible(true);
             }
-        });*/
+        });
     }
 
     // Variables declaration - do not modify                     
@@ -808,6 +836,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JTextField field_tennhanvien;
     private javax.swing.JTextField field_timkiem;
     private javax.swing.JPanel icon_close_fullscreen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -818,7 +847,9 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
