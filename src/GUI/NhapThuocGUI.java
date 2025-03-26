@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -23,7 +24,9 @@ public class NhapThuocGUI extends javax.swing.JFrame {
      * Creates new form MainForm
      */
     public NhapThuocGUI() {
+    	
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -603,12 +606,15 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
     private void label_hoadonMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
+        this.setVisible(false);
+        HoaDonGUI hoadongui = new HoaDonGUI();
+        hoadongui.setVisible(true);
     }                                         
 
     private void label_laphoadonMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
     	this.setVisible(false);
-        TaoHoaDonGUI taohoadongui = new TaoHoaDonGUI();
+        LapHoaDonGUI taohoadongui = new LapHoaDonGUI();
         taohoadongui.setVisible(true);
     }                                            
 
