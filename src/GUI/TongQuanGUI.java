@@ -413,8 +413,8 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
     	this.setVisible(false);
-    	LoginForm  loginform = new LoginForm();
-    	loginform.setVisible(true);
+    	DangNhapForm  dangnhapform = new DangNhapForm();
+    	dangnhapform.setVisible(true);
     } 
     
     private void label_nhapthuocMouseClicked(java.awt.event.MouseEvent evt) {

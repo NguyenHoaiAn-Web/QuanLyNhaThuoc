@@ -2,7 +2,8 @@ package Main;
 
 import javax.swing.SwingUtilities;
 
-import GUI.LoginForm;
+import GUI.DangNhapForm;
+
 
 public class Main {
 
@@ -10,7 +11,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		 SwingUtilities.invokeLater(new Runnable() {
 	            public void run() {
-	                new LoginForm().setVisible(true);
+	                new DangNhapForm().setVisible(true);
 	            }
 	        }
 	        );

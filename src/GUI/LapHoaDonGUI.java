@@ -746,8 +746,8 @@ public class LapHoaDonGUI extends javax.swing.JFrame {
 
     private void label_dangxuatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         this.setVisible(false);
-        LoginForm loginform = new LoginForm();
-        loginform.setVisible(true);
+        DangNhapForm dangnhapform = new DangNhapForm();
+        dangnhapform.setVisible(true);
     }                                           
 
     private void field_diachiActionPerformed(java.awt.event.ActionEvent evt) {                                             
