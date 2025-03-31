@@ -25,8 +25,8 @@ public class DangNhapForm extends javax.swing.JFrame {
      * Creates new form LoginForm
      */
     public DangNhapForm() {
+    	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     class JPanelGradient extends JPanel{
@@ -63,6 +63,7 @@ public class DangNhapForm extends javax.swing.JFrame {
 
         container_panel.setLayout(new java.awt.GridLayout(1, 2));
 
+        panel_left.setBackground(new java.awt.Color(4, 71, 126));
         panel_left.setLayout(new java.awt.GridLayout(2, 1));
 
         panel_logo.setBackground(new java.awt.Color(4, 71, 126));
@@ -99,8 +100,9 @@ public class DangNhapForm extends javax.swing.JFrame {
 
         panel_form_dangnhap.setLayout(new java.awt.GridBagLayout());
 
-        field_username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        field_username.setPreferredSize(new java.awt.Dimension(200, 22));
+        field_username.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        field_username.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tên Đăng Nhập", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
+        field_username.setPreferredSize(new java.awt.Dimension(300, 50));
         field_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 field_usernameActionPerformed(evt);
@@ -113,8 +115,9 @@ public class DangNhapForm extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         panel_form_dangnhap.add(field_username, gridBagConstraints);
 
-        field_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        field_password.setPreferredSize(new java.awt.Dimension(200, 22));
+        field_password.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        field_password.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mật Khẩu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
+        field_password.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -122,8 +125,10 @@ public class DangNhapForm extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         panel_form_dangnhap.add(field_password, gridBagConstraints);
 
+        button_dangnhap.setBackground(new java.awt.Color(4, 71, 126));
+        button_dangnhap.setForeground(new java.awt.Color(255, 255, 255));
         button_dangnhap.setText("Đăng Nhập");
-        button_dangnhap.setPreferredSize(new java.awt.Dimension(100, 30));
+        button_dangnhap.setPreferredSize(new java.awt.Dimension(150, 50));
         button_dangnhap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_dangnhapMouseClicked(evt);
@@ -159,14 +164,12 @@ public class DangNhapForm extends javax.swing.JFrame {
 
     private void button_dangnhapMouseClicked(java.awt.event.MouseEvent evt) {                                             
         // TODO add your handling code here:
-    	
     	if("admin".equals(field_username.getText()) && "1234".equals(new String(field_password.getPassword()))) {
     		this.setVisible(false);
 
     		TongQuanGUI tongquangui = new TongQuanGUI();
     		tongquangui.setVisible(true);
     	}
-    	
     }                                            
 
     
