@@ -5,34 +5,25 @@
 package GUI;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 
 
 /**
  *
  * @author 44ong
  */
-public class QuanLyThuocGUI extends javax.swing.JFrame {
+public class QuanLyHoaDonGUI extends javax.swing.JFrame {
 
-    private Component frame;
-	/**
+    /**
      * Creates new form MainForm
      */
-    public QuanLyThuocGUI() {
+    public QuanLyHoaDonGUI() {
     	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
     }
@@ -55,21 +46,34 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         label_close = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         panel_title = new javax.swing.JPanel();
-        label_quanlythuoc = new javax.swing.JLabel();
+        label_quanlyhoadon = new javax.swing.JLabel();
         panel_thongtin = new javax.swing.JPanel();
         panel_thanhsearch_button = new javax.swing.JPanel();
         panel_button_filter = new javax.swing.JPanel();
         button_search = new javax.swing.JButton();
         cb_filter = new javax.swing.JComboBox<>();
         field_search = new javax.swing.JTextField();
-        panel_table_chucnang = new javax.swing.JPanel();
-        panel_chucnang = new javax.swing.JPanel();
-        panel_button_chucnang = new javax.swing.JPanel();
-        button_capnhat = new javax.swing.JButton();
-        button_themthuoc = new javax.swing.JButton();
-        butotn_danhmuc = new javax.swing.JButton();
+        panel_hoadon = new javax.swing.JPanel();
+        panel_taohoadon = new javax.swing.JPanel();
+        panel_contain_button = new javax.swing.JPanel();
+        button_taohaodon = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         button_thoat = new javax.swing.JButton();
-        panel_table = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        panel_chitiethoadon = new javax.swing.JPanel();
+        panel_title_chitiethoadon = new javax.swing.JPanel();
+        label_chitiethoadon = new javax.swing.JLabel();
+        panel_thongtin_chitiethoadon = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        panel_tonghoadon = new javax.swing.JPanel();
+        label_thue = new javax.swing.JLabel();
+        giatrithue = new javax.swing.JLabel();
+        label_tongtienhoadon = new javax.swing.JLabel();
+        tongtien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,11 +160,11 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         panel_title.setPreferredSize(new java.awt.Dimension(100, 100));
         panel_title.setLayout(new java.awt.BorderLayout());
 
-        label_quanlythuoc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        label_quanlythuoc.setForeground(new java.awt.Color(255, 255, 255));
-        label_quanlythuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_quanlythuoc.setText("Quản Lý Thuốc");
-        panel_title.add(label_quanlythuoc, java.awt.BorderLayout.CENTER);
+        label_quanlyhoadon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        label_quanlyhoadon.setForeground(new java.awt.Color(255, 255, 255));
+        label_quanlyhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_quanlyhoadon.setText("Quản Lý Hóa Đơn");
+        panel_title.add(label_quanlyhoadon, java.awt.BorderLayout.CENTER);
 
         panel_main.add(panel_title, java.awt.BorderLayout.PAGE_START);
 
@@ -201,66 +205,40 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
 
         panel_thongtin.add(panel_thanhsearch_button, java.awt.BorderLayout.PAGE_START);
 
-        panel_table_chucnang.setLayout(new java.awt.BorderLayout());
+        panel_hoadon.setLayout(new java.awt.BorderLayout());
 
-        panel_chucnang.setBackground(new java.awt.Color(255, 255, 255));
-        panel_chucnang.setPreferredSize(new java.awt.Dimension(900, 50));
-        panel_chucnang.setLayout(new java.awt.BorderLayout());
+        panel_taohoadon.setBackground(new java.awt.Color(255, 255, 255));
+        panel_taohoadon.setPreferredSize(new java.awt.Dimension(900, 50));
+        panel_taohoadon.setLayout(new java.awt.BorderLayout());
 
-        panel_button_chucnang.setBackground(new java.awt.Color(255, 255, 255));
-        panel_button_chucnang.setPreferredSize(new java.awt.Dimension(500, 50));
-        panel_button_chucnang.setLayout(new java.awt.GridBagLayout());
+        panel_contain_button.setBackground(new java.awt.Color(255, 255, 255));
+        panel_contain_button.setPreferredSize(new java.awt.Dimension(420, 50));
+        panel_contain_button.setLayout(new java.awt.GridBagLayout());
 
-        button_capnhat.setText("Cập Nhật");
-        button_capnhat.setPreferredSize(new java.awt.Dimension(100, 30));
-        button_capnhat.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_taohaodon.setText("Tạo Hóa Đơn");
+        button_taohaodon.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_taohaodon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_capnhatMouseClicked(evt);
+                button_taohaodonMouseClicked(evt);
             }
         });
-        button_capnhat.addActionListener(new java.awt.event.ActionListener() {
+        button_taohaodon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_capnhatActionPerformed(evt);
+                button_taohaodonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        panel_button_chucnang.add(button_capnhat, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(button_taohaodon, gridBagConstraints);
 
-        button_themthuoc.setText("Thêm Thuốc");
-        button_themthuoc.setPreferredSize(new java.awt.Dimension(100, 30));
-        button_themthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_themthuocMouseClicked(evt);
-            }
-        });
-        button_themthuoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_themthuocActionPerformed(evt);
-            }
-        });
+        jButton2.setText("jButton2");
+        jButton2.setPreferredSize(new java.awt.Dimension(120, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        panel_button_chucnang.add(button_themthuoc, gridBagConstraints);
-
-        butotn_danhmuc.setText("Danh Mục");
-        butotn_danhmuc.setPreferredSize(new java.awt.Dimension(100, 30));
-        butotn_danhmuc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                butotn_danhmucMouseClicked(evt);
-            }
-        });
-        butotn_danhmuc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butotn_danhmucActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        panel_button_chucnang.add(butotn_danhmuc, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(jButton2, gridBagConstraints);
 
         button_thoat.setText("Thoát");
-        button_thoat.setPreferredSize(new java.awt.Dimension(100, 30));
+        button_thoat.setPreferredSize(new java.awt.Dimension(120, 26));
         button_thoat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_thoatMouseClicked(evt);
@@ -271,112 +249,132 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
                 button_thoatActionPerformed(evt);
             }
         });
-        panel_button_chucnang.add(button_thoat, new java.awt.GridBagConstraints());
+        panel_contain_button.add(button_thoat, new java.awt.GridBagConstraints());
 
-        panel_chucnang.add(panel_button_chucnang, java.awt.BorderLayout.LINE_END);
+        panel_taohoadon.add(panel_contain_button, java.awt.BorderLayout.LINE_END);
 
-        panel_table_chucnang.add(panel_chucnang, java.awt.BorderLayout.PAGE_START);
+        panel_hoadon.add(panel_taohoadon, java.awt.BorderLayout.PAGE_START);
 
-        panel_table.setLayout(new java.awt.BorderLayout());
-        
-        
-        
-        
-        
-        
-        
-        
-        // Tạo model cho bảng
-        DefaultTableModel model = new DefaultTableModel() {
-            @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                if (columnIndex == 0) { // Cột hình ảnh
-                    return ImageIcon.class;
-                }
-                return Object.class;
+        jPanel1.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Mã Hóa Đơn", "Tên Nhân Viên", "Tên Khách Hàng", "Số Điện Thoại", "Trạng Thái"
             }
-            
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false; // Không cho phép chỉnh sửa
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
-        };
+        });
+        jScrollPane1.setViewportView(jTable1);
 
-        // Thêm các cột vào model
-        model.addColumn("Hình ảnh");
-        model.addColumn("Mã");
-        model.addColumn("Tên");
-        model.addColumn("Danh mục");
-        model.addColumn("Giá bán");
-        model.addColumn("Thao tác");
+        jPanel2.add(jScrollPane1);
 
-        // Tải hình ảnh từ thư mục images
-        ImageIcon[] productImages = new ImageIcon[5];
-        try {
-            // Lấy hình ảnh từ package images (thư mục src/images)
-            productImages[0] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[1] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[2] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[3] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[4] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            
-            // Resize hình ảnh nếu cần
-            for (int i = 0; i < productImages.length; i++) {
-                if (productImages[i] != null) {
-                    Image img = productImages[i].getImage();
-                    Image resizedImg = img.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
-                    productImages[i] = new ImageIcon(resizedImg);
-                }
+        jPanel1.add(jPanel2);
+
+        panel_chitiethoadon.setPreferredSize(new java.awt.Dimension(350, 470));
+        panel_chitiethoadon.setLayout(new java.awt.BorderLayout());
+
+        panel_title_chitiethoadon.setBackground(new java.awt.Color(255, 255, 255));
+        panel_title_chitiethoadon.setLayout(new java.awt.BorderLayout());
+
+        label_chitiethoadon.setBackground(new java.awt.Color(255, 255, 255));
+        label_chitiethoadon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        label_chitiethoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_chitiethoadon.setText("Chi Tiết Hóa Đơn");
+        label_chitiethoadon.setPreferredSize(new java.awt.Dimension(280, 100));
+        panel_title_chitiethoadon.add(label_chitiethoadon, java.awt.BorderLayout.CENTER);
+
+        panel_chitiethoadon.add(panel_title_chitiethoadon, java.awt.BorderLayout.PAGE_START);
+
+        panel_thongtin_chitiethoadon.setLayout(new java.awt.BorderLayout());
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Tên Thuốc", "Số Lượng", "Đơn Vị", "Tổng Tiền"
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "Không tìm thấy hình ảnh trong thư mục images", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
+            };
 
-        // Thêm dữ liệu vào bảng với hình ảnh
-        model.addRow(new Object[]{productImages[0], "250400901", "Mỹ Omachi bò hầm", "Đồ khô", "24,000", ""});
-        model.addRow(new Object[]{productImages[1], "250400902", "Kẹo dynamite sôcola", "Kẹo bánh", "18,000", ""});
-        model.addRow(new Object[]{productImages[2], "250400898", "Thăng long mềm", "Thuốc lá", "8,000", ""});
-        model.addRow(new Object[]{productImages[3], "250400899", "Thuốc lá 555 nội", "Thuốc lá", "24,000", ""});
-        model.addRow(new Object[]{productImages[4], "250400900", "Pepsi chai 400ml", "Nước ngọt", "7,500", ""});
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
 
-        // Tạo bảng với model
-        JTable table = new JTable(model);
-        
-        // Thiết lập chiều cao của từng dòng để hiển thị hình ảnh
-        table.setRowHeight(80);
-        
-        // Thiết lập kích thước các cột
-        table.getColumnModel().getColumn(0).setPreferredWidth(100); // Hình ảnh
-        table.getColumnModel().getColumn(1).setPreferredWidth(100); // Mã
-        table.getColumnModel().getColumn(2).setPreferredWidth(200); // Tên
-        table.getColumnModel().getColumn(3).setPreferredWidth(100); // Danh mục
-        table.getColumnModel().getColumn(4).setPreferredWidth(100); // Giá bán
-        table.getColumnModel().getColumn(5).setPreferredWidth(100); // Thao tác
+        panel_thongtin_chitiethoadon.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        // Căn giữa nội dung các cột (trừ cột hình ảnh)
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-        for (int i = 1; i < table.getColumnCount(); i++) {
-            table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-        }
+        panel_tonghoadon.setBackground(new java.awt.Color(255, 255, 255));
+        panel_tonghoadon.setPreferredSize(new java.awt.Dimension(280, 200));
+        panel_tonghoadon.setLayout(new java.awt.GridBagLayout());
 
-        // Thêm bảng vào scroll pane
-        JScrollPane scrollPane = new JScrollPane(table);
-        
-        
-        
-        panel_table.add(scrollPane);
-        
-        
-        
-        
-        
-        
-        
-        panel_table_chucnang.add(panel_table, java.awt.BorderLayout.CENTER);
+        label_thue.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_thue.setText("Thuế: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 5);
+        panel_tonghoadon.add(label_thue, gridBagConstraints);
 
-        panel_thongtin.add(panel_table_chucnang, java.awt.BorderLayout.CENTER);
+        giatrithue.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        giatrithue.setText("jLabel3");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        panel_tonghoadon.add(giatrithue, gridBagConstraints);
+
+        label_tongtienhoadon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label_tongtienhoadon.setText("Tổng Tiền Hóa Đơn: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 5);
+        panel_tonghoadon.add(label_tongtienhoadon, gridBagConstraints);
+
+        tongtien.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tongtien.setText("jLabel5");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        panel_tonghoadon.add(tongtien, gridBagConstraints);
+
+        panel_thongtin_chitiethoadon.add(panel_tonghoadon, java.awt.BorderLayout.PAGE_END);
+
+        panel_chitiethoadon.add(panel_thongtin_chitiethoadon, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(panel_chitiethoadon);
+
+        panel_hoadon.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        panel_thongtin.add(panel_hoadon, java.awt.BorderLayout.CENTER);
 
         panel_main.add(panel_thongtin, java.awt.BorderLayout.CENTER);
 
@@ -409,34 +407,18 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
-        if(this.getExtendedState()!=QuanLyThuocGUI.MAXIMIZED_BOTH){
-            this.setExtendedState(QuanLyThuocGUI.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!=QuanLyHoaDonGUI.MAXIMIZED_BOTH){
+            this.setExtendedState(QuanLyHoaDonGUI.MAXIMIZED_BOTH);
         }else{
-           this.setExtendedState(QuanLyThuocGUI.NORMAL);
+           this.setExtendedState(QuanLyHoaDonGUI.NORMAL);
         }  
     }                                             
 
-    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
-
-    private void button_searchMouseClicked(java.awt.event.MouseEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
-
-    private void button_capnhatActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
-    }                                              
-
-    private void button_capnhatMouseClicked(java.awt.event.MouseEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void button_themthuocActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void button_taohaodonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // TODO add your handling code here:
     }                                                
 
-    private void button_themthuocMouseClicked(java.awt.event.MouseEvent evt) {                                              
+    private void button_taohaodonMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
     }                                             
 
@@ -449,15 +431,16 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
     	this.setVisible(false);
     	TongQuanGUI tongquangui = new TongQuanGUI();
     	tongquangui.setVisible(true);
+    			
     }                                         
 
-    private void butotn_danhmucActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-    }                                              
+    }                                             
 
-    private void butotn_danhmucMouseClicked(java.awt.event.MouseEvent evt) {                                            
+    private void button_searchMouseClicked(java.awt.event.MouseEvent evt) {                                           
         // TODO add your handling code here:
-    }                                           
+    }                                          
     
     /**
      * @param args the command line arguments
@@ -476,17 +459,14 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -496,34 +476,47 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyThuocGUI().setVisible(true);
+                new QuanLyHoaDonGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton butotn_danhmuc;
-    private javax.swing.JButton button_capnhat;
     private javax.swing.JButton button_search;
-    private javax.swing.JButton button_themthuoc;
+    private javax.swing.JButton button_taohaodon;
     private javax.swing.JButton button_thoat;
     private javax.swing.JComboBox<String> cb_filter;
     private javax.swing.JTextField field_search;
+    private javax.swing.JLabel giatrithue;
     private javax.swing.JPanel icon_close_fullscreen;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel label_chitiethoadon;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_fullscreen;
-    private javax.swing.JLabel label_quanlythuoc;
-    private javax.swing.JPanel panel_button_chucnang;
+    private javax.swing.JLabel label_quanlyhoadon;
+    private javax.swing.JLabel label_thue;
+    private javax.swing.JLabel label_tongtienhoadon;
     private javax.swing.JPanel panel_button_filter;
-    private javax.swing.JPanel panel_chucnang;
+    private javax.swing.JPanel panel_chitiethoadon;
     private javax.swing.JPanel panel_close;
+    private javax.swing.JPanel panel_contain_button;
     private javax.swing.JPanel panel_fullscreen;
     private javax.swing.JPanel panel_header;
+    private javax.swing.JPanel panel_hoadon;
     private javax.swing.JPanel panel_main;
-    private javax.swing.JPanel panel_table;
-    private javax.swing.JPanel panel_table_chucnang;
+    private javax.swing.JPanel panel_taohoadon;
     private javax.swing.JPanel panel_thanhsearch_button;
     private javax.swing.JPanel panel_thongtin;
+    private javax.swing.JPanel panel_thongtin_chitiethoadon;
     private javax.swing.JPanel panel_title;
+    private javax.swing.JPanel panel_title_chitiethoadon;
+    private javax.swing.JPanel panel_tonghoadon;
+    private javax.swing.JLabel tongtien;
     // End of variables declaration                   
 }

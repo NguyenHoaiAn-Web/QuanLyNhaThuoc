@@ -301,10 +301,21 @@ public class TongQuanGUI extends javax.swing.JFrame {
         
         panel4.setPreferredSize(new Dimension(200,200));
         
+        DashboardPanel panel5 = new DashboardPanel(
+                "Doanh Thu Tháng", 
+                "$338880", 
+                "template file 21%", 
+                new Color(150, 255, 150), // Light green
+                new Color(0, 150, 0),     // Dark green
+                true
+            );
+        panel5.setPreferredSize(new Dimension(200,200));
+        
         panel_thongso.add(panel1);
         panel_thongso.add(panel2);
         panel_thongso.add(panel3);
         panel_thongso.add(panel4);
+        panel_thongso.add(panel5);
 
         panel_right_top.add(panel_thongso, java.awt.BorderLayout.CENTER);
 
@@ -384,7 +395,10 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
     private void label_quanlyhoadonMouseClicked(java.awt.event.MouseEvent evt) {                                                
         // TODO add your handling code here:
-    }                                               
+    	this.setVisible(false);
+    	QuanLyHoaDonGUI quanlyhoadongui = new QuanLyHoaDonGUI();
+    	quanlyhoadongui.setVisible(true);
+    	}                                               
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
