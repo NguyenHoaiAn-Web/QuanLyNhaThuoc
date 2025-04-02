@@ -377,6 +377,9 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
     private void label_quanlythuocMouseClicked(java.awt.event.MouseEvent evt) {                                               
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	QuanLyThuocGUI quanlythuocgui =  new QuanLyThuocGUI();
+    	quanlythuocgui.setVisible(true);
     }                                              
 
     private void label_quanlyhoadonMouseClicked(java.awt.event.MouseEvent evt) {                                                
