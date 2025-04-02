@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,6 +33,7 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
      * Creates new form MainForm
      */
     public QuanLyThuocGUI() {
+    	 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
     }
 
@@ -294,11 +296,11 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         ImageIcon[] productImages = new ImageIcon[5];
         try {
             // Lấy hình ảnh từ package images (thư mục src/images)
-            productImages[0] = new ImageIcon(ProductTableWithImages.class.getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[1] = new ImageIcon(ProductTableWithImages.class.getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[2] = new ImageIcon(ProductTableWithImages.class.getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[3] = new ImageIcon(ProductTableWithImages.class.getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[4] = new ImageIcon(ProductTableWithImages.class.getResource("/Image/fullscreen-removebg-preview (1).png"));
+            productImages[0] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            productImages[1] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            productImages[2] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            productImages[3] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            productImages[4] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
             
             // Resize hình ảnh nếu cần
             for (int i = 0; i < productImages.length; i++) {
@@ -557,11 +559,11 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new QuanLyThuocGUI().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify                     
