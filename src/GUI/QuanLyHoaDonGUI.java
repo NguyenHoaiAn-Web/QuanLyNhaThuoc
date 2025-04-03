@@ -287,10 +287,11 @@ public class QuanLyHoaDonGUI extends javax.swing.JFrame {
         panel_chitiethoadon.setPreferredSize(new java.awt.Dimension(350, 470));
         panel_chitiethoadon.setLayout(new java.awt.BorderLayout());
 
-        panel_title_chitiethoadon.setBackground(new java.awt.Color(255, 255, 255));
+        panel_title_chitiethoadon.setBackground(new java.awt.Color(4,71,126));
         panel_title_chitiethoadon.setLayout(new java.awt.BorderLayout());
 
         label_chitiethoadon.setBackground(new java.awt.Color(255, 255, 255));
+        label_chitiethoadon.setForeground(new Color(255,255,255));
         label_chitiethoadon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         label_chitiethoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_chitiethoadon.setText("Chi Tiết Hóa Đơn");
@@ -420,6 +421,9 @@ public class QuanLyHoaDonGUI extends javax.swing.JFrame {
 
     private void button_taohaodonMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	TaoHoaDonGUI taahoadongui = new TaoHoaDonGUI();
+    	taahoadongui.setVisible(true);
     }                                             
 
     private void button_thoatActionPerformed(java.awt.event.ActionEvent evt) {                                             
