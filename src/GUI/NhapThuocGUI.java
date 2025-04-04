@@ -602,6 +602,9 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
     private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	QuanLyThuocGUI quanlythuocgui = new QuanLyThuocGUI();
+    	quanlythuocgui.setVisible(true);
     }                                         
 
     private void field_ngaynhapActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -642,38 +645,15 @@ public class NhapThuocGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-     
+        
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NhapThuocGUI().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify                     
