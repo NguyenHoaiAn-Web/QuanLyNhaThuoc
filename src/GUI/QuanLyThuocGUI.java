@@ -430,6 +430,8 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
 
     private void button_capnhatMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
+
+    			
     }                                           
 
     private void button_themthuocActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -438,6 +440,9 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
 
     private void button_themthuocMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	NhapThuocGUI nhapthuocgui = new NhapThuocGUI();
+    	nhapthuocgui.setVisible(true);
     }                                             
 
     private void button_thoatActionPerformed(java.awt.event.ActionEvent evt) {                                             

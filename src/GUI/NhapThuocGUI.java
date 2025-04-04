@@ -18,12 +18,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author 44ong
  */
-public class TaoHoaDonGUI extends javax.swing.JFrame {
+public class NhapThuocGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForm
      */
-    public TaoHoaDonGUI() {
+    public NhapThuocGUI() {
     	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
     }
@@ -47,58 +47,42 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         label_close = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         panel_title = new javax.swing.JPanel();
-        label_quanlyhoadon = new javax.swing.JLabel();
+        label_quanlythuoc = new javax.swing.JLabel();
         panel_thongtin = new javax.swing.JPanel();
         panel_thanhsearch_button = new javax.swing.JPanel();
         panel_button_filter = new javax.swing.JPanel();
         button_search = new javax.swing.JButton();
         cb_filter = new javax.swing.JComboBox<>();
         field_search = new javax.swing.JTextField();
-        panel_hoadon = new javax.swing.JPanel();
-        panel_taohoadon = new javax.swing.JPanel();
+        panel_nhapthuoc = new javax.swing.JPanel();
+        panel_button = new javax.swing.JPanel();
         panel_contain_button = new javax.swing.JPanel();
         button_taohaodon = new javax.swing.JButton();
         button_xoa = new javax.swing.JButton();
         button_hoantac = new javax.swing.JButton();
-        cb_soluong = new javax.swing.JComboBox<>();
-        button_quaylai = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        panel_chitiethoadon = new javax.swing.JPanel();
-        panel_table_thongtinthuoc = new javax.swing.JPanel();
-        panel_sanpham = new javax.swing.JPanel();
-        panel_thongtinsanpham = new javax.swing.JPanel();
+        button_thoat = new javax.swing.JButton();
+        panel_field_nhapthuoc_table = new javax.swing.JPanel();
+        panel_field_nhapthuoc = new javax.swing.JPanel();
         label_mathuoc = new javax.swing.JLabel();
-        giatri_mathuoc = new javax.swing.JLabel();
+        field_mathuoc = new javax.swing.JTextField();
         label_tenthuoc = new javax.swing.JLabel();
-        giatri_tenthuoc = new javax.swing.JLabel();
-        label_hamhuong = new javax.swing.JLabel();
-        giatri_hamluong = new javax.swing.JLabel();
-        label_phanloai = new javax.swing.JLabel();
-        giatri_phanloai = new javax.swing.JLabel();
-        label_giatien = new javax.swing.JLabel();
-        giatri_giatien = new javax.swing.JLabel();
-        label_donvi = new javax.swing.JLabel();
-        giatri_donvi = new javax.swing.JLabel();
-        laebl_thanhphanchinh = new javax.swing.JLabel();
-        giatri_thanhphanchinh = new javax.swing.JLabel();
+        field_tenthuoc = new javax.swing.JTextField();
+        label_ngaynhap = new javax.swing.JLabel();
+        field_ngaynhap = new javax.swing.JTextField();
         label_ngayhethan = new javax.swing.JLabel();
-        giatri_ngayhethan = new javax.swing.JLabel();
-        panel_hinhanhsanpham = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        panel_thongtin1 = new javax.swing.JPanel();
-        label_tenkhachhang = new javax.swing.JLabel();
-        field_tenkhachhang = new javax.swing.JTextField();
-        label_sdt = new javax.swing.JLabel();
-        field_sdt = new javax.swing.JTextField();
-        label_diachi = new javax.swing.JLabel();
-        field_diachi = new javax.swing.JTextField();
-        label_tennhanvien = new javax.swing.JLabel();
-        field_tennhanvien = new javax.swing.JTextField();
-        label_ngayban = new javax.swing.JLabel();
-        field_ngayban = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        field_ngayhethan = new javax.swing.JTextField();
+        label_gia = new javax.swing.JLabel();
+        field_gia = new javax.swing.JTextField();
+        label_soluong = new javax.swing.JLabel();
+        field_soluong = new javax.swing.JTextField();
+        label_phanloai = new javax.swing.JLabel();
+        label_hinhanh = new javax.swing.JLabel();
+        label_hamluong = new javax.swing.JLabel();
+        field_hamluong = new javax.swing.JTextField();
+        label_donvitinh = new javax.swing.JLabel();
+        button_hinhanh = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        field_phanloai = new javax.swing.JTextField();
         panel_table = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -190,17 +174,17 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_title.setPreferredSize(new java.awt.Dimension(100, 100));
         panel_title.setLayout(new java.awt.BorderLayout());
 
-        label_quanlyhoadon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        label_quanlyhoadon.setForeground(new java.awt.Color(255, 255, 255));
-        label_quanlyhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_quanlyhoadon.setText("Quản Lý Hóa Đơn");
-        panel_title.add(label_quanlyhoadon, java.awt.BorderLayout.CENTER);
+        label_quanlythuoc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        label_quanlythuoc.setForeground(new java.awt.Color(255, 255, 255));
+        label_quanlythuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_quanlythuoc.setText("Quản Lý Thuốc");
+        panel_title.add(label_quanlythuoc, java.awt.BorderLayout.CENTER);
 
         panel_main.add(panel_title, java.awt.BorderLayout.PAGE_START);
 
         panel_thongtin.setLayout(new java.awt.BorderLayout());
 
-        panel_thanhsearch_button.setPreferredSize(new java.awt.Dimension(900, 50));
+        panel_thanhsearch_button.setPreferredSize(new java.awt.Dimension(900, 60));
         panel_thanhsearch_button.setLayout(new java.awt.BorderLayout());
 
         panel_button_filter.setPreferredSize(new java.awt.Dimension(200, 50));
@@ -231,18 +215,20 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_thanhsearch_button.add(panel_button_filter, java.awt.BorderLayout.LINE_END);
 
         field_search.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        field_search.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm Kiếm"));
+        field_search.setPreferredSize(new java.awt.Dimension(64, 55));
         panel_thanhsearch_button.add(field_search, java.awt.BorderLayout.CENTER);
 
         panel_thongtin.add(panel_thanhsearch_button, java.awt.BorderLayout.PAGE_START);
 
-        panel_hoadon.setLayout(new java.awt.BorderLayout());
+        panel_nhapthuoc.setLayout(new java.awt.BorderLayout());
 
-        panel_taohoadon.setBackground(new java.awt.Color(255, 255, 255));
-        panel_taohoadon.setPreferredSize(new java.awt.Dimension(900, 50));
-        panel_taohoadon.setLayout(new java.awt.BorderLayout());
+        panel_button.setBackground(new java.awt.Color(255, 255, 255));
+        panel_button.setPreferredSize(new java.awt.Dimension(900, 50));
+        panel_button.setLayout(new java.awt.BorderLayout());
 
         panel_contain_button.setBackground(new java.awt.Color(255, 255, 255));
-        panel_contain_button.setPreferredSize(new java.awt.Dimension(470, 50));
+        panel_contain_button.setPreferredSize(new java.awt.Dimension(550, 50));
         panel_contain_button.setLayout(new java.awt.GridBagLayout());
 
         button_taohaodon.setText("Thêm ");
@@ -259,7 +245,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         panel_contain_button.add(button_taohaodon, gridBagConstraints);
@@ -277,6 +263,8 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         panel_contain_button.add(button_xoa, gridBagConstraints);
 
@@ -293,346 +281,250 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         panel_contain_button.add(button_hoantac, gridBagConstraints);
 
-        cb_soluong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        panel_contain_button.add(cb_soluong, gridBagConstraints);
-
-        button_quaylai.setText("Quay Lại");
-        button_quaylai.setPreferredSize(new java.awt.Dimension(120, 26));
-        button_quaylai.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_thoat.setText("Thoát");
+        button_thoat.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_thoat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_quaylaiMouseClicked(evt);
+                button_thoatMouseClicked(evt);
             }
         });
-        button_quaylai.addActionListener(new java.awt.event.ActionListener() {
+        button_thoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_quaylaiActionPerformed(evt);
+                button_thoatActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
-        panel_contain_button.add(button_quaylai, gridBagConstraints);
+        panel_contain_button.add(button_thoat, gridBagConstraints);
 
-        panel_taohoadon.add(panel_contain_button, java.awt.BorderLayout.LINE_END);
+        panel_button.add(panel_contain_button, java.awt.BorderLayout.LINE_END);
 
-        panel_hoadon.add(panel_taohoadon, java.awt.BorderLayout.PAGE_START);
+        panel_nhapthuoc.add(panel_button, java.awt.BorderLayout.PAGE_START);
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 2));
+        panel_field_nhapthuoc_table.setLayout(new java.awt.GridLayout(2, 1));
 
-        panel_chitiethoadon.setPreferredSize(new java.awt.Dimension(350, 470));
-        panel_chitiethoadon.setLayout(new java.awt.BorderLayout());
+        panel_field_nhapthuoc.setLayout(new java.awt.GridBagLayout());
 
-        panel_table_thongtinthuoc.setLayout(new java.awt.GridLayout(1, 2));
-
-        panel_sanpham.setLayout(new java.awt.GridLayout(2, 1));
-
-        panel_thongtinsanpham.setBackground(new java.awt.Color(255, 255, 255));
-        panel_thongtinsanpham.setLayout(new java.awt.GridBagLayout());
-
+        label_mathuoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         label_mathuoc.setText("Mã Thuốc");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
-        panel_thongtinsanpham.add(label_mathuoc, gridBagConstraints);
-
-        giatri_mathuoc.setText("jLabel2");
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_mathuoc, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_mathuoc, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(field_mathuoc, gridBagConstraints);
 
+        label_tenthuoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         label_tenthuoc.setText("Tên Thuốc");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
-        panel_thongtinsanpham.add(label_tenthuoc, gridBagConstraints);
-
-        giatri_tenthuoc.setText("jLabel4");
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_tenthuoc, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_tenthuoc, gridBagConstraints);
-
-        label_hamhuong.setText("Hàm Lượng");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
-        panel_thongtinsanpham.add(label_hamhuong, gridBagConstraints);
-
-        giatri_hamluong.setText("jLabel7");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_hamluong, gridBagConstraints);
-
-        label_phanloai.setText("Phân Loại");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
-        panel_thongtinsanpham.add(label_phanloai, gridBagConstraints);
-
-        giatri_phanloai.setText("jLabel10");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_phanloai, gridBagConstraints);
-
-        label_giatien.setText("Giá TIền");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
-        panel_thongtinsanpham.add(label_giatien, gridBagConstraints);
-
-        giatri_giatien.setText("jLabel12");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_giatien, gridBagConstraints);
-
-        label_donvi.setText("Đơn Vị");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
-        panel_thongtinsanpham.add(label_donvi, gridBagConstraints);
-
-        giatri_donvi.setText("jLabel15");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_donvi, gridBagConstraints);
-
-        laebl_thanhphanchinh.setText("Thành Phần Chính");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 5);
-        panel_thongtinsanpham.add(laebl_thanhphanchinh, gridBagConstraints);
-
-        giatri_thanhphanchinh.setText("jLabel17");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_thanhphanchinh, gridBagConstraints);
-
-        label_ngayhethan.setText("Ngày Hết Hạn");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 5);
-        panel_thongtinsanpham.add(label_ngayhethan, gridBagConstraints);
-
-        giatri_ngayhethan.setText("jLabel20");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        panel_thongtinsanpham.add(giatri_ngayhethan, gridBagConstraints);
-
-        panel_sanpham.add(panel_thongtinsanpham);
-
-        panel_hinhanhsanpham.setBackground(new java.awt.Color(255, 255, 255));
-        panel_hinhanhsanpham.setLayout(new java.awt.BorderLayout());
-
-        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Picture1.png"))); // NOI18N
-        panel_hinhanhsanpham.add(jLabel18, java.awt.BorderLayout.CENTER);
-
-        panel_sanpham.add(panel_hinhanhsanpham);
-
-        panel_table_thongtinthuoc.add(panel_sanpham);
-
-        jPanel2.setLayout(new java.awt.GridLayout(2, 1));
-
-        panel_thongtin1.setBackground(new java.awt.Color(255, 255, 255));
-        panel_thongtin1.setLayout(new java.awt.GridBagLayout());
-
-        label_tenkhachhang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_tenkhachhang.setText("Tên Khách Hàng");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(label_tenkhachhang, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(field_tenkhachhang, gridBagConstraints);
+        panel_field_nhapthuoc.add(field_tenthuoc, gridBagConstraints);
 
-        label_sdt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_sdt.setText("Số Điện Thoại");
+        label_ngaynhap.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_ngaynhap.setText("Ngày Nhập");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(label_sdt, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(field_sdt, gridBagConstraints);
+        panel_field_nhapthuoc.add(label_ngaynhap, gridBagConstraints);
 
-        label_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_diachi.setText("Địa Chỉ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(label_diachi, gridBagConstraints);
-
-        field_diachi.addActionListener(new java.awt.event.ActionListener() {
+        field_ngaynhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field_diachiActionPerformed(evt);
+                field_ngaynhapActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(field_ngaynhap, gridBagConstraints);
+
+        label_ngayhethan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_ngayhethan.setText("Ngày Hết Hạn");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_ngayhethan, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(field_ngayhethan, gridBagConstraints);
+
+        label_gia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_gia.setText("Giá");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(field_diachi, gridBagConstraints);
+        panel_field_nhapthuoc.add(label_gia, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(field_gia, gridBagConstraints);
 
-        label_tennhanvien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_tennhanvien.setText("Tên Nhân Viên");
+        label_soluong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_soluong.setText("Số Lượng");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_soluong, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(field_soluong, gridBagConstraints);
+
+        label_phanloai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_phanloai.setText("Phân Loại");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(label_tennhanvien, gridBagConstraints);
+        panel_field_nhapthuoc.add(label_phanloai, gridBagConstraints);
+
+        label_hinhanh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_hinhanh.setText("Hình Ảnh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_hinhanh, gridBagConstraints);
+
+        label_hamluong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_hamluong.setText("Hàm Lượng");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_hamluong, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(field_hamluong, gridBagConstraints);
+
+        label_donvitinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        label_donvitinh.setText("Đơn Vị Tính");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(label_donvitinh, gridBagConstraints);
+
+        button_hinhanh.setText("Upload");
+        button_hinhanh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_hinhanhMouseClicked(evt);
+            }
+        });
+        button_hinhanh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_hinhanhActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(button_hinhanh, gridBagConstraints);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hộp", "Vỉ", "Viên", "Chai" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panel_field_nhapthuoc.add(jComboBox2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(field_tennhanvien, gridBagConstraints);
+        panel_field_nhapthuoc.add(field_phanloai, gridBagConstraints);
 
-        label_ngayban.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        label_ngayban.setText("Ngày Bán");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(label_ngayban, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(field_ngayban, gridBagConstraints);
-
-        jLabel6.setText("jLabel6");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(jLabel6, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panel_thongtin1.add(jTextField6, gridBagConstraints);
-
-        jPanel2.add(panel_thongtin1);
+        panel_field_nhapthuoc_table.add(panel_field_nhapthuoc);
 
         panel_table.setLayout(new java.awt.BorderLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Thuốc", "Tên Thuốc", "Số Lượng", "Giá"
+                "Mã Thuốc", "Tên Thuốc", "Ngày Nhập", "Ngày Hết Hạn", "Giá", "Số Lương", "Phân Loại", "Đơn Vị Tính", "Hàm Lượng"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         panel_table.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jPanel2.add(panel_table);
+        panel_field_nhapthuoc_table.add(panel_table);
 
-        panel_table_thongtinthuoc.add(jPanel2);
+        panel_nhapthuoc.add(panel_field_nhapthuoc_table, java.awt.BorderLayout.CENTER);
 
-        panel_chitiethoadon.add(panel_table_thongtinthuoc, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(panel_chitiethoadon);
-
-        panel_hoadon.add(jPanel1, java.awt.BorderLayout.CENTER);
-
-        panel_thongtin.add(panel_hoadon, java.awt.BorderLayout.CENTER);
+        panel_thongtin.add(panel_nhapthuoc, java.awt.BorderLayout.CENTER);
 
         panel_main.add(panel_thongtin, java.awt.BorderLayout.CENTER);
 
@@ -665,16 +557,12 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
-        if(this.getExtendedState()!=TaoHoaDonGUI.MAXIMIZED_BOTH){
-            this.setExtendedState(TaoHoaDonGUI.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!=NhapThuocGUI.MAXIMIZED_BOTH){
+            this.setExtendedState(NhapThuocGUI.MAXIMIZED_BOTH);
         }else{
-           this.setExtendedState(TaoHoaDonGUI.NORMAL);
+           this.setExtendedState(NhapThuocGUI.NORMAL);
         }  
     }                                             
-
-    private void field_diachiActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
@@ -708,11 +596,23 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                           
 
-    private void button_quaylaiActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void button_thoatActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
+
+    private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
+        // TODO add your handling code here:
+    }                                         
+
+    private void field_ngaynhapActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
     }                                              
 
-    private void button_quaylaiMouseClicked(java.awt.event.MouseEvent evt) {                                            
+    private void button_hinhanhActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+    }                                              
+
+    private void button_hinhanhMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
     
@@ -733,14 +633,26 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TaoHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NhapThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -759,75 +671,59 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TaoHoaDonGUI().setVisible(true);
+                new NhapThuocGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton button_hinhanh;
     private javax.swing.JButton button_hoantac;
-    private javax.swing.JButton button_quaylai;
     private javax.swing.JButton button_search;
     private javax.swing.JButton button_taohaodon;
+    private javax.swing.JButton button_thoat;
     private javax.swing.JButton button_xoa;
     private javax.swing.JComboBox<String> cb_filter;
-    private javax.swing.JComboBox<String> cb_soluong;
-    private javax.swing.JTextField field_diachi;
-    private javax.swing.JTextField field_ngayban;
-    private javax.swing.JTextField field_sdt;
+    private javax.swing.JTextField field_gia;
+    private javax.swing.JTextField field_hamluong;
+    private javax.swing.JTextField field_mathuoc;
+    private javax.swing.JTextField field_ngayhethan;
+    private javax.swing.JTextField field_ngaynhap;
+    private javax.swing.JTextField field_phanloai;
     private javax.swing.JTextField field_search;
-    private javax.swing.JTextField field_tenkhachhang;
-    private javax.swing.JTextField field_tennhanvien;
-    private javax.swing.JLabel giatri_donvi;
-    private javax.swing.JLabel giatri_giatien;
-    private javax.swing.JLabel giatri_hamluong;
-    private javax.swing.JLabel giatri_mathuoc;
-    private javax.swing.JLabel giatri_ngayhethan;
-    private javax.swing.JLabel giatri_phanloai;
-    private javax.swing.JLabel giatri_tenthuoc;
-    private javax.swing.JLabel giatri_thanhphanchinh;
+    private javax.swing.JTextField field_soluong;
+    private javax.swing.JTextField field_tenthuoc;
     private javax.swing.JPanel icon_close_fullscreen;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel label_close;
-    private javax.swing.JLabel label_diachi;
-    private javax.swing.JLabel label_donvi;
+    private javax.swing.JLabel label_donvitinh;
     private javax.swing.JLabel label_fullscreen;
-    private javax.swing.JLabel label_giatien;
-    private javax.swing.JLabel label_hamhuong;
+    private javax.swing.JLabel label_gia;
+    private javax.swing.JLabel label_hamluong;
+    private javax.swing.JLabel label_hinhanh;
     private javax.swing.JLabel label_mathuoc;
-    private javax.swing.JLabel label_ngayban;
     private javax.swing.JLabel label_ngayhethan;
+    private javax.swing.JLabel label_ngaynhap;
     private javax.swing.JLabel label_phanloai;
-    private javax.swing.JLabel label_quanlyhoadon;
-    private javax.swing.JLabel label_sdt;
-    private javax.swing.JLabel label_tenkhachhang;
-    private javax.swing.JLabel label_tennhanvien;
+    private javax.swing.JLabel label_quanlythuoc;
+    private javax.swing.JLabel label_soluong;
     private javax.swing.JLabel label_tenthuoc;
-    private javax.swing.JLabel laebl_thanhphanchinh;
+    private javax.swing.JPanel panel_button;
     private javax.swing.JPanel panel_button_filter;
-    private javax.swing.JPanel panel_chitiethoadon;
     private javax.swing.JPanel panel_close;
     private javax.swing.JPanel panel_contain_button;
+    private javax.swing.JPanel panel_field_nhapthuoc;
+    private javax.swing.JPanel panel_field_nhapthuoc_table;
     private javax.swing.JPanel panel_fullscreen;
     private javax.swing.JPanel panel_header;
-    private javax.swing.JPanel panel_hinhanhsanpham;
-    private javax.swing.JPanel panel_hoadon;
     private javax.swing.JPanel panel_main;
-    private javax.swing.JPanel panel_sanpham;
+    private javax.swing.JPanel panel_nhapthuoc;
     private javax.swing.JPanel panel_table;
-    private javax.swing.JPanel panel_table_thongtinthuoc;
-    private javax.swing.JPanel panel_taohoadon;
     private javax.swing.JPanel panel_thanhsearch_button;
     private javax.swing.JPanel panel_thongtin;
-    private javax.swing.JPanel panel_thongtin1;
-    private javax.swing.JPanel panel_thongtinsanpham;
     private javax.swing.JPanel panel_title;
     // End of variables declaration                   
 }

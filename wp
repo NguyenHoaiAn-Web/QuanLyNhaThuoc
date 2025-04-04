@@ -1,0 +1,101 @@
+[33mcommit 47bb1b289c394383fa2cf8749e5ccec94237d55b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Fri Apr 4 00:42:39 2025 +0700
+
+    xoa cac file khong can thiet, thay doi mau panel chi tiet hoa don trong quanlyhoadonGUI
+
+[33mcommit 7ca6fefdc4506a10178a295449516b7a850c1cc0[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Thu Apr 3 00:37:21 2025 +0700
+
+    thay doi form trang QuanLyThuocGUI va QuanLyHoaDonGUI
+
+[33mcommit 9eba49041edb6db1bddd72bd346bef9b74ba2bb6[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Wed Apr 2 09:26:00 2025 +0700
+
+    xoa ProductTableWithImage trong QuanLyThuocGUI
+
+[33mcommit 2d31708bc71f4e2bcedd8b95bd974b99df9a23f9[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Wed Apr 2 09:17:20 2025 +0700
+
+    Them trang QuanLyThuocGI
+
+[33mcommit aa6e98771abe4b9768cfb537797375d9c16e8043[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Mon Mar 31 22:04:17 2025 +0700
+
+    them title username password cho form dang nhap
+
+[33mcommit 2e6736942da5e6c0eb4e2f45f647dde4defd929a[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Mon Mar 31 01:05:30 2025 +0700
+
+    chinh sua trang TongQuanGUI
+
+[33mcommit 479e499f9329eef292c7915ff63640d429d34ddd[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Sun Mar 30 22:12:58 2025 +0700
+
+    update dangnhapform
+
+[33mcommit 9dcb92a8733d41abb6d4a855bfaa62f8631e2d27[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Wed Mar 26 21:22:20 2025 +0700
+
+    chinh sua tongquanGUI, tao them HoaDonGUI
+
+[33mcommit 09c32647d93577a3136ba49e440c336e11cfa556[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Sun Mar 23 21:51:50 2025 +0700
+
+    cap nhat form TaoHoaDon
+
+[33mcommit 8169f89e33db64f975bd6e6cc9b9dc7b21529f93[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Sat Mar 22 23:22:19 2025 +0700
+
+    create TaoHoaDonGUI va update chuyen trang
+
+[33mcommit f8a68ae30d0e4c7457a190fb031fd9c6de0b22b2[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Fri Mar 21 22:09:24 2025 +0700
+
+    update all
+
+[33mcommit d4153a2a732de53da8454eceb862151f5ddf9130[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Thu Mar 20 22:03:18 2025 +0700
+
+    tao form NhapThuoc
+
+[33mcommit 1937e9094d919bbb75c6ec59193b5530a9cc8b0e[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Wed Mar 12 15:21:33 2025 +0700
+
+    xoa duong thang duoi cac label sidebar
+
+[33mcommit f1e7b7287274afcdc9fe41ab55a6780906e86779[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Fri Mar 7 22:44:14 2025 +0700
+
+    them button dangxuat
+
+[33mcommit d8637d6466a8ca2202523a5ac92052824f61d021[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Wed Mar 5 13:55:13 2025 +0700
+
+    viet trang TongQuan
+
+[33mcommit c295e1742899140e85c471c1c2426e7eaaf3480f[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Sat Feb 8 20:52:47 2025 +0700
+
+    fix chuyen giua loginfrom va loadingpage
+
+[33mcommit 2b602ac4c6a735e96297ab2bfda391b98a343c0e[m
+Author: nguyennhathaicomputer <nguyennhathaigithub@gmail.com>
+Date:   Fri Jan 10 18:09:13 2025 +0700
+
+    first commit
