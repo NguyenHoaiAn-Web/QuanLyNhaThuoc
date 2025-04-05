@@ -4,30 +4,35 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.jfree.chart.ChartPanel;
+import PanelDashboard.BarChartThongKe;
+
 
 /**
  *
  * @author 44ong
  */
-public class TongQuanGUI extends javax.swing.JFrame {
+public class ThongKeThuocGUI extends javax.swing.JFrame {
 
-    private JLabel label_thongke;
-	/**
+    /**
      * Creates new form MainForm
      */
-    public TongQuanGUI() {
+    public ThongKeThuocGUI() {
+    	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -38,33 +43,27 @@ public class TongQuanGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jMenu1 = new javax.swing.JMenu();
         panel_header = new javax.swing.JPanel();
         icon_close_fullscreen = new javax.swing.JPanel();
         panel_fullscreen = new javax.swing.JPanel();
         label_fullscreen = new javax.swing.JLabel();
         panel_close = new javax.swing.JPanel();
         label_close = new javax.swing.JLabel();
-        panel_left = new javax.swing.JPanel();
-        panel_logo = new javax.swing.JPanel();
-        label_logo = new javax.swing.JLabel();
-        panel_tongquan = new javax.swing.JPanel();
-        label_tongquan = new javax.swing.JLabel();
-        panel_quanlythuoc = new javax.swing.JPanel();
-        label_quanlythuoc = new javax.swing.JLabel();
-        panel_quanlyhoadon = new javax.swing.JPanel();
-        label_quanlyhoadon = new javax.swing.JLabel();
-        panel_thongke = new javax.swing.JPanel();
-        label_thongke = new javax.swing.JLabel();
-        panel_right = new javax.swing.JPanel();
-        panel_right_top = new javax.swing.JPanel();
+        panel_main = new javax.swing.JPanel();
         panel_title = new javax.swing.JPanel();
-        label_title = new javax.swing.JLabel();
-        panel_thongso = new javax.swing.JPanel();
-        panel_right_bot = new javax.swing.JPanel();
-
-        jMenu1.setText("jMenu1");
+        label_quanlyhoadon = new javax.swing.JLabel();
+        panel_thongtin = new javax.swing.JPanel();
+        panel_hoadon = new javax.swing.JPanel();
+        panel_button_loaithongke = new javax.swing.JPanel();
+        panel_contain_button = new javax.swing.JPanel();
+        button_thongkedoanhthu = new javax.swing.JButton();
+        button_thongkethuoc = new javax.swing.JButton();
+        button_thoat = new javax.swing.JButton();
+        panel_bieudo = new javax.swing.JPanel();
+        panel_bieudo_top = new javax.swing.JPanel();
+        panel_bieudo_botton = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -145,121 +144,89 @@ public class TongQuanGUI extends javax.swing.JFrame {
 
         getContentPane().add(panel_header, java.awt.BorderLayout.PAGE_START);
 
-        panel_left.setPreferredSize(new java.awt.Dimension(200, 470));
-        panel_left.setLayout(new java.awt.GridLayout(5, 1));
+        panel_main.setLayout(new java.awt.BorderLayout());
 
-        panel_logo.setBackground(new java.awt.Color(4, 71, 126));
-        panel_logo.setLayout(new java.awt.BorderLayout());
-
-        label_logo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        label_logo.setForeground(new java.awt.Color(255, 255, 255));
-        label_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_logo.setText("logo");
-        panel_logo.add(label_logo, java.awt.BorderLayout.CENTER);
-
-        panel_left.add(panel_logo);
-
-        panel_tongquan.setBackground(new java.awt.Color(4, 71, 126));
-        panel_tongquan.setLayout(new java.awt.BorderLayout());
-
-        label_tongquan.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        label_tongquan.setForeground(new java.awt.Color(255, 255, 255));
-        label_tongquan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_tongquan.setText("Tổng Quan");
-        panel_tongquan.add(label_tongquan, java.awt.BorderLayout.CENTER);
-        label_tongquan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_tongquanMouseClicked(evt);
-            }
-        });
-
-        panel_left.add(panel_tongquan);
-
-        panel_quanlythuoc.setBackground(new java.awt.Color(4, 71, 126));
-        panel_quanlythuoc.setLayout(new java.awt.BorderLayout());
-
-        label_quanlythuoc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        label_quanlythuoc.setForeground(new java.awt.Color(255, 255, 255));
-        label_quanlythuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_quanlythuoc.setText("Quản Lý Thuốc");
-        panel_quanlythuoc.add(label_quanlythuoc, java.awt.BorderLayout.CENTER);
-        label_quanlythuoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_quanlythuocMouseClicked(evt);
-            }
-        });
-
-        panel_left.add(panel_quanlythuoc);
-
-        panel_quanlyhoadon.setBackground(new java.awt.Color(4, 71, 126));
-        panel_quanlyhoadon.setLayout(new java.awt.BorderLayout());
+        panel_title.setBackground(new java.awt.Color(4, 71, 126));
+        panel_title.setPreferredSize(new java.awt.Dimension(100, 100));
+        panel_title.setLayout(new java.awt.BorderLayout());
 
         label_quanlyhoadon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         label_quanlyhoadon.setForeground(new java.awt.Color(255, 255, 255));
         label_quanlyhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_quanlyhoadon.setText("Quản Lý Hóa Đơn");
-        panel_quanlyhoadon.add(label_quanlyhoadon, java.awt.BorderLayout.CENTER);
-        label_quanlyhoadon.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_quanlyhoadon.setText("Thống Kê");
+        panel_title.add(label_quanlyhoadon, java.awt.BorderLayout.CENTER);
+
+        panel_main.add(panel_title, java.awt.BorderLayout.PAGE_START);
+
+        panel_thongtin.setLayout(new java.awt.BorderLayout());
+
+        panel_hoadon.setLayout(new java.awt.BorderLayout());
+
+        panel_button_loaithongke.setBackground(new java.awt.Color(255, 255, 255));
+        panel_button_loaithongke.setPreferredSize(new java.awt.Dimension(900, 50));
+        panel_button_loaithongke.setLayout(new java.awt.BorderLayout());
+
+        panel_contain_button.setBackground(new java.awt.Color(255, 255, 255));
+        panel_contain_button.setPreferredSize(new java.awt.Dimension(420, 50));
+        panel_contain_button.setLayout(new java.awt.GridBagLayout());
+
+        button_thongkedoanhthu.setText("Doanh Thu");
+        button_thongkedoanhthu.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_thongkedoanhthu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_quanlyhoadonMouseClicked(evt);
+                button_thongkedoanhthuMouseClicked(evt);
             }
         });
-        
-        
-
-        panel_left.add(panel_quanlyhoadon);
-
-        panel_thongke.setBackground(new java.awt.Color(4, 71, 126));
-        panel_thongke.setLayout(new java.awt.BorderLayout());
-
-        label_thongke.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        label_thongke.setForeground(new java.awt.Color(255, 255, 255));
-        label_thongke.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_thongke.setText("Thống Kê");
-        panel_thongke.add(label_thongke, java.awt.BorderLayout.CENTER);
-
-        label_thongke.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-              label_thongkeMouseClicked(evt);
+        button_thongkedoanhthu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_thongkedoanhthuActionPerformed(evt);
             }
         });
-        panel_left.add(panel_thongke);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(button_thongkedoanhthu, gridBagConstraints);
 
-        getContentPane().add(panel_left, java.awt.BorderLayout.LINE_START);
+        button_thongkethuoc.setText("Thuốc");
+        button_thongkethuoc.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_thongkethuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_thongkethuocMouseClicked(evt);
+            }
+        });
+        button_thongkethuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_thongkethuocActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(button_thongkethuoc, gridBagConstraints);
 
-        panel_right.setLayout(new java.awt.GridLayout(2, 1));
+        button_thoat.setText("Thoát");
+        button_thoat.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_thoat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_thoatMouseClicked(evt);
+            }
+        });
+        button_thoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_thoatActionPerformed(evt);
+            }
+        });
+        panel_contain_button.add(button_thoat, new java.awt.GridBagConstraints());
 
-        panel_right_top.setBackground(new java.awt.Color(255, 255, 255));
-        panel_right_top.setLayout(new java.awt.BorderLayout());
+        panel_button_loaithongke.add(panel_contain_button, java.awt.BorderLayout.LINE_END);
 
-        panel_title.setBackground(new java.awt.Color(255, 255, 255));
-        panel_title.setLayout(new java.awt.BorderLayout());
+        panel_hoadon.add(panel_button_loaithongke, java.awt.BorderLayout.PAGE_START);
 
-        label_title.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        label_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_title.setText("Tổng Quan Thống Kê Cơ Bản");
-        panel_title.add(label_title, java.awt.BorderLayout.CENTER);
+        panel_bieudo.setLayout(new java.awt.GridLayout(2, 1));
 
-        panel_right_top.add(panel_title, java.awt.BorderLayout.PAGE_START);
-
-        panel_thongso.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panel_thongsoLayout = new javax.swing.GroupLayout(panel_thongso);
-        panel_thongso.setLayout(panel_thongsoLayout);
-        panel_thongsoLayout.setHorizontalGroup(
-            panel_thongsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        panel_thongsoLayout.setVerticalGroup(
-            panel_thongsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 135, Short.MAX_VALUE)
-        );
+        panel_bieudo_top.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 70, 60));
+        panel_bieudo_top.setBackground(new Color(255,255,255));
         
-        // Chổ Quan Trọng
-        panel_thongso.setPreferredSize(new java.awt.Dimension(100, 100));
-        panel_thongso.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 40, 60));
         
-        DashboardPanel panel1 = new DashboardPanel(
+        DashboardPanel panel_tongsanpham = new DashboardPanel(
                 "Tổng Sản Phẩm", 
                 "$3388880", 
                 "average key 50%", 
@@ -267,17 +234,17 @@ public class TongQuanGUI extends javax.swing.JFrame {
                 new Color(0, 50, 150),     // Dark blue (bottom)
                 true                       // 3D effect enabled
             );
-        panel1.setPreferredSize(new Dimension(200,200));
+        panel_tongsanpham.setPreferredSize(new Dimension(200,200));
         
-        DashboardPanel panel2 = new DashboardPanel(
-                "Doanh Thu Tháng", 
+        DashboardPanel panel_sanpham_ganhethan = new DashboardPanel(
+                "Sắp Hết Hạn", 
                 "$338880", 
                 "template file 21%", 
                 new Color(150, 255, 150), // Light green
                 new Color(0, 150, 0),     // Dark green
                 true
             );
-        panel2.setPreferredSize(new Dimension(200,200));
+        panel_sanpham_ganhethan.setPreferredSize(new Dimension(200,200));
         
         DashboardPanel panel3 = new DashboardPanel(
                 "Doanh Thu Ngày", 
@@ -311,45 +278,63 @@ public class TongQuanGUI extends javax.swing.JFrame {
             );
         panel5.setPreferredSize(new Dimension(200,200));
         
-        panel_thongso.add(panel1);
-        panel_thongso.add(panel2);
-        panel_thongso.add(panel3);
-        panel_thongso.add(panel4);
-        panel_thongso.add(panel5);
+        panel_bieudo_top.add(panel_tongsanpham);
+        panel_bieudo_top.add(panel_sanpham_ganhethan);
+        panel_bieudo_top.add(panel3);
+        panel_bieudo_top.add(panel4);
+        panel_bieudo_top.add(panel5);
 
-        panel_right_top.add(panel_thongso, java.awt.BorderLayout.CENTER);
-
-        panel_right.add(panel_right_top);
-
-        // Chổ Quan Trọng
         
-        javax.swing.GroupLayout panel_right_botLayout = new javax.swing.GroupLayout(panel_right_bot);
-        panel_right_bot.setLayout(panel_right_botLayout);
-        panel_right_botLayout.setHorizontalGroup(
-            panel_right_botLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        panel_right_botLayout.setVerticalGroup(
-            panel_right_botLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
-        );
         
-        // ve bieu do
-        ChartPanel chartPanel = LineChart.createSampleChartPanel();
-         
-         panel_right.add(chartPanel);
+        
+        
+        
+        
+        
+        
+        
+        
+   
+        
+        
+        panel_bieudo.add(panel_bieudo_top);
 
-         getContentPane().add(panel_right, java.awt.BorderLayout.LINE_END);
+        panel_bieudo_botton.setLayout(new java.awt.BorderLayout());
+        
+        
+        
+        Map<String, Integer> salesData = new HashMap<>();
+        salesData.put("Tháng 1", 150);
+        salesData.put("Tháng 2", 200);
+        salesData.put("Tháng 3", 180);
+        salesData.put("Tháng 4", 300);
+        salesData.put("Tháng 5", 250);
 
-         setSize(new java.awt.Dimension(900, 500));
-         setLocationRelativeTo(null);;
+        // Tạo frame chính
+        JFrame frame = new JFrame("Biểu Đồ Cột - Java Swing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
 
-        getContentPane().add(panel_right, java.awt.BorderLayout.CENTER);
+        // Tạo và thêm ChartPanel vào frame
+        BarChartThongKe chartPanel = new BarChartThongKe(salesData, "Doanh Số Bán Hàng Theo Tháng", new Color(75, 192, 192));
+        
+        
+        panel_bieudo_botton.add(chartPanel);
+        
+        
+        panel_bieudo.add(panel_bieudo_botton);
+
+        panel_hoadon.add(panel_bieudo, java.awt.BorderLayout.CENTER);
+
+        panel_thongtin.add(panel_hoadon, java.awt.BorderLayout.CENTER);
+
+        panel_main.add(panel_thongtin, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(panel_main, java.awt.BorderLayout.CENTER);
 
         setSize(new java.awt.Dimension(900, 500));
         setLocationRelativeTo(null);
-        
-        // Chổ Quan trọng
     }// </editor-fold>                        
     
     // chinh sua nut close
@@ -375,37 +360,39 @@ public class TongQuanGUI extends javax.swing.JFrame {
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
-        if(this.getExtendedState()!=TongQuanGUI.MAXIMIZED_BOTH){
-            this.setExtendedState(TongQuanGUI.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!=ThongKeThuocGUI.MAXIMIZED_BOTH){
+            this.setExtendedState(ThongKeThuocGUI.MAXIMIZED_BOTH);
         }else{
-           this.setExtendedState(TongQuanGUI.NORMAL);
+           this.setExtendedState(ThongKeThuocGUI.NORMAL);
         }  
-    }     
-    
-    private void label_tongquanMouseClicked(java.awt.event.MouseEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
+    }                                             
 
-    private void label_quanlythuocMouseClicked(java.awt.event.MouseEvent evt) {                                               
+    private void button_thongkedoanhthuActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         // TODO add your handling code here:
-    	this.setVisible(false);
-    	QuanLyThuocGUI quanlythuocgui =  new QuanLyThuocGUI();
-    	quanlythuocgui.setVisible(true);
-    }                                              
+    }                                                      
 
-    private void label_quanlyhoadonMouseClicked(java.awt.event.MouseEvent evt) {                                                
+    private void button_thongkedoanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                                    
         // TODO add your handling code here:
-    	this.setVisible(false);
-    	QuanLyHoaDonGUI quanlyhoadongui = new QuanLyHoaDonGUI();
-    	quanlyhoadongui.setVisible(true);
-    	}                                               
+    }                                                   
 
-    private void label_thongkeMouseClicked(java.awt.event.MouseEvent evt) {                                     
+    private void button_thoatActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
+
+    private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
     	this.setVisible(false);
     	ThongKeGUI thongkegui = new ThongKeGUI();
     	thongkegui.setVisible(true);
-    }    
+    }                                         
+
+    private void button_thongkethuocActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        // TODO add your handling code here:
+    }                                                   
+
+    private void button_thongkethuocMouseClicked(java.awt.event.MouseEvent evt) {                                                 
+        // TODO add your handling code here:
+    }                                                
     
     /**
      * @param args the command line arguments
@@ -424,13 +411,13 @@ public class TongQuanGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TongQuanGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TongQuanGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TongQuanGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TongQuanGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -444,43 +431,36 @@ public class TongQuanGUI extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+     
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TongQuanGUI().setVisible(true);
+                new ThongKeThuocGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton button_thoat;
+    private javax.swing.JButton button_thongkedoanhthu;
+    private javax.swing.JButton button_thongkethuoc;
     private javax.swing.JPanel icon_close_fullscreen;
-    private javax.swing.JLabel label_thongke1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_fullscreen;
-    private javax.swing.JLabel label_logo;
     private javax.swing.JLabel label_quanlyhoadon;
-    private javax.swing.JLabel label_quanlythuoc;
-    private javax.swing.JLabel label_title;
-    private javax.swing.JLabel label_tongquan;
+    private javax.swing.JPanel panel_bieudo;
+    private javax.swing.JPanel panel_bieudo_botton;
+    private javax.swing.JPanel panel_bieudo_top;
+    private javax.swing.JPanel panel_button_loaithongke;
     private javax.swing.JPanel panel_close;
+    private javax.swing.JPanel panel_contain_button;
     private javax.swing.JPanel panel_fullscreen;
     private javax.swing.JPanel panel_header;
-    private javax.swing.JPanel panel_left;
-    private javax.swing.JPanel panel_logo;
-    private javax.swing.JPanel panel_quanlyhoadon;
-    private javax.swing.JPanel panel_quanlythuoc;
-    private javax.swing.JPanel panel_right;
-    private javax.swing.JPanel panel_right_bot;
-    private javax.swing.JPanel panel_right_top;
-    private javax.swing.JPanel panel_thongke;
-    private javax.swing.JPanel panel_thongso;
+    private javax.swing.JPanel panel_hoadon;
+    private javax.swing.JPanel panel_main;
+    private javax.swing.JPanel panel_thongtin;
     private javax.swing.JPanel panel_title;
-    private javax.swing.JPanel panel_tongquan;
     // End of variables declaration                   
 }

@@ -66,7 +66,7 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         panel_chucnang = new javax.swing.JPanel();
         panel_button_chucnang = new javax.swing.JPanel();
         button_capnhat = new javax.swing.JButton();
-        button_themthuoc = new javax.swing.JButton();
+        button_nhapthuoc = new javax.swing.JButton();
         butotn_danhmuc = new javax.swing.JButton();
         button_thoat = new javax.swing.JButton();
         panel_table = new javax.swing.JPanel();
@@ -208,7 +208,7 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         panel_chucnang.setLayout(new java.awt.BorderLayout());
 
         panel_button_chucnang.setBackground(new java.awt.Color(255, 255, 255));
-        panel_button_chucnang.setPreferredSize(new java.awt.Dimension(500, 50));
+        panel_button_chucnang.setPreferredSize(new java.awt.Dimension(560, 50));
         panel_button_chucnang.setLayout(new java.awt.GridBagLayout());
 
         button_capnhat.setText("Cập Nhật");
@@ -227,21 +227,21 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
         panel_button_chucnang.add(button_capnhat, gridBagConstraints);
 
-        button_themthuoc.setText("Thêm Thuốc");
-        button_themthuoc.setPreferredSize(new java.awt.Dimension(100, 30));
-        button_themthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_nhapthuoc.setText("Nhập Thuốc");
+        button_nhapthuoc.setPreferredSize(new java.awt.Dimension(100, 30));
+        button_nhapthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_themthuocMouseClicked(evt);
             }
         });
-        button_themthuoc.addActionListener(new java.awt.event.ActionListener() {
+        button_nhapthuoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_themthuocActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        panel_button_chucnang.add(button_themthuoc, gridBagConstraints);
+        panel_button_chucnang.add(button_nhapthuoc, gridBagConstraints);
 
         butotn_danhmuc.setText("Danh Mục");
         butotn_danhmuc.setPreferredSize(new java.awt.Dimension(100, 30));
@@ -510,7 +510,7 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
     private javax.swing.JButton butotn_danhmuc;
     private javax.swing.JButton button_capnhat;
     private javax.swing.JButton button_search;
-    private javax.swing.JButton button_themthuoc;
+    private javax.swing.JButton button_nhapthuoc;
     private javax.swing.JButton button_thoat;
     private javax.swing.JComboBox<String> cb_filter;
     private javax.swing.JTextField field_search;

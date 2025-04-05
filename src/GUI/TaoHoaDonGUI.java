@@ -302,7 +302,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         panel_contain_button.add(cb_soluong, gridBagConstraints);
 
-        button_quaylai.setText("Quay Lại");
+        button_quaylai.setText("Thoát");
         button_quaylai.setPreferredSize(new java.awt.Dimension(120, 26));
         button_quaylai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -710,6 +710,9 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void button_quaylaiActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	QuanLyHoaDonGUI quanlyhoadongui = new QuanLyHoaDonGUI();
+    	quanlyhoadongui.setVisible(true);
     }                                              
 
     private void button_quaylaiMouseClicked(java.awt.event.MouseEvent evt) {                                            
