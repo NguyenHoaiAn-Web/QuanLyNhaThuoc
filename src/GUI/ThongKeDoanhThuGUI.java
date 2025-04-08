@@ -4,17 +4,25 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.jfree.chart.ChartPanel;
+import org.jfree.data.general.DefaultPieDataset;
 
+import PanelDashboard.BarChartThongKe;
 import PanelDashboard.LineChartThongKe;
+import PanelDashboard.PieChartThongKe;
 
 
 /**
@@ -27,6 +35,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
      * Creates new form MainForm
      */
     public ThongKeDoanhThuGUI() {
+    	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
     }
 
@@ -168,11 +177,11 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_button_loaithongke.setLayout(new java.awt.BorderLayout());
 
         panel_contain_button.setBackground(new java.awt.Color(255, 255, 255));
-        panel_contain_button.setPreferredSize(new java.awt.Dimension(600, 50));
+        panel_contain_button.setPreferredSize(new java.awt.Dimension(700, 50));
         panel_contain_button.setLayout(new java.awt.GridBagLayout());
 
         cb_tuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" }));
-        cb_tuan.setPreferredSize(new java.awt.Dimension(80, 30));
+        cb_tuan.setPreferredSize(new java.awt.Dimension(90, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -180,7 +189,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_contain_button.add(cb_tuan, gridBagConstraints);
 
         cb_thang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7" }));
-        cb_thang.setPreferredSize(new java.awt.Dimension(80, 30));
+        cb_thang.setPreferredSize(new java.awt.Dimension(90, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -188,7 +197,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_contain_button.add(cb_thang, gridBagConstraints);
 
         cb_nam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025", " " }));
-        cb_nam.setPreferredSize(new java.awt.Dimension(80, 30));
+        cb_nam.setPreferredSize(new java.awt.Dimension(90, 30));
         cb_nam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_namActionPerformed(evt);
@@ -201,7 +210,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_contain_button.add(cb_nam, gridBagConstraints);
 
         button_hienthi.setText("Hiển Thị");
-        button_hienthi.setPreferredSize(new java.awt.Dimension(80, 30));
+        button_hienthi.setPreferredSize(new java.awt.Dimension(90, 30));
         button_hienthi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_hienthiMouseClicked(evt);
@@ -219,7 +228,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_contain_button.add(button_hienthi, gridBagConstraints);
 
         button_homnay.setText("Hôm Nay");
-        button_homnay.setPreferredSize(new java.awt.Dimension(80, 30));
+        button_homnay.setPreferredSize(new java.awt.Dimension(90, 30));
         button_homnay.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_homnayMouseClicked(evt);
@@ -237,7 +246,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_contain_button.add(button_homnay, gridBagConstraints);
 
         button_thoat.setText("Thoát");
-        button_thoat.setPreferredSize(new java.awt.Dimension(80, 30));
+        button_thoat.setPreferredSize(new java.awt.Dimension(90, 30));
         button_thoat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_thoatMouseClicked(evt);
@@ -263,19 +272,55 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         panel_bieudo_top.setLayout(new java.awt.GridLayout(1, 2));
         
         
+        ChartPanel linechart = LineChartThongKe.createSampleChartPanel();
+        panel_bieudo_top.add(linechart);
         
-        ChartPanel linechartthongke_1 = LineChartThongKe.createSampleChartPanel();
-        panel_bieudo_top.add(linechartthongke_1);
+        
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        
+        // Thêm dữ liệu (ví dụ)
+        dataset.setValue("Quý 1", 25);
+        dataset.setValue("Quý 2", 35);
+        dataset.setValue("Quý 3", 20);
+        dataset.setValue("Quý 4", 40);
+        
+        PieChartThongKe piechart = new PieChartThongKe(dataset, "Phần Trăm Doanh Thu Theo Nhân Viên");
+        
+        ChartPanel piechart_phantram = piechart.createChartPanel();
+
+        
+        //ChartPanel piechart = PieChartThongKe.createSampleChartPanel();
         
         
-        ChartPanel linechartthongke_2 = LineChartThongKe.createSampleChartPanel();
-        panel_bieudo_top.add(linechartthongke_2);
+        
+        panel_bieudo_top.add(piechart_phantram);
+        
+        
         
         
         
         panel_bieudo.add(panel_bieudo_top);
 
         panel_bieudo_botton.setLayout(new java.awt.BorderLayout());
+        
+        Map<String, Integer> salesData = new HashMap<>();
+        salesData.put("Tháng 1", 150);
+        salesData.put("Tháng 2", 200);
+        salesData.put("Tháng 3", 180);
+        salesData.put("Tháng 4", 300);
+        salesData.put("Tháng 5", 250);
+
+        // Tạo frame chính
+        JFrame frame = new JFrame("Biểu Đồ Cột - Java Swing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
+
+        // Tạo và thêm ChartPanel vào frame
+        BarChartThongKe barchart_thongke = new BarChartThongKe(salesData, "Doanh Số Bán Hàng Theo Tháng", new Color(75, 192, 192));
+        
+        panel_bieudo_botton.add(barchart_thongke);
+        
         panel_bieudo.add(panel_bieudo_botton);
 
         panel_thongkechinh.add(panel_bieudo, java.awt.BorderLayout.CENTER);
@@ -308,7 +353,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
     private void label_closeMouseExited(java.awt.event.MouseEvent evt) {                                        
         // TODO add your handling code here:
         changecolor(panel_close, new Color(204,204,204));
-    }                                       
+    }                                        
     // ket thuc chinh sua nut close
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
@@ -342,6 +387,9 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
 
     private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	ThongKeGUI thongkegui = new ThongKeGUI();
+    	thongkegui.setVisible(true);
     }                                         
 
     private void cb_namActionPerformed(java.awt.event.ActionEvent evt) {                                       
@@ -374,10 +422,10 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ThongKeDoanhThuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         //</editor-fold>
-        //</editor-fold>
-     
+
         //</editor-fold>
 
         /* Create and display the form */

@@ -279,6 +279,9 @@ public class ThongKeGUI extends javax.swing.JFrame {
 
     private void button_thongkedoanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                                    
         // TODO add your handling code here:
+    	this.setVisible(false);
+    	ThongKeDoanhThuGUI thongkedoanhthugui = new ThongKeDoanhThuGUI();
+    	thongkedoanhthugui.setVisible(true);
     }                                                   
 
     private void button_thoatActionPerformed(java.awt.event.ActionEvent evt) {                                             
