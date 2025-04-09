@@ -4,26 +4,37 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import org.jfree.chart.ChartPanel;
+import org.jfree.data.general.DefaultPieDataset;
+
+import PanelDashboard.BarChartThongKe;
+import PanelDashboard.LineChartThongKe;
+import PanelDashboard.PieChartThongKe;
+
 
 /**
  *
  * @author 44ong
  */
-public class ThongKeGUI extends javax.swing.JFrame {
+public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForm
      */
-    public ThongKeGUI() {
+    public ThongKeDoanhThuGUI() {
     	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
     }
@@ -38,6 +49,7 @@ public class ThongKeGUI extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jButton1 = new javax.swing.JButton();
         panel_header = new javax.swing.JPanel();
         icon_close_fullscreen = new javax.swing.JPanel();
         panel_fullscreen = new javax.swing.JPanel();
@@ -48,15 +60,20 @@ public class ThongKeGUI extends javax.swing.JFrame {
         panel_title = new javax.swing.JPanel();
         label_quanlyhoadon = new javax.swing.JLabel();
         panel_thongtin = new javax.swing.JPanel();
-        panel_hoadon = new javax.swing.JPanel();
+        panel_thongkechinh = new javax.swing.JPanel();
         panel_button_loaithongke = new javax.swing.JPanel();
         panel_contain_button = new javax.swing.JPanel();
-        button_thongkedoanhthu = new javax.swing.JButton();
-        button_thongkethuoc = new javax.swing.JButton();
+        cb_tuan = new javax.swing.JComboBox<>();
+        cb_thang = new javax.swing.JComboBox<>();
+        cb_nam = new javax.swing.JComboBox<>();
+        button_hienthi = new javax.swing.JButton();
+        button_homnay = new javax.swing.JButton();
         button_thoat = new javax.swing.JButton();
         panel_bieudo = new javax.swing.JPanel();
         panel_bieudo_top = new javax.swing.JPanel();
         panel_bieudo_botton = new javax.swing.JPanel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -153,50 +170,83 @@ public class ThongKeGUI extends javax.swing.JFrame {
 
         panel_thongtin.setLayout(new java.awt.BorderLayout());
 
-        panel_hoadon.setLayout(new java.awt.BorderLayout());
+        panel_thongkechinh.setLayout(new java.awt.BorderLayout());
 
         panel_button_loaithongke.setBackground(new java.awt.Color(255, 255, 255));
         panel_button_loaithongke.setPreferredSize(new java.awt.Dimension(900, 50));
         panel_button_loaithongke.setLayout(new java.awt.BorderLayout());
 
         panel_contain_button.setBackground(new java.awt.Color(255, 255, 255));
-        panel_contain_button.setPreferredSize(new java.awt.Dimension(420, 50));
+        panel_contain_button.setPreferredSize(new java.awt.Dimension(700, 50));
         panel_contain_button.setLayout(new java.awt.GridBagLayout());
 
-        button_thongkedoanhthu.setText("Doanh Thu");
-        button_thongkedoanhthu.setPreferredSize(new java.awt.Dimension(120, 26));
-        button_thongkedoanhthu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_thongkedoanhthuMouseClicked(evt);
-            }
-        });
-        button_thongkedoanhthu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_thongkedoanhthuActionPerformed(evt);
-            }
-        });
+        cb_tuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" }));
+        cb_tuan.setPreferredSize(new java.awt.Dimension(90, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        panel_contain_button.add(button_thongkedoanhthu, gridBagConstraints);
+        panel_contain_button.add(cb_tuan, gridBagConstraints);
 
-        button_thongkethuoc.setText("Thuốc");
-        button_thongkethuoc.setPreferredSize(new java.awt.Dimension(120, 26));
-        button_thongkethuoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_thongkethuocMouseClicked(evt);
-            }
-        });
-        button_thongkethuoc.addActionListener(new java.awt.event.ActionListener() {
+        cb_thang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7" }));
+        cb_thang.setPreferredSize(new java.awt.Dimension(90, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(cb_thang, gridBagConstraints);
+
+        cb_nam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025", " " }));
+        cb_nam.setPreferredSize(new java.awt.Dimension(90, 30));
+        cb_nam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_thongkethuocActionPerformed(evt);
+                cb_namActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        panel_contain_button.add(button_thongkethuoc, gridBagConstraints);
+        panel_contain_button.add(cb_nam, gridBagConstraints);
+
+        button_hienthi.setText("Hiển Thị");
+        button_hienthi.setPreferredSize(new java.awt.Dimension(90, 30));
+        button_hienthi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_hienthiMouseClicked(evt);
+            }
+        });
+        button_hienthi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_hienthiActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(button_hienthi, gridBagConstraints);
+
+        button_homnay.setText("Hôm Nay");
+        button_homnay.setPreferredSize(new java.awt.Dimension(90, 30));
+        button_homnay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_homnayMouseClicked(evt);
+            }
+        });
+        button_homnay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_homnayActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(button_homnay, gridBagConstraints);
 
         button_thoat.setText("Thoát");
-        button_thoat.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_thoat.setPreferredSize(new java.awt.Dimension(90, 30));
         button_thoat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_thoatMouseClicked(evt);
@@ -207,33 +257,75 @@ public class ThongKeGUI extends javax.swing.JFrame {
                 button_thoatActionPerformed(evt);
             }
         });
-        panel_contain_button.add(button_thoat, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        panel_contain_button.add(button_thoat, gridBagConstraints);
 
         panel_button_loaithongke.add(panel_contain_button, java.awt.BorderLayout.LINE_END);
 
-        panel_hoadon.add(panel_button_loaithongke, java.awt.BorderLayout.PAGE_START);
+        panel_thongkechinh.add(panel_button_loaithongke, java.awt.BorderLayout.PAGE_START);
 
         panel_bieudo.setLayout(new java.awt.GridLayout(2, 1));
 
-        javax.swing.GroupLayout panel_bieudo_topLayout = new javax.swing.GroupLayout(panel_bieudo_top);
-        panel_bieudo_top.setLayout(panel_bieudo_topLayout);
-        panel_bieudo_topLayout.setHorizontalGroup(
-            panel_bieudo_topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        panel_bieudo_topLayout.setVerticalGroup(
-            panel_bieudo_topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
+        panel_bieudo_top.setLayout(new java.awt.GridLayout(1, 2));
+        
+        
+        ChartPanel linechart = LineChartThongKe.createSampleChartPanel();
+        panel_bieudo_top.add(linechart);
+        
+        
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        
+        // Thêm dữ liệu (ví dụ)
+        dataset.setValue("Quý 1", 25);
+        dataset.setValue("Quý 2", 35);
+        dataset.setValue("Quý 3", 20);
+        dataset.setValue("Quý 4", 40);
+        
+        PieChartThongKe piechart = new PieChartThongKe(dataset, "Phần Trăm Doanh Thu Theo Nhân Viên");
+        
+        ChartPanel piechart_phantram = piechart.createChartPanel();
 
+        
+        //ChartPanel piechart = PieChartThongKe.createSampleChartPanel();
+        
+        
+        
+        panel_bieudo_top.add(piechart_phantram);
+        
+        
+        
+        
+        
         panel_bieudo.add(panel_bieudo_top);
 
         panel_bieudo_botton.setLayout(new java.awt.BorderLayout());
+        
+        Map<String, Integer> salesData = new HashMap<>();
+        salesData.put("Tháng 1", 150);
+        salesData.put("Tháng 2", 200);
+        salesData.put("Tháng 3", 180);
+        salesData.put("Tháng 4", 300);
+        salesData.put("Tháng 5", 250);
+
+        // Tạo frame chính
+        JFrame frame = new JFrame("Biểu Đồ Cột - Java Swing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
+
+        // Tạo và thêm ChartPanel vào frame
+        BarChartThongKe barchart_thongke = new BarChartThongKe(salesData, "Doanh Số Bán Hàng Theo Tháng", new Color(75, 192, 192));
+        
+        panel_bieudo_botton.add(barchart_thongke);
+        
         panel_bieudo.add(panel_bieudo_botton);
 
-        panel_hoadon.add(panel_bieudo, java.awt.BorderLayout.CENTER);
+        panel_thongkechinh.add(panel_bieudo, java.awt.BorderLayout.CENTER);
 
-        panel_thongtin.add(panel_hoadon, java.awt.BorderLayout.CENTER);
+        panel_thongtin.add(panel_thongkechinh, java.awt.BorderLayout.CENTER);
 
         panel_main.add(panel_thongtin, java.awt.BorderLayout.CENTER);
 
@@ -261,28 +353,33 @@ public class ThongKeGUI extends javax.swing.JFrame {
     private void label_closeMouseExited(java.awt.event.MouseEvent evt) {                                        
         // TODO add your handling code here:
         changecolor(panel_close, new Color(204,204,204));
-    }                                       
+    }                                        
     // ket thuc chinh sua nut close
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
-        if(this.getExtendedState()!=ThongKeGUI.MAXIMIZED_BOTH){
-            this.setExtendedState(ThongKeGUI.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!=ThongKeDoanhThuGUI.MAXIMIZED_BOTH){
+            this.setExtendedState(ThongKeDoanhThuGUI.MAXIMIZED_BOTH);
         }else{
-           this.setExtendedState(ThongKeGUI.NORMAL);
+           this.setExtendedState(ThongKeDoanhThuGUI.NORMAL);
         }  
     }                                             
 
-    private void button_thongkedoanhthuActionPerformed(java.awt.event.ActionEvent evt) {                                                       
+    private void button_hienthiActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
-    }                                                      
+    }                                              
 
-    private void button_thongkedoanhthuMouseClicked(java.awt.event.MouseEvent evt) {                                                    
+    private void button_hienthiMouseClicked(java.awt.event.MouseEvent evt) {                                            
         // TODO add your handling code here:
-    	this.setVisible(false);
-    	ThongKeDoanhThuGUI thongkedoanhthugui = new ThongKeDoanhThuGUI();
-    	thongkedoanhthugui.setVisible(true);
-    }                                                   
+    }                                           
+
+    private void button_homnayActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }                                             
+
+    private void button_homnayMouseClicked(java.awt.event.MouseEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
 
     private void button_thoatActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
@@ -291,20 +388,13 @@ public class ThongKeGUI extends javax.swing.JFrame {
     private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
     	this.setVisible(false);
-    	TongQuanGUI tongquangui = new TongQuanGUI();
-    	tongquangui.setVisible(true);
-    	}                                         
+    	ThongKeGUI thongkegui = new ThongKeGUI();
+    	thongkegui.setVisible(true);
+    }                                         
 
-    private void button_thongkethuocActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void cb_namActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
-    	this.setVisible(false);
-    	ThongKeThuocGUI thonhkethuochuocgui = new ThongKeThuocGUI();
-    	thonhkethuochuocgui.setVisible(true);
-    }                                                   
-
-    private void button_thongkethuocMouseClicked(java.awt.event.MouseEvent evt) {                                                 
-        // TODO add your handling code here:
-    }                                                
+    }                                      
     
     /**
      * @param args the command line arguments
@@ -323,36 +413,38 @@ public class ThongKeGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ThongKeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeDoanhThuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ThongKeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeDoanhThuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ThongKeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeDoanhThuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ThongKeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeDoanhThuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
+
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-     
+
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ThongKeGUI().setVisible(true);
+                new ThongKeDoanhThuGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton button_hienthi;
+    private javax.swing.JButton button_homnay;
     private javax.swing.JButton button_thoat;
-    private javax.swing.JButton button_thongkedoanhthu;
-    private javax.swing.JButton button_thongkethuoc;
+    private javax.swing.JComboBox<String> cb_nam;
+    private javax.swing.JComboBox<String> cb_thang;
+    private javax.swing.JComboBox<String> cb_tuan;
     private javax.swing.JPanel icon_close_fullscreen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_fullscreen;
     private javax.swing.JLabel label_quanlyhoadon;
@@ -364,8 +456,8 @@ public class ThongKeGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_contain_button;
     private javax.swing.JPanel panel_fullscreen;
     private javax.swing.JPanel panel_header;
-    private javax.swing.JPanel panel_hoadon;
     private javax.swing.JPanel panel_main;
+    private javax.swing.JPanel panel_thongkechinh;
     private javax.swing.JPanel panel_thongtin;
     private javax.swing.JPanel panel_title;
     // End of variables declaration                   
