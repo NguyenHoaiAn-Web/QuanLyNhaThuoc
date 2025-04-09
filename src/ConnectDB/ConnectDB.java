@@ -1,12 +1,13 @@
 package ConnectDB;
 
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ConnectDB {
+public class ConnectDB{
 	  
 	 public  static Connection con = null;
 	 private static ConnectDB instance = new ConnectDB();

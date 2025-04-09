@@ -1,51 +1,31 @@
 package Models;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class HoaDon {
 	private String maHoaDon;
-	private String maNV;
-	private String tenNhanVien;
-	private String tenKhachHang;
-	private String maKhachHang;
-	private String maChiTiet;
+	private NhanVien nhanVien;
+	private KhachHang khachHang;
 	private String diaChiNhaThuoc;
-	private Date ngayLapHoaDon;
+	private LocalDateTime ngayLapHoaDon;
 	public String getMaHoaDon() {
 		return maHoaDon;
 	}
 	public void setMaHoaDon(String maHoaDon) {
 		this.maHoaDon = maHoaDon;
 	}
-	public String getMaNV() {
-		return maNV;
+	public NhanVien getNhanVien() {
+		return nhanVien;
 	}
-	public void setMaNV(String maNV) {
-		this.maNV = maNV;
+	public void setNhanVien(NhanVien nhanVien) {
+		this.nhanVien = nhanVien;
 	}
-	public String getTenNhanVien() {
-		return tenNhanVien;
+	public KhachHang getKhachHang() {
+		return khachHang;
 	}
-	public void setTenNhanVien(String tenNhanVien) {
-		this.tenNhanVien = tenNhanVien;
-	}
-	public String getTenKhachHang() {
-		return tenKhachHang;
-	}
-	public void setTenKhachHang(String tenKhachHang) {
-		this.tenKhachHang = tenKhachHang;
-	}
-	public String getMaKhachHang() {
-		return maKhachHang;
-	}
-	public void setMaKhachHang(String maKhachHang) {
-		this.maKhachHang = maKhachHang;
-	}
-	public String getMaChiTiet() {
-		return maChiTiet;
-	}
-	public void setMaChiTiet(String maChiTiet) {
-		this.maChiTiet = maChiTiet;
+	public void setKhachHang(KhachHang khachHang) {
+		this.khachHang = khachHang;
 	}
 	public String getDiaChiNhaThuoc() {
 		return diaChiNhaThuoc;
@@ -53,26 +33,27 @@ public class HoaDon {
 	public void setDiaChiNhaThuoc(String diaChiNhaThuoc) {
 		this.diaChiNhaThuoc = diaChiNhaThuoc;
 	}
-	public Date getNgayLapHoaDon() {
+	public LocalDateTime getNgayLapHoaDon() {
 		return ngayLapHoaDon;
 	}
-	public void setNgayLapHoaDon(Date ngayLapHoaDon) {
+	public void setNgayLapHoaDon(LocalDateTime ngayLapHoaDon) {
 		this.ngayLapHoaDon = ngayLapHoaDon;
 	}
-	public HoaDon(String maHoaDon, String maNV, String tenNhanVien, String tenKhachHang, String maKhachHang,
-			String maChiTiet, String diaChiNhaThuoc, Date ngayLapHoaDon) {
+	public HoaDon(String maHoaDon, NhanVien nhanVien, KhachHang khachHang, String diaChiNhaThuoc,
+			LocalDateTime ngayLapHoaDon) {
 		super();
 		this.maHoaDon = maHoaDon;
-		this.maNV = maNV;
-		this.tenNhanVien = tenNhanVien;
-		this.tenKhachHang = tenKhachHang;
-		this.maKhachHang = maKhachHang;
-		this.maChiTiet = maChiTiet;
+		this.nhanVien = nhanVien;
+		this.khachHang = khachHang;
 		this.diaChiNhaThuoc = diaChiNhaThuoc;
 		this.ngayLapHoaDon = ngayLapHoaDon;
 	}
-	public HoaDon() {
+	public HoaDon(String maHoaDon) {
 		super();
+		this.maHoaDon=maHoaDon;
 	}
+	
+	
+	
 	
 }

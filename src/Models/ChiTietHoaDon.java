@@ -1,21 +1,21 @@
 package Models;
 
 public class ChiTietHoaDon {
-	private String maChiTiet;
-	private String tenThuoc;
+	private HoaDon hoaD;
+	private Thuoc thuoc;
 	private int soLuong;
 	private double giaThuoc;
-	public String getMaChiTiet() {
-		return maChiTiet;
+	public HoaDon getHoaD() {
+		return hoaD;
 	}
-	public void setMaChiTiet(String maChiTiet) {
-		this.maChiTiet = maChiTiet;
+	public void setHoaD(HoaDon hoaD) {
+		this.hoaD = hoaD;
 	}
-	public String getTenThuoc() {
-		return tenThuoc;
+	public Thuoc getThuoc() {
+		return thuoc;
 	}
-	public void setTenThuoc(String tenThuoc) {
-		this.tenThuoc = tenThuoc;
+	public void setThuoc(Thuoc thuoc) {
+		this.thuoc = thuoc;
 	}
 	public int getSoLuong() {
 		return soLuong;
@@ -29,15 +29,16 @@ public class ChiTietHoaDon {
 	public void setGiaThuoc(double giaThuoc) {
 		this.giaThuoc = giaThuoc;
 	}
-	public ChiTietHoaDon(String maChiTiet, String tenThuoc, int soLuong, double giaThuoc) {
+	public ChiTietHoaDon(HoaDon hoaD, Thuoc thuoc, int soLuong, double giaThuoc) {
 		super();
-		this.maChiTiet = maChiTiet;
-		this.tenThuoc = tenThuoc;
+		this.hoaD = hoaD;
+		this.thuoc = thuoc;
 		this.soLuong = soLuong;
 		this.giaThuoc = giaThuoc;
 	}
 	public ChiTietHoaDon() {
 		super();
 	}
+	
 	
 }
