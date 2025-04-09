@@ -3,34 +3,37 @@ package Models;
 import java.util.Date;
 
 public class NhanVien {
-	private String maNV, tenNV, vaiTro, sdt, maHoaDon, trinhDo;
+	private String maNhanVien, tenNhanVien, vaiTro, soDienThoai, maHoaDon, trinhDo, gioiTinh,maTaiKhoan;
 	private Date namSinh;
 	
-	public NhanVien() {
+	public NhanVien(String maNhanVien) {
 		super();
+		this.maNhanVien=maNhanVien;
 	}
-	public NhanVien(String maNV, String tenNV, String vaiTro, String sdt, String maHoaDon, String trinhDo,
+	public NhanVien(String maNhanVien, String tenNhanVien, String vaiTro, String soDienThoai, String maHoaDon, String trinhDo,String gioiTinh,String maTaiKhoan,
 			Date namSinh) {
 		super();
-		this.maNV = maNV;
-		this.tenNV = tenNV;
+		this.maNhanVien = maNhanVien;
+		this.tenNhanVien = tenNhanVien;
 		this.vaiTro = vaiTro;
-		this.sdt = sdt;
+		this.soDienThoai = soDienThoai;
 		this.maHoaDon = maHoaDon;
 		this.trinhDo = trinhDo;
+		this.gioiTinh = gioiTinh;
+		this.maTaiKhoan=maTaiKhoan;
 		this.namSinh = namSinh;
 	}
-	public String getMaNV() {
-		return maNV;
+	public String getmaNhanVien() {
+		return maNhanVien;
 	}
-	public void setMaNV(String maNV) {
-		this.maNV = maNV;
+	public void setmaNhanVien(String maNhanVien) {
+		this.maNhanVien = maNhanVien;
 	}
-	public String getTenNV() {
-		return tenNV;
+	public String gettenNhanVien() {
+		return tenNhanVien;
 	}
-	public void setTenNV(String tenNV) {
-		this.tenNV = tenNV;
+	public void settenNhanVien(String tenNhanVien) {
+		this.tenNhanVien = tenNhanVien;
 	}
 	public String getVaiTro() {
 		return vaiTro;
@@ -38,11 +41,11 @@ public class NhanVien {
 	public void setVaiTro(String vaiTro) {
 		this.vaiTro = vaiTro;
 	}
-	public String getSdt() {
-		return sdt;
+	public String getsoDienThoai() {
+		return soDienThoai;
 	}
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
+	public void setsoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
 	public String getMaHoaDon() {
 		return maHoaDon;
@@ -62,5 +65,17 @@ public class NhanVien {
 	public void setNamSinh(Date namSinh) {
 		this.namSinh = namSinh;
 	}
-
+	public String getGioiTinh() {
+		return gioiTinh;
+	}
+	public void setGioiTinh(String gioiTinh) {
+		this.gioiTinh = gioiTinh;
+	}
+	public String getMaTaiKhoan() {
+		return maTaiKhoan;
+	}
+	public void setMaTaiKhoan(String maTaiKhoan) {
+		this.maTaiKhoan = maTaiKhoan;
+	}
+	
 }

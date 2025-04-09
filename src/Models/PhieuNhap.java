@@ -6,7 +6,6 @@ public class PhieuNhap {
 	private String maPhieuNhap;
 	private Date ngayNhap;
 	private NhaCungCap nhaCungcap;
-	private String diaChiNhaSanXuat;
 	private double tongTienPhieuNhap;
 	public String getMaPhieuNhap() {
 		return maPhieuNhap;
@@ -26,12 +25,7 @@ public class PhieuNhap {
 	public void setNhaCungcap(NhaCungCap nhaCungcap) {
 		this.nhaCungcap = nhaCungcap;
 	}
-	public String getDiaChiNhaSanXuat() {
-		return diaChiNhaSanXuat;
-	}
-	public void setDiaChiNhaSanXuat(String diaChiNhaSanXuat) {
-		this.diaChiNhaSanXuat = diaChiNhaSanXuat;
-	}
+
 	public double getTongTienPhieuNhap() {
 		return tongTienPhieuNhap;
 	}
@@ -44,11 +38,11 @@ public class PhieuNhap {
 		this.maPhieuNhap = maPhieuNhap;
 		this.ngayNhap = ngayNhap;
 		this.nhaCungcap = nhaCungcap;
-		this.diaChiNhaSanXuat = diaChiNhaSanXuat;
 		this.tongTienPhieuNhap = tongTienPhieuNhap;
 	}
-	public PhieuNhap() {
+	public PhieuNhap(String maPhieuNhap) {
 		super();
+		this.maPhieuNhap=maPhieuNhap;
 	}
 	
 }

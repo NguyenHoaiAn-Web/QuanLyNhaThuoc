@@ -1,10 +1,10 @@
 package Models;
 
 public class TaiKhoan {
+	private String maTaiKhoan;
 	private String tenTaiKhoan;
 	private String passWord;
 	private String maNV;
-	private Boolean trangThai;
 	public String getTenTaiKhoan() {
 		return tenTaiKhoan;
 	}
@@ -23,21 +23,24 @@ public class TaiKhoan {
 	public void setMaNV(String maNV) {
 		this.maNV = maNV;
 	}
-	public Boolean getTrangThai() {
-		return trangThai;
+
+	
+	public String getMaTaiKhoan() {
+		return maTaiKhoan;
 	}
-	public void setTrangThai(Boolean trangThai) {
-		this.trangThai = trangThai;
+	public void setMaTaiKhoan(String maTaiKhoan) {
+		this.maTaiKhoan = maTaiKhoan;
 	}
 	public TaiKhoan(String tenTaiKhoan, String passWord, String maNV, Boolean trangThai) {
 		super();
 		this.tenTaiKhoan = tenTaiKhoan;
 		this.passWord = passWord;
 		this.maNV = maNV;
-		this.trangThai = trangThai;
+		
 	}
-	public TaiKhoan() {
+	public TaiKhoan(String maTaiKhoan) {
 		super();
+		this.maTaiKhoan=maTaiKhoan;
 	}
 	
 	

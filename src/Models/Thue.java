@@ -28,8 +28,9 @@ public class Thue {
 		this.tenThue = tenThue;
 		this.phanTramThue = phanTramThue;
 	}
-	public Thue() {
+	public Thue(String maThue) {
 		super();
+		this.maThue=maThue;
 	}
 	
 }

@@ -1,34 +1,46 @@
 package Models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class ChiTietPhieuNhap {
-	private String maChiTiet;
-	private String maThuoc;
-	private String tenThuoc;
+	private PhieuNhap phieuNhap;
+	private Thuoc thuoc;
+	private LocalDateTime ngayNhap;
+	private NhaCungCap nhaCungCap;
+	private NhanVien nhanVien;
 	private int soLuong;
 	private double donGiaNhap;
 	private double thanhTien;
-	private Date hanSuDung;
-	private int soLo;
-	private double giaNhapThuoc;
-	public String getMaChiTiet() {
-		return maChiTiet;
+	
+	public PhieuNhap getPhieuNhap() {
+		return phieuNhap;
 	}
-	public void setMaChiTiet(String maChiTiet) {
-		this.maChiTiet = maChiTiet;
+	public void setPhieuNhap(PhieuNhap phieuNhap) {
+		this.phieuNhap = phieuNhap;
 	}
-	public String getMaThuoc() {
-		return maThuoc;
+	public Thuoc getThuoc() {
+		return thuoc;
 	}
-	public void setMaThuoc(String maThuoc) {
-		this.maThuoc = maThuoc;
+	public void setThuoc(Thuoc thuoc) {
+		this.thuoc = thuoc;
 	}
-	public String getTenThuoc() {
-		return tenThuoc;
+	public LocalDateTime getNgayNhap() {
+		return ngayNhap;
 	}
-	public void setTenThuoc(String tenThuoc) {
-		this.tenThuoc = tenThuoc;
+	public void setNgayNhap(LocalDateTime ngayNhap) {
+		this.ngayNhap = ngayNhap;
+	}
+	public NhaCungCap getNhaCungCap() {
+		return nhaCungCap;
+	}
+	public void setNhaCungCap(NhaCungCap nhaCungCap) {
+		this.nhaCungCap = nhaCungCap;
+	}
+	public NhanVien getNhanVien() {
+		return nhanVien;
+	}
+	public void setNhanVien(NhanVien nhanVien) {
+		this.nhanVien = nhanVien;
 	}
 	public int getSoLuong() {
 		return soLuong;
@@ -48,36 +60,13 @@ public class ChiTietPhieuNhap {
 	public void setThanhTien(double thanhTien) {
 		this.thanhTien = thanhTien;
 	}
-	public Date getHanSuDung() {
-		return hanSuDung;
-	}
-	public void setHanSuDung(Date hanSuDung) {
-		this.hanSuDung = hanSuDung;
-	}
-	public int getSoLo() {
-		return soLo;
-	}
-	public void setSoLo(int soLo) {
-		this.soLo = soLo;
-	}
-	public double getGiaNhapThuoc() {
-		return giaNhapThuoc;
-	}
-	public void setGiaNhapThuoc(double giaNhapThuoc) {
-		this.giaNhapThuoc = giaNhapThuoc;
-	}
-	public ChiTietPhieuNhap(String maChiTiet, String maThuoc, String tenThuoc, int soLuong, double donGiaNhap,
-			double thanhTien, Date hanSuDung, int soLo, double giaNhapThuoc) {
+	public ChiTietPhieuNhap(PhieuNhap phieuNhap, Thuoc thuoc, int soLuong, double donGiaNhap, double thanhTien) {
 		super();
-		this.maChiTiet = maChiTiet;
-		this.maThuoc = maThuoc;
-		this.tenThuoc = tenThuoc;
+		this.phieuNhap = phieuNhap;
+		this.thuoc = thuoc;
 		this.soLuong = soLuong;
 		this.donGiaNhap = donGiaNhap;
 		this.thanhTien = thanhTien;
-		this.hanSuDung = hanSuDung;
-		this.soLo = soLo;
-		this.giaNhapThuoc = giaNhapThuoc;
 	}
 	public ChiTietPhieuNhap() {
 		super();
