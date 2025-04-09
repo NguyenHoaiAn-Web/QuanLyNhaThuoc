@@ -10,15 +10,16 @@ public class Thuoc {
 	private String hinhAnh;
 	private Date ngayNhap;
 	private Date ngayHetHan;
-	private double gia;
+	private double donGia;
 	private int soLuong;
 	private float hamLuong;
 	
-	public Thuoc() {
+	public Thuoc(String maThuoc) {
 		super();
+		this.maThuoc=maThuoc;
 	}
 	public Thuoc(String maThuoc, String tenThuoc, String donViTinh, String phanLoai, String hinhAnh, Date ngayNhap,
-			Date ngayHetHan, double gia, int soLuong, float hamLuong) {
+			Date ngayHetHan, double donGia, int soLuong, float hamLuong) {
 		super();
 		this.maThuoc = maThuoc;
 		this.tenThuoc = tenThuoc;
@@ -27,7 +28,7 @@ public class Thuoc {
 		this.hinhAnh = hinhAnh;
 		this.ngayNhap = ngayNhap;
 		this.ngayHetHan = ngayHetHan;
-		this.gia = gia;
+		this.donGia = donGia;
 		this.soLuong = soLuong;
 		this.hamLuong = hamLuong;
 	}
@@ -73,11 +74,11 @@ public class Thuoc {
 	public void setNgayHetHan(Date ngayHetHan) {
 		this.ngayHetHan = ngayHetHan;
 	}
-	public double getGia() {
-		return gia;
+	public double getdonGia() {
+		return donGia;
 	}
-	public void setGia(double gia) {
-		this.gia = gia;
+	public void setdonGia(double donGia) {
+		this.donGia = donGia;
 	}
 	public int getSoLuong() {
 		return soLuong;

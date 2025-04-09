@@ -1,21 +1,21 @@
 package Models;
 
 public class NhaCungCap {
-	private String maNhaSX;
-	private String tenNhaSanXuat;
+	private String maNhaCungCap;
+	private String tenNhaCungCap;
 	private String diaChi;
 	private String sdt;
-	public String getMaNhaSX() {
-		return maNhaSX;
+	public String getMaNhaCungCap() {
+		return maNhaCungCap;
 	}
-	public void setMaNhaSX(String maNhaSX) {
-		this.maNhaSX = maNhaSX;
+	public void setmaNhaCungCap(String maNhaCungCap) {
+		this.maNhaCungCap = maNhaCungCap;
 	}
-	public String getTenNhaSanXuat() {
-		return tenNhaSanXuat;
+	public String gettenNhaCungCap() {
+		return tenNhaCungCap;
 	}
-	public void setTenNhaSanXuat(String tenNhaSanXuat) {
-		this.tenNhaSanXuat = tenNhaSanXuat;
+	public void settenNhaCungCap(String tenNhaCungCap) {
+		this.tenNhaCungCap = tenNhaCungCap;
 	}
 	public String getDiaChi() {
 		return diaChi;
@@ -29,15 +29,16 @@ public class NhaCungCap {
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
-	public NhaCungCap(String maNhaSX, String tenNhaSanXuat, String diaChi, String sdt) {
+	public NhaCungCap(String maNhaCungCap, String tenNhaCungCap, String diaChi, String sdt) {
 		super();
-		this.maNhaSX = maNhaSX;
-		this.tenNhaSanXuat = tenNhaSanXuat;
+		this.maNhaCungCap = maNhaCungCap;
+		this.tenNhaCungCap = tenNhaCungCap;
 		this.diaChi = diaChi;
 		this.sdt = sdt;
 	}
-	public NhaCungCap() {
+	public NhaCungCap(String maNhaCungCap) {
 		super();
+		this.maNhaCungCap=maNhaCungCap;
 	}
 	
 }
