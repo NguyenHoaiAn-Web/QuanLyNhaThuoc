@@ -69,6 +69,8 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         button_hienthi = new javax.swing.JButton();
         button_homnay = new javax.swing.JButton();
         button_thoat = new javax.swing.JButton();
+        panel_thongkekhac = new javax.swing.JPanel();
+        buton_thongkethuoc = new javax.swing.JButton();
         panel_bieudo = new javax.swing.JPanel();
         panel_bieudo_top = new javax.swing.JPanel();
         panel_bieudo_botton = new javax.swing.JPanel();
@@ -163,7 +165,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
         label_quanlyhoadon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         label_quanlyhoadon.setForeground(new java.awt.Color(255, 255, 255));
         label_quanlyhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_quanlyhoadon.setText("Thống Kê");
+        label_quanlyhoadon.setText("Thống Kê Doanh Thu");
         panel_title.add(label_quanlyhoadon, java.awt.BorderLayout.CENTER);
 
         panel_main.add(panel_title, java.awt.BorderLayout.PAGE_START);
@@ -265,6 +267,26 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
 
         panel_button_loaithongke.add(panel_contain_button, java.awt.BorderLayout.LINE_END);
 
+        panel_thongkekhac.setBackground(new java.awt.Color(255, 255, 255));
+        panel_thongkekhac.setPreferredSize(new java.awt.Dimension(200, 50));
+        panel_thongkekhac.setLayout(new java.awt.GridBagLayout());
+
+        buton_thongkethuoc.setText("Thống Kê Thuốc");
+        buton_thongkethuoc.setPreferredSize(new java.awt.Dimension(150, 30));
+        buton_thongkethuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buton_thongkethuocMouseClicked(evt);
+            }
+        });
+        buton_thongkethuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton_thongkethuocActionPerformed(evt);
+            }
+        });
+        panel_thongkekhac.add(buton_thongkethuoc, new java.awt.GridBagConstraints());
+
+        panel_button_loaithongke.add(panel_thongkekhac, java.awt.BorderLayout.LINE_START);
+
         panel_thongkechinh.add(panel_button_loaithongke, java.awt.BorderLayout.PAGE_START);
 
         panel_bieudo.setLayout(new java.awt.GridLayout(2, 1));
@@ -353,7 +375,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
     private void label_closeMouseExited(java.awt.event.MouseEvent evt) {                                        
         // TODO add your handling code here:
         changecolor(panel_close, new Color(204,204,204));
-    }                                        
+    }                                       
     // ket thuc chinh sua nut close
     
     private void label_fullscreenMouseClicked(java.awt.event.MouseEvent evt) {                                              
@@ -388,13 +410,25 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
     private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
     	this.setVisible(false);
-    	ThongKeGUI thongkegui = new ThongKeGUI();
-    	thongkegui.setVisible(true);
+    	TongQuanGUI tongquangui = new TongQuanGUI();
+    	tongquangui.setVisible(true);
+    	
     }                                         
 
     private void cb_namActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
     }                                      
+
+    private void buton_thongkethuocActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        // TODO add your handling code here:
+    }                                                  
+
+    private void buton_thongkethuocMouseClicked(java.awt.event.MouseEvent evt) {                                                
+        // TODO add your handling code here:
+    	this.setVisible(false);
+    	ThongKeThuocGUI thongkethuocgui = new ThongKeThuocGUI();
+    	thongkethuocgui.setVisible(true);
+    }                                               
     
     /**
      * @param args the command line arguments
@@ -422,10 +456,8 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ThongKeDoanhThuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
-        //</editor-fold>
-
+     
         //</editor-fold>
 
         /* Create and display the form */
@@ -437,6 +469,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton buton_thongkethuoc;
     private javax.swing.JButton button_hienthi;
     private javax.swing.JButton button_homnay;
     private javax.swing.JButton button_thoat;
@@ -458,6 +491,7 @@ public class ThongKeDoanhThuGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_header;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_thongkechinh;
+    private javax.swing.JPanel panel_thongkekhac;
     private javax.swing.JPanel panel_thongtin;
     private javax.swing.JPanel panel_title;
     // End of variables declaration                   

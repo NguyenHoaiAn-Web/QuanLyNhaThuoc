@@ -1,33 +1,58 @@
 package PanelDashboard;
 
-import org.jfree.data.general.DefaultPieDataset;
-import PanelDashboard.PieChartThongKe;
 import javax.swing.*;
+import org.jfree.data.category.DefaultCategoryDataset;
+import PanelDashboard.LineChartThongKe;
 
 public class TestChart {
     public static void main(String[] args) {
-        // Tạo dataset từ dữ liệu của bạn
-        DefaultPieDataset dataset = new DefaultPieDataset();
-        
-        // Thêm dữ liệu (ví dụ)
-        dataset.setValue("Quý 1", 25);
-        dataset.setValue("Quý 2", 35);
-        dataset.setValue("Quý 3", 20);
-        dataset.setValue("Quý 4", 40);
+        // Tạo dataset
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        // Tạo biểu đồ với dữ liệu tùy chỉnh
-        PieChartThongKe pieChart = new PieChartThongKe(
+        // Thêm dữ liệu cho 5 đường (Series 1 đến Series 5)
+        String[] categories = {"Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"};
+
+        // Series 1: Dữ liệu tăng dần
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(10 + i * 5, "Khu vực A", categories[i]);
+        }
+
+        // Series 2: Dữ liệu giảm dần
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(50 - i * 5, "Khu vực B", categories[i]);
+        }
+
+        // Series 3: Dữ liệu dao động
+        dataset.addValue(20, "Khu vực C", categories[0]);
+        dataset.addValue(35, "Khu vực C", categories[1]);
+        dataset.addValue(15, "Khu vực C", categories[2]);
+        dataset.addValue(40, "Khu vực C", categories[3]);
+        dataset.addValue(10, "Khu vực C", categories[4]);
+        dataset.addValue(30, "Khu vực C", categories[5]);
+
+        // Series 4: Dữ liệu ngẫu nhiên
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(10 + Math.random() * 30, "Khu vực D", categories[i]);
+        }
+
+        // Series 5: Dữ liệu ổn định
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(25, "Khu vực E", categories[i]);
+        }
+
+        // Tạo biểu đồ
+        LineChartThongKe lineChart = new LineChartThongKe(
             dataset,
-            "TỶ LỆ DOANH THU THEO QUÝ"
+            "DOANH SỐ BÁN HÀNG THEO KHU VỰC (2023)",
+            "Tháng",
+            "Doanh số (triệu VND)"
         );
-        
-        // Tạo frame để hiển thị
-        JFrame frame = new JFrame("Biểu đồ tròn");
+
+        // Hiển thị biểu đồ trong JFrame
+        JFrame frame = new JFrame("Biểu đồ đường - 5 khu vực");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(pieChart.createChartPanel());
-        frame.pack();
+        frame.setSize(800, 600);
+        frame.add(lineChart.createChartPanel());
         frame.setVisible(true);
     }
 }
-
-

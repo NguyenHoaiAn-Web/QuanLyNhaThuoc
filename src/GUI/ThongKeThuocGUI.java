@@ -4,14 +4,27 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.jfree.chart.ChartPanel;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+
+import PanelDashboard.BarChartThongKe;
+import PanelDashboard.LineChartAdvanced;
+import PanelDashboard.LineChartThongKe;
+import PanelDashboard.PieChartThongKe;
 
 
 /**
@@ -275,9 +288,101 @@ public class ThongKeThuocGUI extends javax.swing.JFrame {
         panel_bieudo.setLayout(new java.awt.GridLayout(2, 1));
 
         panel_bieudo_top.setLayout(new java.awt.GridLayout(1, 2));
+        
+        
+        
+        // CREATE LINE CHART 
+        
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        // Thêm dữ liệu cho 5 đường (Series 1 đến Series 5)
+        String[] categories = {"Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"};
+
+        // Series 1: Dữ liệu tăng dần
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(10 + i * 5, "Khu vực A", categories[i]);
+        }
+
+        // Series 2: Dữ liệu giảm dần
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(50 - i * 5, "Khu vực B", categories[i]);
+        }
+
+        // Series 3: Dữ liệu dao động
+        dataset.addValue(20, "Khu vực C", categories[0]);
+        dataset.addValue(35, "Khu vực C", categories[1]);
+        dataset.addValue(15, "Khu vực C", categories[2]);
+        dataset.addValue(40, "Khu vực C", categories[3]);
+        dataset.addValue(10, "Khu vực C", categories[4]);
+        dataset.addValue(30, "Khu vực C", categories[5]);
+
+        // Series 4: Dữ liệu ngẫu nhiên
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(10 + Math.random() * 30, "Khu vực D", categories[i]);
+        }
+
+        // Series 5: Dữ liệu ổn định
+        for (int i = 0; i < categories.length; i++) {
+            dataset.addValue(25, "Khu vực E", categories[i]);
+        }
+
+        // Tạo biểu đồ
+        LineChartAdvanced lineChart = new LineChartAdvanced(
+            dataset,
+            "DOANH SỐ BÁN HÀNG THEO KHU VỰC (2023)",
+            "Tháng",
+            "Doanh số (triệu VND)"
+        );
+        
+        // END CREATE LINE CHART 
+        
+        
+        // CREATE PIE CHART
+        
+        
+       
+       DefaultPieDataset dataset_piechart = new DefaultPieDataset();
+        
+        // Thêm dữ liệu (ví dụ)
+	    dataset_piechart.setValue("Quý 1", 25);
+	    dataset_piechart.setValue("Quý 2", 35);
+	    dataset_piechart.setValue("Quý 3", 20);
+	    dataset_piechart.setValue("Quý 4", 40);
+        
+        PieChartThongKe piechart = new PieChartThongKe(dataset_piechart, "Phần Trăm Thuốc Tồn Kho");
+        
+        ChartPanel piechart_phantram = piechart.createChartPanel();
+
+        
+        
+        // END CREATE LINE CHART
+        panel_bieudo_top.add(lineChart.createSampleChartPanel());
+        panel_bieudo_top.add(piechart_phantram);
+        
         panel_bieudo.add(panel_bieudo_top);
 
         panel_bieudo_botton.setLayout(new java.awt.GridLayout(1, 2));
+        
+        
+        Map<String, Integer> salesData = new HashMap<>();
+        salesData.put("Tháng 1", 150);
+        salesData.put("Tháng 2", 200);
+        salesData.put("Tháng 3", 180);
+        salesData.put("Tháng 4", 300);
+        salesData.put("Tháng 5", 250);
+
+        // Tạo frame chính
+        JFrame frame = new JFrame("Biểu Đồ Cột - Java Swing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
+
+        // Tạo và thêm ChartPanel vào frame
+        BarChartThongKe barchart_thongke = new BarChartThongKe(salesData, "Doanh Số Bán Hàng Theo Tháng", new Color(75, 192, 192));
+        
+        
+        panel_bieudo_botton.add(barchart_thongke);
+        
         panel_bieudo.add(panel_bieudo_botton);
 
         panel_hoadon.add(panel_bieudo, java.awt.BorderLayout.CENTER);
@@ -296,7 +401,7 @@ public class ThongKeThuocGUI extends javax.swing.JFrame {
     public void changecolor(JPanel hover, Color rand){
         hover.setBackground(rand);
         
-    }
+    } 
     private void label_closeMouseEntered(java.awt.event.MouseEvent evt) {                                         
         // TODO add your handling code here:
         changecolor(panel_close, new Color(245, 66, 105));
@@ -341,8 +446,8 @@ public class ThongKeThuocGUI extends javax.swing.JFrame {
     private void button_thoatMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
     	this.setVisible(false);
-    	ThongKeGUI thongkegui = new ThongKeGUI();
-    	thongkegui.setVisible(true);
+    	TongQuanGUI tongquangui = new TongQuanGUI();
+    	tongquangui.setVisible(true);
     	}                                         
     
     /**
@@ -371,17 +476,7 @@ public class ThongKeThuocGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ThongKeThuocGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
      
         //</editor-fold>
 
