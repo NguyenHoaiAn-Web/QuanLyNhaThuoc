@@ -4,7 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -74,6 +76,7 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 	private JLabel lbVaiTro;
 	private JLabel lbTrinhDo;
 	private Container b10;
+	private JLabel lbTitle;
 	public QuanLyNhanVienGUI() {
     	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
@@ -89,21 +92,23 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 		this.setLayout(new BorderLayout());
 		// Panel chứa thông tin nhân viên
 		JPanel pnNorth = new JPanel();
-		JPanel pnManager = new JPanel();
-		JLabel lblManager = new JLabel("Quản lý nhân viên");
-		lblManager.setFont(new Font("Arial", Font.BOLD, 24)); // Đặt font cho JLabel
-		pnManager.add(lblManager);
+		JPanel pnTitle = new JPanel(new BorderLayout()); 
+		lbTitle = new JLabel("QUẢN LÝ NHÂN VIÊN", JLabel.CENTER);
+		lbTitle.setFont(new Font("Arial", Font.BOLD, 24));
+		lbTitle.setOpaque(true);
+		lbTitle.setBackground(new Color(4, 71, 126));
+		lbTitle.setForeground(Color.WHITE);
+		lbTitle.setPreferredSize(new Dimension(0, 60));
+		pnTitle.add(lbTitle, BorderLayout.CENTER);
 	
-		TitledBorder titledBorder = BorderFactory.createTitledBorder("Thông tin nhân viên");
-		Font font = titledBorder.getTitleFont().deriveFont(Font.PLAIN, 20);
-		titledBorder.setTitleFont(font);
-		pnNorth.setBorder(titledBorder);
+		pnNorth.add(pnTitle);
+		pnNorth.add(Box.createVerticalStrut(20));
 		pnNorth.setLayout(new BoxLayout(pnNorth, BoxLayout.Y_AXIS));
 		Box b = Box.createHorizontalBox();
 		Box b1 = Box.createVerticalBox();
 		Box b2 = Box.createVerticalBox();
 		lbMa = new JLabel("Mã nhân viên:");
-		lbMa.setPreferredSize(new Dimension(100, 15));
+		lbMa.setPreferredSize(new Dimension(100, 15));	
 
 		lbTen = new JLabel("Tên nhân viên:");
 		lbTen.setPreferredSize(lbMa.getPreferredSize());
@@ -121,8 +126,7 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 		lbNamSinh = new JLabel("Năm sinh:");
 		lbNamSinh.setPreferredSize(lbMa.getPreferredSize());
 		
-		lbTrinhDo = new JLabel("Trình độ:");
-		lbTrinhDo.setPreferredSize(lbMa.getPreferredSize());
+		
 
 		txtMa = new JTextField(10);
 		txtMa.setEditable(false);
@@ -141,69 +145,63 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 		comboBoxVaiTro.addItem("Quản lý");
 		comboBoxVaiTro.addItem("Nhân Viên");
 		txtNamSinh = new JTextField();
-		JComboBox<String> comboBoxTrinhDo = new JComboBox<>();
-		comboBoxTrinhDo.addItem("Đại học");
-		comboBoxTrinhDo.addItem("Cao Đẳng");
-		comboBoxTrinhDo.addItem("Thạc Sĩ");
 		
-		Box b4 = Box.createHorizontalBox();
-		Box b5 = Box.createHorizontalBox();
-		Box b6 = Box.createHorizontalBox();
-		Box b7 = Box.createHorizontalBox();
-		Box b8 = Box.createHorizontalBox();
-		Box b9 = Box.createHorizontalBox();
-		Box b10 = Box.createHorizontalBox();
-		b4.add(lbMa);
-		b4.add(txtMa);
-
-		b5.add(lbVaiTro);
-		b5.add(comboBoxVaiTro);
-
-		b6.add(lbNamSinh);
-		b6.add(txtNamSinh);
-
-		b1.add(b4);
-		b1.add(Box.createVerticalStrut(10));
-		b1.add(b5);
-		b1.add(Box.createVerticalStrut(10));
-		b1.add(b6);
-
-		b7.add(lbTen);
-		b7.add(txtTen);
-
-		b8.add(lbSDT);
-		b8.add(txtSDT);
-
-		b9.add(lbGioiTinh);
-		b9.add(raNu);
-		b9.add(raNam);
-
-		b10.add(lbTrinhDo);
-		b10.add(comboBoxTrinhDo);
 		
-		b2.add(b7);
-		b2.add(Box.createVerticalStrut(10));
-		b2.add(b8);
-		b2.add(Box.createVerticalStrut(10));
-		b2.add(b9);
-		b2.add(Box.createVerticalStrut(10));
-		b2.add(b10);
+		JPanel formPanel1 = new JPanel(new GridLayout(0, 2, 10, 10));
+		formPanel1.add(lbMa);
+		formPanel1.add(txtMa);
+		formPanel1.add(lbVaiTro);
+		formPanel1.add(comboBoxVaiTro);
+		formPanel1.add(lbNamSinh);
+		formPanel1.add(txtNamSinh);
 
+		JPanel formPanel2 = new JPanel(new GridLayout(0, 2, 10, 10));
+		formPanel2.add(lbTen);
+		formPanel2.add(txtTen);
+		formPanel2.add(lbSDT);
+		formPanel2.add(txtSDT);
+		formPanel2.add(lbGioiTinh);
+		JPanel genderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
+		raNam = new JRadioButton("Nam");
+		raNu = new JRadioButton("Nữ");
+
+		// Nhóm radio lại
+		groudradio = new ButtonGroup();
+		groudradio.add(raNam);
+		groudradio.add(raNu);
+
+		// Thêm radio vào panel con
+		genderPanel.add(raNam);
+		genderPanel.add(raNu);
+
+		// Thêm panel chứa radio vào form chính
+		formPanel2.add(genderPanel);
+		Dimension inputSize = new Dimension(400, 25);
+		txtMa.setPreferredSize(inputSize);
+		txtTen.setPreferredSize(inputSize);
+		txtSDT.setPreferredSize(inputSize);
+		txtNamSinh.setPreferredSize(inputSize);
+
+		comboBoxVaiTro.setPreferredSize(inputSize);
+		
+
+		
 		b.add(Box.createHorizontalStrut(40));
-		b.add(b1);
+		b.add(formPanel1);
 		b.add(Box.createHorizontalStrut(40));
-		b.add(b2);
+		b.add(formPanel2);
 		b.add(Box.createHorizontalStrut(40));
+
 		pnNorth.add(b);
-
+		
 		// panel chứa các btn thêm xóa sửa xóa trắng
 		JPanel pnCenter = new JPanel();
-		btnThem = new JButton("Thêm", getIcon("data/images/icon_btnThem.png", 16, 16));
-		btnSua = new JButton("Sửa", getIcon("data/images/icon_btnLuu.png", 16, 16));
-		btnXoa = new JButton("Xóa", getIcon("data/images/icon_btnXoa.png", 16, 16));
-		btnXoaTrang = new JButton("Xóa trắng", getIcon("data/images/icon_btnXoaTrang.png", 16, 16));
-		btnTim = new JButton("Tìm kiếm", getIcon("data/images/icon_btnTK.png", 16, 16));
-		btnLoadData = new JButton("Load dữ liệu", getIcon("data/images/icons8-data-backup-80.png", 16, 16));
+		btnThem = new JButton("Thêm");
+		btnSua = new JButton("Sửa");
+		btnXoa = new JButton("Xóa");
+		btnXoaTrang = new JButton("Xóa trắng");
+		btnTim = new JButton("Tìm kiếm");
+		btnLoadData = new JButton("Load dữ liệu");
 		// Thêm vào panel
 		pnCenter.add(btnThem);
 		pnCenter.add(btnXoa);
@@ -221,11 +219,11 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 		pnSouth = new JPanel();
 		TitledBorder titledBorder1 = BorderFactory.createTitledBorder("Danh sách nhân viên:");
 		Font font1 = titledBorder1.getTitleFont().deriveFont(Font.PLAIN, 20);
-		titledBorder1.setTitleFont(font);
+		titledBorder1.setTitleFont(font1);
 		pnSouth.setBorder(titledBorder1);
 		taoBang();
 //		loadDataToTable();
-
+		
 		this.add(pnNorth, BorderLayout.NORTH);
 		this.add(pnCenter, BorderLayout.CENTER);
 		this.add(pnSouth, BorderLayout.SOUTH);
@@ -241,9 +239,9 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 		model.addColumn("Tên Nhân Viên");
 		model.addColumn("Giới tính");
 		model.addColumn("Số Điện Thoại");
-		model.addColumn("Ca Trực");
+		model.addColumn("Vai Trò");
 		model.addColumn("Năm sinh");
-
+		model.addColumn("Trình độ");
 		TableColumn colum = new TableColumn();
 		colum.setPreferredWidth(100);
 		DefaultTableCellRenderer rightRender = new DefaultTableCellRenderer();
@@ -259,19 +257,11 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 
 		JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		sp.setPreferredSize(new Dimension(1650, 420));
-		pnSouth.add(sp);
-		table.addMouseListener(this);
-
+		pnSouth.setLayout(new BorderLayout());     
+	    pnSouth.add(sp, BorderLayout.CENTER);      
+	    table.addMouseListener(this);
 	}
 
-	private ImageIcon getIcon(String path, int width, int height) {
-		// TODO Auto-generated method stub
-		ImageIcon iconEmployee = new ImageIcon(path);
-		Image scaledImage = iconEmployee.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-		return scaledIcon;
-	}
 
 //	@Override
 //	public void actionPerformed(ActionEvent e) {
