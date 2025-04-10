@@ -98,7 +98,7 @@ public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseLi
 		lbTitle.setOpaque(true);
 		lbTitle.setBackground(new Color(4, 71, 126));
 		lbTitle.setForeground(Color.WHITE);
-		lbTitle.setPreferredSize(new Dimension(0, 100));
+		lbTitle.setPreferredSize(new Dimension(0, 110));
 		pnTitle.add(lbTitle, BorderLayout.CENTER);
 	
 		pnNorth.add(pnTitle);
