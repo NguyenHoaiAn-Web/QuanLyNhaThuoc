@@ -403,8 +403,8 @@ public class TongQuanGUI extends javax.swing.JFrame {
     private void label_thongkeMouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
     	this.setVisible(false);
-    	ThongKeGUI thongkegui = new ThongKeGUI();
-    	thongkegui.setVisible(true);
+    	ThongKeDoanhThuGUI thongkedoanhthugui = new ThongKeDoanhThuGUI();
+    	thongkedoanhthugui.setVisible(true);
     }    
     
     /**

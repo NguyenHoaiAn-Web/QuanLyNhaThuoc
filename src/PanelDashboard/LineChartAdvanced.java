@@ -9,7 +9,7 @@ import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 import java.awt.*;
 
-public class LineChartThongKe {
+public class LineChartAdvanced {
 
     private DefaultCategoryDataset dataset;
     private String chartTitle;
@@ -17,8 +17,8 @@ public class LineChartThongKe {
     private String yAxisLabel;
 
     // Constructor với tham số để truyền dữ liệu
-    public LineChartThongKe(DefaultCategoryDataset dataset, String chartTitle, String xAxisLabel, String yAxisLabel) {
-        this.dataset = dataset;
+    public LineChartAdvanced(DefaultCategoryDataset dataset, String chartTitle, String xAxisLabel, String yAxisLabel) {
+        this.dataset = dataset != null ? dataset : new DefaultCategoryDataset();
         this.chartTitle = chartTitle;
         this.xAxisLabel = xAxisLabel;
         this.yAxisLabel = yAxisLabel;
@@ -39,6 +39,13 @@ public class LineChartThongKe {
         );
 
         // Cấu hình giao diện biểu đồ
+        customizeChartAppearance(chart);
+
+        return new ChartPanel(chart);
+    }
+
+    // Phương thức cấu hình giao diện biểu đồ
+    private void customizeChartAppearance(JFreeChart chart) {
         CategoryPlot plot = chart.getCategoryPlot();
         
         // 1. Đặt background trắng
@@ -51,7 +58,7 @@ public class LineChartThongKe {
         plot.setDomainGridlinesVisible(true);
         plot.setRangeGridlinesVisible(true);
         
-        // 3. Đặt màu cho các đường dữ liệu
+        // 3. Đặt màu và style cho các đường dữ liệu
         LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
         
         // Đặt màu tự động cho các series
@@ -60,8 +67,6 @@ public class LineChartThongKe {
             renderer.setSeriesStroke(i, new BasicStroke(2.5f));
             renderer.setSeriesShapesVisible(i, true);
         }
-
-        return new ChartPanel(chart);
     }
 
     // Phương thức tạo màu tự động cho các series
@@ -72,31 +77,40 @@ public class LineChartThongKe {
             new Color(0, 128, 0),    // Xanh lá
             new Color(128, 0, 128),  // Tím
             new Color(255, 165, 0),  // Cam
-            new Color(0, 128, 128)   // Xanh ngọc
+            new Color(0, 128, 128),  // Xanh ngọc
+            new Color(128, 128, 0),  // Olive
+            new Color(255, 0, 255),  // Hồng
+            new Color(0, 255, 255), // Cyan
+            new Color(128, 0, 0)    // Nâu đỏ
         };
         return colors[seriesIndex % colors.length];
     }
 
-    // Phương thức tạo mẫu (giữ lại để tương thích nếu cần)
+    // Phương thức thêm dữ liệu vào dataset
+    public void addData(String seriesName, String category, double value) {
+        this.dataset.addValue(value, seriesName, category);
+    }
+
+    // Phương thức xóa tất cả dữ liệu
+    public void clearData() {
+        this.dataset.clear();
+    }
+
+    // Phương thức tạo mẫu (có thể bỏ nếu không cần)
     public static ChartPanel createSampleChartPanel() {
         DefaultCategoryDataset sampleDataset = new DefaultCategoryDataset();
         
-        // Thêm dữ liệu mẫu
-        sampleDataset.addValue(10, "Series 1", "Tháng 1");
-        sampleDataset.addValue(15, "Series 1", "Tháng 2");
-        sampleDataset.addValue(8, "Series 1", "Tháng 3");
-        sampleDataset.addValue(12, "Series 1", "Tháng 4");
-        sampleDataset.addValue(20, "Series 1", "Tháng 5");
-        sampleDataset.addValue(18, "Series 1", "Tháng 6");
+        // Thêm dữ liệu mẫu với 5 series
+        String[] months = {"Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"};
         
-        sampleDataset.addValue(5, "Series 2", "Tháng 1");
-        sampleDataset.addValue(10, "Series 2", "Tháng 2");
-        sampleDataset.addValue(12, "Series 2", "Tháng 3");
-        sampleDataset.addValue(8, "Series 2", "Tháng 4");
-        sampleDataset.addValue(15, "Series 2", "Tháng 5");
-        sampleDataset.addValue(10, "Series 2", "Tháng 6");
+        for (int i = 1; i <= 5; i++) {
+            String seriesName = "Dữ liệu " + i;
+            for (int j = 0; j < months.length; j++) {
+                sampleDataset.addValue(10 + (i * 5) + (Math.random() * 10), seriesName, months[j]);
+            }
+        }
 
-        LineChartThongKe chart = new LineChartThongKe(
+        LineChartAdvanced chart = new LineChartAdvanced(
             sampleDataset,
             "BIỂU ĐỒ DỮ LIỆU THEO THÁNG",
             "Tháng",
