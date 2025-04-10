@@ -377,8 +377,57 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         panel_table_chucnang.add(panel_table, java.awt.BorderLayout.CENTER);
 
         panel_thongtin.add(panel_table_chucnang, java.awt.BorderLayout.CENTER);
-
+        
+        
+        
+        
+        
+        
+        MenuForm_2 menuForm_2 = new MenuForm_2(new MenuForm_2.MenuListener() {
+            
+        	/*@Override public void onDrugImportSelected() { showFrame(new DrugImportFrame()); }
+            @Override public void onDrugUpdateSelected() { showFrame(new DrugUpdateFrame()); }
+            @Override public void onDrugListSelected() { showFrame(new DrugListFrame()); }
+            @Override public void onInvoiceCreateSelected() { showFrame(new InvoiceCreateFrame()); }
+            @Override public void onInvoiceListSelected() { showFrame(new InvoiceListFrame()); }
+            @Override public void onRevenueStatsSelected() { showFrame(new RevenueStatsFrame()); }
+            @Override public void onDrugStatsSelected() { showFrame(new DrugStatsFrame()); }
+            @Override public void onStaffListSelected() { showFrame(new StaffListFrame()); }
+            @Override public void onAddStaffSelected() { showFrame(new AddStaffFrame()); }
+            @Override public void onCustomerListSelected() { showFrame(new CustomerListFrame()); }
+            @Override public void onAddCustomerSelected() { showFrame(new AddCustomerFrame()); }
+            @Override public void onSupplierListSelected() { showFrame(new SupplierListFrame()); }
+            @Override public void onAddSupplierSelected() { showFrame(new AddSupplierFrame()); }*/
+        	
+        	
+        	
+        	
+        	
+        	@Override public void openFormNhapThuoc() { showFrame(new NhapThuocGUI()); }
+            @Override public void openFormCapNhatThuoc() { showFrame(new DrugUpdateFrame()); }
+            @Override public void openFormDanhSachThuoc() { showFrame(new DrugListFrame()); }
+            @Override public void openFormTaoHoaDon() { showFrame(new TaoHoaDonGUI()); }
+            @Override public void openFormDanhSachHoaDon() { showFrame(new QuanLyHoaDonGUI()); }
+            @Override public void openFormThongKeDoanhThu() { showFrame(new ThongKeDoanhThuGUI()); }
+            @Override public void openFormThongKeThuoc() { showFrame(new ThongKeThuocGUI()); }
+            @Override public void openFormDanhSachNhanVien() { showFrame(new QuanLyNhanVienGUI()); }
+            @Override public void openFormThemNhanVien() { showFrame(new AddStaffFrame()); }
+            @Override public void openFormDanhSachKhachHang() { showFrame(new CustomerListFrame()); }
+            @Override public void openFormThemKhachHang() { showFrame(new AddCustomerFrame()); }
+            @Override public void openFormNhaCungCap() { showFrame(new SupplierListFrame()); }
+            @Override public void openFormThemNhaCungCap() { showFrame(new AddSupplierFrame()); }
+        	
+        });
+        
+        
+        
+        
+        
+        panel_main.add(menuForm_2, java.awt.BorderLayout.WEST);
+        
+        
         panel_main.add(panel_thongtin, java.awt.BorderLayout.CENTER);
+
 
         getContentPane().add(panel_main, java.awt.BorderLayout.CENTER);
 
@@ -499,11 +548,11 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
+       java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new QuanLyThuocGUI().setVisible(true);
             }
-        });*/
+        });
     }
 
     // Variables declaration - do not modify                     
@@ -530,5 +579,13 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_thanhsearch_button;
     private javax.swing.JPanel panel_thongtin;
     private javax.swing.JPanel panel_title;
-    // End of variables declaration                   
+    
+    private MenuForm_2 menuForm_2;
+    // End of variables declaration       
+    
+    
+    private void showFrame(JFrame frame) {
+    	this.setVisible(false);
+        frame.setVisible(true);
+    }
 }
