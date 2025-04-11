@@ -408,7 +408,7 @@ public class QuanLyHoaDonGUI extends javax.swing.JFrame {
         	
         	@Override public void openFormNhapThuoc() { showFrame(new NhapThuocGUI()); }
             @Override public void openFormCapNhatThuoc() { showFrame(new DrugUpdateFrame()); }
-            @Override public void openFormDanhSachThuoc() { showFrame(new DrugListFrame()); }
+            @Override public void openFormDanhSachThuoc() { showFrame(new QuanLyThuocGUI()); }
             @Override public void openFormTaoHoaDon() { showFrame(new TaoHoaDonGUI()); }
             @Override public void openFormDanhSachHoaDon() { showFrame(new QuanLyHoaDonGUI()); }
             @Override public void openFormThongKeDoanhThu() { showFrame(new ThongKeDoanhThuGUI()); }
@@ -571,7 +571,7 @@ public class QuanLyHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_tonghoadon;
     private javax.swing.JLabel tongtien;
     
-    private MenuForm menuForm;
+  
     
     // End of variables declaration
     
