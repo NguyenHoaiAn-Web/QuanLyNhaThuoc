@@ -12,14 +12,14 @@ public class Thuoc {
 	private Date ngayHetHan;
 	private double donGia;
 	private int soLuong;
-	private float hamLuong;
+	private double hamLuong;
 	
 	public Thuoc(String maThuoc) {
 		super();
 		this.maThuoc=maThuoc;
 	}
 	public Thuoc(String maThuoc, String tenThuoc, String donViTinh, String phanLoai, String hinhAnh, Date ngayNhap,
-			Date ngayHetHan, double donGia, int soLuong, float hamLuong) {
+			Date ngayHetHan, double donGia, int soLuong, double hamLuong) {
 		super();
 		this.maThuoc = maThuoc;
 		this.tenThuoc = tenThuoc;
@@ -86,7 +86,7 @@ public class Thuoc {
 	public void setSoLuong(int soLuong) {
 		this.soLuong = soLuong;
 	}
-	public float getHamLuong() {
+	public double getHamLuong() {
 		return hamLuong;
 	}
 	public void setHamLuong(float hamLuong) {
