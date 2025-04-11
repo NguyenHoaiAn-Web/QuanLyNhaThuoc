@@ -21,6 +21,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.QuanLyThuocController;
+
 
 /**
  *
@@ -29,11 +31,13 @@ import javax.swing.table.DefaultTableModel;
 public class QuanLyThuocGUI extends javax.swing.JFrame {
 
     private Component frame;
+    private QuanLyThuocController quanLyThuocControllerl;
 	/**
      * Creates new form MainForm
      */
     public QuanLyThuocGUI() {
     	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    	
         initComponents();
     }
 
@@ -288,7 +292,7 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         
         // Tạo model cho bảng
         DefaultTableModel model = new DefaultTableModel() {
-            @Override
+        /*    @Override
             public Class<?> getColumnClass(int columnIndex) {
                 if (columnIndex == 0) { // Cột hình ảnh
                     return ImageIcon.class;
@@ -299,46 +303,53 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; // Không cho phép chỉnh sửa
-            }
+            }*/
         };
-
+       
         // Thêm các cột vào model
-        model.addColumn("Hình ảnh");
-        model.addColumn("Mã");
-        model.addColumn("Tên");
-        model.addColumn("Danh mục");
-        model.addColumn("Giá bán");
-        model.addColumn("Thao tác");
+        model.addColumn("Mã Thuốc");
+        model.addColumn("Tên Thuốc");
+        model.addColumn("Hình Ảnh");
+        model.addColumn("Ngày Nhập");
+        model.addColumn("Ngày Hết Hạn");
+        model.addColumn("Số Lượng");
+        model.addColumn("Đơn Vị Tính");
+        model.addColumn("Đơn Giá");
+        model.addColumn("Phân Loại");
+        model.addColumn("Hàm Lượng");
+        
+        quanLyThuocControllerl = new QuanLyThuocController();
+        quanLyThuocControllerl.load_data_to_table(model);
 
         // Tải hình ảnh từ thư mục images
-        ImageIcon[] productImages = new ImageIcon[5];
-        try {
+        //ImageIcon[] productImages = new ImageIcon[5];
+        //try {
             // Lấy hình ảnh từ package images (thư mục src/images)
-            productImages[0] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[1] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[2] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[3] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
-            productImages[4] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            //productImages[0] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            //productImages[1] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            //productImages[2] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            //productImages[3] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
+            //productImages[4] = new ImageIcon(getClass().getResource("/Image/fullscreen-removebg-preview (1).png"));
             
             // Resize hình ảnh nếu cần
-            for (int i = 0; i < productImages.length; i++) {
-                if (productImages[i] != null) {
-                    Image img = productImages[i].getImage();
-                    Image resizedImg = img.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
-                    productImages[i] = new ImageIcon(resizedImg);
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "Không tìm thấy hình ảnh trong thư mục images", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
+            //for (int i = 0; i < productImages.length; i++) {
+               // if (productImages[i] != null) {
+                  //  Image img = productImages[i].getImage();
+                  //  Image resizedImg = img.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+                  //  productImages[i] = new ImageIcon(resizedImg);
+               // }
+           // }
+       // } catch (Exception e) {
+       //     JOptionPane.showMessageDialog(frame, "Không tìm thấy hình ảnh trong thư mục images", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        //    e.printStackTrace();
+       // }
 
         // Thêm dữ liệu vào bảng với hình ảnh
-        model.addRow(new Object[]{productImages[0], "250400901", "Mỹ Omachi bò hầm", "Đồ khô", "24,000", ""});
-        model.addRow(new Object[]{productImages[1], "250400902", "Kẹo dynamite sôcola", "Kẹo bánh", "18,000", ""});
-        model.addRow(new Object[]{productImages[2], "250400898", "Thăng long mềm", "Thuốc lá", "8,000", ""});
-        model.addRow(new Object[]{productImages[3], "250400899", "Thuốc lá 555 nội", "Thuốc lá", "24,000", ""});
-        model.addRow(new Object[]{productImages[4], "250400900", "Pepsi chai 400ml", "Nước ngọt", "7,500", ""});
+        //model.addRow(new Object[]{productImages[0], "250400901", "Mỹ Omachi bò hầm", "Đồ khô", "24,000", ""});
+        //model.addRow(new Object[]{productImages[1], "250400902", "Kẹo dynamite sôcola", "Kẹo bánh", "18,000", ""});
+        //model.addRow(new Object[]{productImages[2], "250400898", "Thăng long mềm", "Thuốc lá", "8,000", ""});
+        //model.addRow(new Object[]{productImages[3], "250400899", "Thuốc lá 555 nội", "Thuốc lá", "24,000", ""});
+        //model.addRow(new Object[]{productImages[4], "250400900", "Pepsi chai 400ml", "Nước ngọt", "7,500", ""});
 
         // Tạo bảng với model
         JTable table = new JTable(model);
@@ -352,7 +363,11 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
         table.getColumnModel().getColumn(2).setPreferredWidth(200); // Tên
         table.getColumnModel().getColumn(3).setPreferredWidth(100); // Danh mục
         table.getColumnModel().getColumn(4).setPreferredWidth(100); // Giá bán
-        table.getColumnModel().getColumn(5).setPreferredWidth(100); // Thao tác
+        table.getColumnModel().getColumn(5).setPreferredWidth(100);
+        table.getColumnModel().getColumn(6).setPreferredWidth(100);
+        table.getColumnModel().getColumn(7).setPreferredWidth(100);
+        table.getColumnModel().getColumn(8).setPreferredWidth(100);// Thao tác
+        table.getColumnModel().getColumn(9).setPreferredWidth(100);
 
         // Căn giữa nội dung các cột (trừ cột hình ảnh)
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -580,6 +595,8 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_thongtin;
     private javax.swing.JPanel panel_title;
     
+    private QuanLyThuocController quanLyThuocController;
+    
     private MenuForm_2 menuForm_2;
     // End of variables declaration       
     
@@ -588,4 +605,10 @@ public class QuanLyThuocGUI extends javax.swing.JFrame {
     	this.setVisible(false);
         frame.setVisible(true);
     }
+    
+    
+    public void loaddata_fromdatabase() {
+    	
+    }
+    
 }
