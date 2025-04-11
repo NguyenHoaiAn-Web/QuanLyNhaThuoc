@@ -48,219 +48,157 @@ import dao.NhanVien_Dao;
 
 
 public class QuanLyNhanVienGUI extends JFrame implements ActionListener, MouseListener, Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private JLabel lbMa, lbTen, lbSDT;
-	private JTextField txtMa, txtTen, txtSDT;
-	private JButton btnThem, btnXoa, btnXoaTrang, btnSua;
+    private static final long serialVersionUID = 1L;
+    private JLabel lbMa, lbTen, lbSDT;
+    private JTextField txtMa, txtTen, txtSDT;
+    private JButton btnThem, btnXoa, btnXoaTrang, btnSua;
+    private JPanel pnSouth;
+    private JTable table;
+    private DefaultTableModel model;
+    private JLabel lbGioiTinh;
+    private JLabel lbNamSinh;
+    private ButtonGroup groudradio;
+    private JRadioButton raNu;
+    private JRadioButton raNam;
+    private JButton btnTim;
+    private JTextField txtNamSinh;
+    private JButton btnLoadData;
+    private JLabel lbVaiTro;
+    private JLabel lbTrinhDo;
+    private JLabel lbTitle;
 
-	private JPanel pnSouth;
-	private JTable table;
-	private DefaultTableModel model;
-
-	private JLabel lbGioiTinh;
-	
-	private JLabel lbNamSinh;
-	private ButtonGroup groudradio;
-	private JRadioButton raNu;
-	private JRadioButton raNam;
-
-
-	private JButton btnTim;
-
-
-	private JTextField txtNamSinh;
-	private JButton btnLoadData;
-	private JLabel lbVaiTro;
-	private JLabel lbTrinhDo;
-	private Container b10;
-	private JLabel lbTitle;
-	public QuanLyNhanVienGUI() {
-    	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    public QuanLyNhanVienGUI() {
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
     }
-	public void initComponents() {
-		// TODO Auto-generated constructor stub
-//		try {
-//			DatabaseConnection.getInstance().connect();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-		
-		this.setLayout(new BorderLayout());
-		// Panel chứa thông tin nhân viên
-		JPanel pnNorth = new JPanel();
-		JPanel pnTitle = new JPanel(new BorderLayout()); 
-		lbTitle = new JLabel("QUẢN LÝ NHÂN VIÊN", JLabel.CENTER);
-		lbTitle.setFont(new Font("Arial", Font.BOLD, 24));
-		lbTitle.setOpaque(true);
-		lbTitle.setBackground(new Color(4, 71, 126));
-		lbTitle.setForeground(Color.WHITE);
-		lbTitle.setPreferredSize(new Dimension(0, 100));
-		pnTitle.add(lbTitle, BorderLayout.CENTER);
-	
-		pnNorth.add(pnTitle);
-		pnNorth.add(Box.createVerticalStrut(20));
-		pnNorth.setLayout(new BoxLayout(pnNorth, BoxLayout.Y_AXIS));
-		Box b = Box.createHorizontalBox();
-		Box b1 = Box.createVerticalBox();
-		Box b2 = Box.createVerticalBox();
-		lbMa = new JLabel("Mã nhân viên:");
-		lbMa.setPreferredSize(new Dimension(100, 15));	
 
-		lbTen = new JLabel("Tên nhân viên:");
-		lbTen.setPreferredSize(lbMa.getPreferredSize());
+    public void initComponents() {
+        this.setLayout(new BorderLayout());
 
-		lbGioiTinh = new JLabel("Giới tính:");
-		lbGioiTinh.setPreferredSize(lbMa.getPreferredSize());
+        // Panel chứa tiêu đề
+        JPanel pnTitle = new JPanel(new BorderLayout());
+        lbTitle = new JLabel("QUẢN LÝ NHÂN VIÊN", JLabel.CENTER);
+        lbTitle.setFont(new Font("Arial", Font.BOLD, 24));
+        lbTitle.setOpaque(true);
+        lbTitle.setBackground(new Color(4, 71, 126));
+        lbTitle.setForeground(Color.WHITE);
+        lbTitle.setPreferredSize(new Dimension(0, 100));
+        pnTitle.add(lbTitle, BorderLayout.CENTER);
 
-		lbSDT = new JLabel("Số điện thoại:");
-		lbSDT.setPreferredSize(lbMa.getPreferredSize());
+        // Thêm panel tiêu đề vào pnNorth
+        JPanel pnNorth = new JPanel(new BorderLayout());
+        pnNorth.add(pnTitle, BorderLayout.NORTH);
+        this.add(pnNorth, BorderLayout.NORTH);
 
-		lbVaiTro= new JLabel("Vai trò:");
-		lbVaiTro.setPreferredSize(lbMa.getPreferredSize());
-		
+        // Panel chứa các form và bảng
+        JPanel pnCenter = new JPanel();
+        pnCenter.setLayout(new BorderLayout());
 
-		lbNamSinh = new JLabel("Năm sinh:");
-		lbNamSinh.setPreferredSize(lbMa.getPreferredSize());
-		
-		
+        // Tạo form
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new GridLayout(0, 2, 10, 10)); // 2 cột
+        createForm(formPanel);
 
-		txtMa = new JTextField(10);
-		txtMa.setEditable(false);
-		txtTen = new JTextField();
-		txtTen.setPreferredSize(txtMa.getPreferredSize());
-		raNu = new JRadioButton("Nữ");
+        // Panel chứa các nút
+        JPanel pnButtons = new JPanel();
+        createButtons(pnButtons);
 
-		raNam = new JRadioButton("Nam");
+        // Tạo bảng
+        pnSouth = new JPanel();
+        createTable();
 
-		groudradio = new ButtonGroup();
-		groudradio.add(raNam);
-		groudradio.add(raNu);
+        // Thêm form và bảng vào pnCenter
+        pnCenter.add(formPanel, BorderLayout.NORTH);
+        pnCenter.add(pnButtons, BorderLayout.CENTER);
+        pnCenter.add(pnSouth, BorderLayout.SOUTH);
 
-		txtSDT = new JTextField();
-		JComboBox<String> comboBoxVaiTro = new JComboBox<>();
-		comboBoxVaiTro.addItem("Quản lý");
-		comboBoxVaiTro.addItem("Nhân Viên");
-		txtNamSinh = new JTextField();
-		
-		
-		JPanel formPanel1 = new JPanel(new GridLayout(0, 2, 10, 10));
-		formPanel1.add(lbMa);
-		formPanel1.add(txtMa);
-		formPanel1.add(lbVaiTro);
-		formPanel1.add(comboBoxVaiTro);
-		formPanel1.add(lbNamSinh);
-		formPanel1.add(txtNamSinh);
+        this.add(pnCenter, BorderLayout.CENTER);
+        this.setVisible(true);
+    }
 
-		JPanel formPanel2 = new JPanel(new GridLayout(0, 2, 10, 10));
-		formPanel2.add(lbTen);
-		formPanel2.add(txtTen);
-		formPanel2.add(lbSDT);
-		formPanel2.add(txtSDT);
-		formPanel2.add(lbGioiTinh);
-		JPanel genderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
-		raNam = new JRadioButton("Nam");
-		raNu = new JRadioButton("Nữ");
+    private void createForm(JPanel formPanel) {
+        lbMa = new JLabel("Mã nhân viên:");
+        lbTen = new JLabel("Tên nhân viên:");
+        lbGioiTinh = new JLabel("Giới tính:");
+        lbSDT = new JLabel("Số điện thoại:");
+        lbVaiTro = new JLabel("Vai trò:");
+        lbNamSinh = new JLabel("Năm sinh:");
 
-		// Nhóm radio lại
-		groudradio = new ButtonGroup();
-		groudradio.add(raNam);
-		groudradio.add(raNu);
+        txtMa = new JTextField(10);
+        txtMa.setEditable(false);
+        txtTen = new JTextField();
+        txtSDT = new JTextField();
+        txtNamSinh = new JTextField();
 
-		// Thêm radio vào panel con
-		genderPanel.add(raNam);
-		genderPanel.add(raNu);
+        raNam = new JRadioButton("Nam");
+        raNu = new JRadioButton("Nữ");
+        groudradio = new ButtonGroup();
+        groudradio.add(raNam);
+        groudradio.add(raNu);
 
-		// Thêm panel chứa radio vào form chính
-		formPanel2.add(genderPanel);
-		Dimension inputSize = new Dimension(400, 25);
-		txtMa.setPreferredSize(inputSize);
-		txtTen.setPreferredSize(inputSize);
-		txtSDT.setPreferredSize(inputSize);
-		txtNamSinh.setPreferredSize(inputSize);
+        JComboBox<String> comboBoxVaiTro = new JComboBox<>();
+        comboBoxVaiTro.addItem("Quản lý");
+        comboBoxVaiTro.addItem("Nhân Viên");
 
-		comboBoxVaiTro.setPreferredSize(inputSize);
-		
+        formPanel.add(lbMa);
+        formPanel.add(txtMa);
+        formPanel.add(lbVaiTro);
+        formPanel.add(comboBoxVaiTro);
+        formPanel.add(lbNamSinh);
+        formPanel.add(txtNamSinh);
+        formPanel.add(lbTen);
+        formPanel.add(txtTen);
+        formPanel.add(lbSDT);
+        formPanel.add(txtSDT);
+        formPanel.add(lbGioiTinh);
+        
+        JPanel genderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
+        genderPanel.add(raNam);
+        genderPanel.add(raNu);
+        formPanel.add(genderPanel);
+    }
 
-		
-		b.add(Box.createHorizontalStrut(40));
-		b.add(formPanel1);
-		b.add(Box.createHorizontalStrut(40));
-		b.add(formPanel2);
-		b.add(Box.createHorizontalStrut(40));
+    private void createButtons(JPanel pnButtons) {
+        btnThem = new JButton("Thêm");
+        btnSua = new JButton("Sửa");
+        btnXoa = new JButton("Xóa");
+        btnXoaTrang = new JButton("Xóa trắng");
+        btnTim = new JButton("Tìm kiếm");
+        btnLoadData = new JButton("Load dữ liệu");
 
-		pnNorth.add(b);
-		
-		// panel chứa các btn thêm xóa sửa xóa trắng
-		JPanel pnCenter = new JPanel();
-		btnThem = new JButton("Thêm");
-		btnSua = new JButton("Sửa");
-		btnXoa = new JButton("Xóa");
-		btnXoaTrang = new JButton("Xóa trắng");
-		btnTim = new JButton("Tìm kiếm");
-		btnLoadData = new JButton("Load dữ liệu");
-		// Thêm vào panel
-		pnCenter.add(btnThem);
-		pnCenter.add(btnXoa);
-		pnCenter.add(btnSua);
-		pnCenter.add(btnXoaTrang);
-		pnCenter.add(btnTim);
-		pnCenter.add(btnLoadData);
-		btnThem.addActionListener(this);
-		btnSua.addActionListener(this);
-		btnXoa.addActionListener(this);
-		btnXoaTrang.addActionListener(this);
-		btnTim.addActionListener(this);
-		btnLoadData.addActionListener(this);
-		// panel chứa danh sách nhân viên
-		pnSouth = new JPanel();
-		TitledBorder titledBorder1 = BorderFactory.createTitledBorder("Danh sách nhân viên:");
-		Font font1 = titledBorder1.getTitleFont().deriveFont(Font.PLAIN, 20);
-		titledBorder1.setTitleFont(font1);
-		pnSouth.setBorder(titledBorder1);
-		taoBang();
-//		loadDataToTable();
-		
-		this.add(pnNorth, BorderLayout.NORTH);
-		this.add(pnCenter, BorderLayout.CENTER);
-		this.add(pnSouth, BorderLayout.SOUTH);
-		this.setVisible(true);
-		setForeground(Color.white);
-	}
+        pnButtons.add(btnThem);
+        pnButtons.add(btnXoa);
+        pnButtons.add(btnSua);
+        pnButtons.add(btnXoaTrang);
+        pnButtons.add(btnTim);
+        pnButtons.add(btnLoadData);
 
-	private void taoBang() {
-		// TODO Auto-generated method stub
-		model = new DefaultTableModel();
-		table = new JTable(model);
-		model.addColumn("Mã Nhân Viên");
-		model.addColumn("Tên Nhân Viên");
-		model.addColumn("Giới tính");
-		model.addColumn("Số Điện Thoại");
-		model.addColumn("Vai Trò");
-		model.addColumn("Năm sinh");
-		model.addColumn("Trình độ");
-		TableColumn colum = new TableColumn();
-		colum.setPreferredWidth(100);
-		DefaultTableCellRenderer rightRender = new DefaultTableCellRenderer();
-		DefaultTableCellRenderer centerRender = new DefaultTableCellRenderer();
-		rightRender.setHorizontalAlignment(DefaultTableCellRenderer.RIGHT);
-		centerRender.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-		table.getColumnModel().getColumn(0).setCellRenderer(centerRender);
-		table.getColumnModel().getColumn(1).setCellRenderer(rightRender);
-		table.getColumnModel().getColumn(2).setCellRenderer(rightRender);
-		table.getColumnModel().getColumn(3).setCellRenderer(rightRender);
-		table.getColumnModel().getColumn(4).setCellRenderer(rightRender);
-		table.getColumnModel().getColumn(5).setCellRenderer(rightRender);
+        btnThem.addActionListener(this);
+        btnSua.addActionListener(this);
+        btnXoa.addActionListener(this);
+        btnXoaTrang.addActionListener(this);
+        btnTim.addActionListener(this);
+        btnLoadData.addActionListener(this);
+    }
 
-		JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		pnSouth.setLayout(new BorderLayout());     
-	    pnSouth.add(sp, BorderLayout.CENTER);      
-	    table.addMouseListener(this);
-	}
+    private void createTable() {
+        model = new DefaultTableModel();
+        table = new JTable(model);
+        model.addColumn("Mã Nhân Viên");
+        model.addColumn("Tên Nhân Viên");
+        model.addColumn("Giới tính");
+        model.addColumn("Số Điện Thoại");
+        model.addColumn("Vai Trò");
+        model.addColumn("Năm sinh");
+        model.addColumn("Trình độ");
+
+        JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        pnSouth.setLayout(new BorderLayout());
+        pnSouth.add(sp, BorderLayout.CENTER);
+        table.addMouseListener(this);
+    }
+
 
 
 //	@Override
