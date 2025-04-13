@@ -13,6 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Controller.QuanLyThuocController;
+import Models.Thuoc;
+
 
 /**
  *
@@ -102,6 +105,8 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_table = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        
+        quanLyThuocController = new QuanLyThuocController();
 
         jButton1.setText("jButton1");
 
@@ -727,6 +732,20 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
+    	quanLyThuocController =new  QuanLyThuocController();
+    	if(cb_filter.getSelectedIndex()==0) {
+    		String tenThuoc = field_search.getText();
+    		Thuoc thuoc =  quanLyThuocController.timThuocbyName(tenThuoc);
+    		giatri_mathuoc.setText(thuoc.getMaThuoc());
+    		giatri_giatien.setText(Double.toString(thuoc.getdonGia()));
+    		giatri_donvi.setText(thuoc.getDonViTinh());
+    		giatri_hamluong.setText(Double.toString(thuoc.getHamLuong()));
+    		giatri_tenthuoc.setText(thuoc.getTenThuoc());
+    		giatri_ngayhethan.setText(thuoc.getNgayHetHan().toString());
+    		giatri_phanloai.setText(thuoc.getPhanLoai());
+    		
+    	}
+    	
     }                                             
 
     private void button_searchMouseClicked(java.awt.event.MouseEvent evt) {                                           
@@ -882,6 +901,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_thongtinsanpham;
     private javax.swing.JPanel panel_title;
     
+    private QuanLyThuocController quanLyThuocController;
     
     // End of variables declaration    
     

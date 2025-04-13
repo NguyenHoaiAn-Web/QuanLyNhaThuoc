@@ -70,7 +70,11 @@ public class QuanLyThuocController {
 		return success;
 		
 	}
-
-
+	
+	
+	public Thuoc timThuocbyName(String maThuoc) {
+		quanLyThuocService = new QuanLyThuocService();
+		return quanLyThuocService.getThuoc(maThuoc);
+	}
 
 }

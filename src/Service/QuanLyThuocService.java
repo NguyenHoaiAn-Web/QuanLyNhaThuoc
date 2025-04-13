@@ -12,6 +12,9 @@ import java.sql.*;
 import ConnectDB.ConnectDB;
 import Models.Thuoc;
 
+
+// Quản lý thuốc cần xử lý nhập và tải hình ảnh từ database
+
 public class QuanLyThuocService {
 	
 	public List<Thuoc> getDanhSachThuoc(){
@@ -95,5 +98,49 @@ public class QuanLyThuocService {
 		}
 		
 	}
+	
+	
+	public Thuoc getThuoc(String tenThuoc) {
+		
+		String sql = "SELECT * FROM Thuoc WHERE tenThuoc = ?";
+		
+		ConnectDB  connectDB = ConnectDB.getInstance();
+		connectDB.connect();
+		
+		try (Connection con = connectDB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			
+			
+			stmt.setString(1,  tenThuoc);
+			ResultSet rs = stmt.executeQuery();
+			
+			Thuoc thuoc = new Thuoc();
+			if(rs.next()) {
+				
+						thuoc.setMaThuoc(rs.getString("maThuoc"));
+						thuoc.setTenThuoc(rs.getString("tenThuoc"));
+						thuoc.setDonViTinh(rs.getString("donViTinh"));
+						thuoc.setPhanLoai(rs.getString("phanLoai"));
+						thuoc.setHinhAnh(rs.getString("hinhAnh"));
+						thuoc.setNgayNhap(rs.getDate("ngayNhap").toLocalDate());
+						thuoc.setNgayHetHan(rs.getDate("ngayHetHan").toLocalDate());
+						thuoc.setdonGia(rs.getDouble("donGia"));
+						thuoc.setSoLuong(rs.getInt("soLuong"));
+						thuoc.setHamLuong((float)rs.getDouble("hamLuong"));
+						;
+							
+			}
+			return thuoc;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}finally {
+			connectDB.disconnect();
+		}
+		
+	}
+	
+	
 
 }

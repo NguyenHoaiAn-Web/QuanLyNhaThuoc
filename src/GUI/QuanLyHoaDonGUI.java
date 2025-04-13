@@ -76,7 +76,6 @@ public class QuanLyHoaDonGUI extends javax.swing.JFrame {
         tongtien = new javax.swing.JLabel();
         
         
-        menuForm = new MenuForm();
         
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

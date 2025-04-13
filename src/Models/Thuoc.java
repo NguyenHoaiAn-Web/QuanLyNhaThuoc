@@ -33,6 +33,10 @@ public class Thuoc {
 		this.soLuong = soLuong;
 		this.hamLuong = hamLuong;
 	}
+	
+	public Thuoc() {
+		
+	}
 	public String getMaThuoc() {
 		return maThuoc;
 	}

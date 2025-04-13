@@ -29,6 +29,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.QuanLyThuocController;
+import Models.Thuoc;
 
 
 /**
@@ -780,6 +781,10 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
+    	String tenThuoc = field_search.getText();
+    	quanLyThuocController = new QuanLyThuocController();
+    	Thuoc thuoc = quanLyThuocController.timThuocbyName(tenThuoc);
+    	System.out.println(thuoc.getNgayNhap());
     }                                             
 
     private void button_searchMouseClicked(java.awt.event.MouseEvent evt) {                                           
