@@ -734,8 +734,9 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     	quanLyThuocController =new  QuanLyThuocController();
     	if(cb_filter.getSelectedIndex()==0) {
+    		String tenColDB = "tenThuoc";
     		String tenThuoc = field_search.getText();
-    		Thuoc thuoc =  quanLyThuocController.timThuocbyName(tenThuoc);
+    		Thuoc thuoc =  quanLyThuocController.timThuocbyName(tenColDB,tenThuoc);
     		giatri_mathuoc.setText(thuoc.getMaThuoc());
     		giatri_giatien.setText(Double.toString(thuoc.getdonGia()));
     		giatri_donvi.setText(thuoc.getDonViTinh());
@@ -745,6 +746,20 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     		giatri_phanloai.setText(thuoc.getPhanLoai());
     		
     	}
+    	if(cb_filter.getSelectedIndex()==1) {
+    		String tenColDB = "phanLoai";
+    		String tenThuoc = field_search.getText();
+    		
+    		Thuoc thuoc =  quanLyThuocController.timThuocbyName(tenColDB,tenThuoc);
+    		giatri_mathuoc.setText(thuoc.getMaThuoc());
+    		giatri_giatien.setText(Double.toString(thuoc.getdonGia()));
+    		giatri_donvi.setText(thuoc.getDonViTinh());
+    		giatri_hamluong.setText(Double.toString(thuoc.getHamLuong()));
+    		giatri_tenthuoc.setText(thuoc.getTenThuoc());
+    		giatri_ngayhethan.setText(thuoc.getNgayHetHan().toString());
+    		giatri_phanloai.setText(thuoc.getPhanLoai());
+    	}
+    	
     	
     }                                             
 

@@ -100,9 +100,9 @@ public class QuanLyThuocService {
 	}
 	
 	
-	public Thuoc getThuoc(String tenThuoc) {
+	public Thuoc getThuoc(String tenColDB, String value) {
 		
-		String sql = "SELECT * FROM Thuoc WHERE tenThuoc = ?";
+		String sql = "SELECT * FROM Thuoc WHERE "+ tenColDB + "=?";
 		
 		ConnectDB  connectDB = ConnectDB.getInstance();
 		connectDB.connect();
@@ -111,7 +111,7 @@ public class QuanLyThuocService {
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 			
 			
-			stmt.setString(1,  tenThuoc);
+			stmt.setString(1,  value);
 			ResultSet rs = stmt.executeQuery();
 			
 			Thuoc thuoc = new Thuoc();
