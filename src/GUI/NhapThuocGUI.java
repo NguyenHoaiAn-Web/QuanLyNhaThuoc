@@ -701,7 +701,7 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 					 donViTinh,  donGia,  phanLoai,  hamLuong,  tableModel);
             if(success) {
             	JOptionPane.showMessageDialog(null, "Thêm thuốc thành công");
-            	dispose();
+            	
             }else {
             	JOptionPane.showMessageDialog(null, "Thêm thuốc thất bại", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
