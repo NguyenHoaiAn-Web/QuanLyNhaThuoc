@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 
 import ConnectDB.ConnectDB;
@@ -50,23 +53,29 @@ public class QuanLyThuocService {
         
 	}
 	
-	/*public boolean themThuocService(Thuoc thuoc) {
+	public boolean themThuocService(Thuoc thuoc) {
 		String sql = "INSERT INTO Thuoc (maThuoc, tenThuoc, hinhAnh, ngayNhap, ngayHetHan, soLuong, donViTinh, donGia, phanLoai, hamLuong)"
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		ConnectDB connectDB = ConnectDB.getInstance();
-		
+		connectDB.connect();
 		try(Connection con = connectDB.getConnection();
 	             PreparedStatement stmt = con.prepareStatement(sql)) {
 			
-			SimpleDateFormat  formatter = new SimpleDateFormat("yyyy-MM-dd");
+			/*SimpleDateFormat  formatter = new SimpleDateFormat("yyyy-MM-dd");
 			String ngayNhap = formatter.format(thuoc.getNgayNhap());
-			String ngayHetHan = formatter.format(thuoc.getNgayHetHan());
+			String ngayHetHan = formatter.format(thuoc.getNgayHetHan());*/
+			
+	        byte[] imageData = null;
+	        if (thuoc.getHinhAnh() != null && !thuoc.getHinhAnh().isEmpty()) {
+	            Path path = Paths.get(thuoc.getHinhAnh());
+	            imageData = Files.readAllBytes(path);
+	        }
 			
             stmt.setString(1, thuoc.getMaThuoc());
             stmt.setString(2, thuoc.getTenThuoc());
             stmt.setString(3, thuoc.getHinhAnh());
-            stmt.setDate(4, Date.valueOf(ngayNhap));
-            stmt.setDate(5, Date.valueOf(ngayHetHan));
+            stmt.setDate(4, Date.valueOf(thuoc.getNgayNhap()));
+            stmt.setDate(5, Date.valueOf(thuoc.getNgayHetHan()));
             stmt.setInt(6, thuoc.getSoLuong());
             stmt.setString(7, thuoc.getDonViTinh());
             stmt.setDouble(8, thuoc.getdonGia());
@@ -79,10 +88,12 @@ public class QuanLyThuocService {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
 			return false;
+		}finally{
+			connectDB.disconnect();
 		}
 		
-	}*/
+	}
 
 }

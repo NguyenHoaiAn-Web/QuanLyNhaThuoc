@@ -1,5 +1,7 @@
 package Controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
@@ -38,4 +40,37 @@ public class QuanLyThuocController {
 			
 		}
 	}
+	
+	
+	public boolean themThuoc(String maThuoc, String tenThuoc, String hinhAnh, LocalDate ngayNhap_date, LocalDate ngayHetHan_date, int soLuong,
+								String donViTinh, double donGia, String phanLoai, double hamLuong, DefaultTableModel tableModel
+			) {
+	
+		quanLyThuocService = new QuanLyThuocService();
+		Thuoc thuoc = new Thuoc(maThuoc, tenThuoc, donViTinh,phanLoai,hinhAnh, ngayNhap_date, ngayHetHan_date, donGia, soLuong,hamLuong);
+		
+		boolean success = quanLyThuocService.themThuocService(thuoc);
+		
+		Object[] rowData = {
+				maThuoc,
+				tenThuoc,
+				hinhAnh,
+				ngayNhap_date,
+				ngayHetHan_date,
+				donGia,
+				soLuong,
+				phanLoai,
+				donViTinh,
+				hamLuong
+        		
+            };
+		
+		tableModel.addRow(rowData);
+		
+		return success;
+		
+	}
+
+
+
 }

@@ -1,5 +1,6 @@
 package Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Thuoc {
@@ -8,8 +9,8 @@ public class Thuoc {
 	private String donViTinh;
 	private String phanLoai;
 	private String hinhAnh;
-	private Date ngayNhap;
-	private Date ngayHetHan;
+	private LocalDate ngayNhap;
+	private LocalDate ngayHetHan;
 	private double donGia;
 	private int soLuong;
 	private double hamLuong;
@@ -18,8 +19,8 @@ public class Thuoc {
 		super();
 		this.maThuoc=maThuoc;
 	}
-	public Thuoc(String maThuoc, String tenThuoc, String donViTinh, String phanLoai, String hinhAnh, Date ngayNhap,
-			Date ngayHetHan, double donGia, int soLuong, double hamLuong) {
+	public Thuoc(String maThuoc, String tenThuoc, String donViTinh, String phanLoai, String hinhAnh, LocalDate ngayNhap,
+			LocalDate ngayHetHan, double donGia, int soLuong, double hamLuong) {
 		super();
 		this.maThuoc = maThuoc;
 		this.tenThuoc = tenThuoc;
@@ -62,16 +63,16 @@ public class Thuoc {
 	public void setHinhAnh(String hinhAnh) {
 		this.hinhAnh = hinhAnh;
 	}
-	public Date getNgayNhap() {
+	public LocalDate getNgayNhap() {
 		return ngayNhap;
 	}
-	public void setNgayNhap(Date ngayNhap) {
+	public void setNgayNhap(LocalDate ngayNhap) {
 		this.ngayNhap = ngayNhap;
 	}
-	public Date getNgayHetHan() {
+	public LocalDate getNgayHetHan() {
 		return ngayHetHan;
 	}
-	public void setNgayHetHan(Date ngayHetHan) {
+	public void setNgayHetHan(LocalDate ngayHetHan) {
 		this.ngayHetHan = ngayHetHan;
 	}
 	public double getdonGia() {

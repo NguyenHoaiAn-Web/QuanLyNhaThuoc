@@ -5,13 +5,30 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
+import Controller.QuanLyThuocController;
 
 
 /**
@@ -20,7 +37,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class NhapThuocGUI extends javax.swing.JFrame {
 
-    /**
+   
+
+
+	/**
      * Creates new form MainForm
      */
     public NhapThuocGUI() {
@@ -57,7 +77,7 @@ public class NhapThuocGUI extends javax.swing.JFrame {
         panel_nhapthuoc = new javax.swing.JPanel();
         panel_button = new javax.swing.JPanel();
         panel_contain_button = new javax.swing.JPanel();
-        button_taohaodon = new javax.swing.JButton();
+        button_them = new javax.swing.JButton();
         button_xoa = new javax.swing.JButton();
         button_hoantac = new javax.swing.JButton();
         button_thoat = new javax.swing.JButton();
@@ -86,6 +106,11 @@ public class NhapThuocGUI extends javax.swing.JFrame {
         panel_table = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        
+        lblImagePreview = new javax.swing.JLabel();
+        
+        
+        quanLyThuocController = new QuanLyThuocController();
         
         
         
@@ -234,24 +259,26 @@ public class NhapThuocGUI extends javax.swing.JFrame {
         panel_contain_button.setPreferredSize(new java.awt.Dimension(550, 50));
         panel_contain_button.setLayout(new java.awt.GridBagLayout());
 
-        button_taohaodon.setText("Thêm ");
-        button_taohaodon.setActionCommand("Thêm");
-        button_taohaodon.setPreferredSize(new java.awt.Dimension(120, 26));
-        button_taohaodon.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_them.setText("Thêm ");
+        button_them.setActionCommand("Thêm");
+        button_them.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_them.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_taohaodonMouseClicked(evt);
             }
         });
-        button_taohaodon.addActionListener(new java.awt.event.ActionListener() {
+        button_them.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_taohaodonActionPerformed(evt);
+                button_themActionPerformed(evt);
             }
+
+
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        panel_contain_button.add(button_taohaodon, gridBagConstraints);
+        panel_contain_button.add(button_them, gridBagConstraints);
 
         button_xoa.setText("Xóa");
         button_xoa.setPreferredSize(new java.awt.Dimension(120, 26));
@@ -508,17 +535,34 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
         panel_table.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        
+        
+        String[] columnNames = {
+                "Mã Thuốc", "Tên Thuốc","Hình Ảnh", "Ngày Nhập" ,"Ngày Hết Hạn", "Giá", "Số Lương", "Phân Loại", "Đơn Vị Tính", "Hàm Lượng"
+            }
+        ;
+        
+        Object[][] data = {
+                {null, null,null, null, null, null, null, null, null, null},
+                {null, null,null, null, null, null, null, null, null, null},
+                {null, null,null, null, null, null, null, null, null, null},
+                {null, null,null, null, null, null, null, null, null, null}
+            };
+        
+        
+         tableModel = new DefaultTableModel(data, columnNames);
+        jTable1.setModel(tableModel);
+       /* jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null,null, null, null, null, null, null, null, null},
+                {null, null,null, null, null, null, null, null, null, null},
+                {null, null,null, null, null, null, null, null, null, null},
+                {null, null,null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Thuốc", "Tên Thuốc", "Ngày Nhập", "Ngày Hết Hạn", "Giá", "Số Lương", "Phân Loại", "Đơn Vị Tính", "Hàm Lượng"
+                "Mã Thuốc", "Tên Thuốc","Hình Ảnh", "Ngày Nhập" ,"Ngày Hết Hạn", "Giá", "Số Lương", "Phân Loại", "Đơn Vị Tính", "Hàm Lượng"
             }
-        ));
+        ));*/
         jScrollPane1.setViewportView(jTable1);
 
         panel_table.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -619,7 +663,120 @@ public class NhapThuocGUI extends javax.swing.JFrame {
         }else{
            this.setExtendedState(NhapThuocGUI.NORMAL);
         }  
-    }                                             
+    }     
+    
+    
+	private void button_themActionPerformed(ActionEvent evt) {
+		// TODO Auto-generated method stub
+		try {
+			
+			String maThuoc = field_mathuoc.getText();
+            String tenThuoc = field_tenthuoc.getText();
+            //String hinhAnh = button_hinhanh.getText();
+            String ngayNhap = field_ngaynhap.getText();
+            String ngayHetHan = field_ngayhethan.getText();
+            int soLuong = Integer.parseInt(field_soluong.getText());
+            String donViTinh = jComboBox2.getSelectedItem().toString();
+            double donGia = Double.parseDouble(field_gia.getText());
+            String phanLoai = field_phanloai.getText();
+            double hamLuong = Double.parseDouble(field_hamluong.getText())  ;
+            
+            
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            
+            LocalDate ngayNhap_date = LocalDate.parse(ngayNhap, formatter);
+            LocalDate ngayHetHan_date = LocalDate.parse(ngayHetHan, formatter);
+            
+ 
+            
+            String hinhAnh ="";
+            if(lblImagePreview.getIcon()!=null) {
+            	ImageIcon icon = (ImageIcon) lblImagePreview.getIcon();
+            	hinhAnh = encodeImageToBase64(icon.getImage());
+            }
+            
+            
+            // Cần handling Hình ảnh ở đây
+            boolean success = quanLyThuocController.themThuoc(maThuoc,  tenThuoc,  hinhAnh,  ngayNhap_date,  ngayHetHan_date,  soLuong,
+					 donViTinh,  donGia,  phanLoai,  hamLuong,  tableModel);
+            if(success) {
+            	JOptionPane.showMessageDialog(null, "Thêm thuốc thành công");
+            	dispose();
+            }else {
+            	JOptionPane.showMessageDialog(null, "Thêm thuốc thất bại", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(null, "Dữ liệu nhập không hợp lệ!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+		
+	}
+	
+	// handle image
+	private String encodeImageToBase64(Image image) {
+	    try {
+	        BufferedImage bufferedImage = new BufferedImage(
+	            image.getWidth(null), image.getHeight(null), 
+	            BufferedImage.TYPE_INT_RGB
+	        );
+	        
+	        Graphics2D g2d = bufferedImage.createGraphics();
+	        g2d.drawImage(image, 0, 0, null);
+	        g2d.dispose();
+	        
+	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        ImageIO.write(bufferedImage, "jpg", baos);
+	        byte[] imageBytes = baos.toByteArray();
+	        
+	        return Base64.getEncoder().encodeToString(imageBytes);
+	    } catch (IOException e) {
+	        JOptionPane.showMessageDialog(null, "Lỗi khi xử lý hình ảnh", "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        return "";
+	    }
+	}
+	
+	
+	
+	// Image upload button handler
+	private void btnUploadImageActionPerformed(ActionEvent evt) {
+	    JFileChooser fileChooser = new JFileChooser();
+	    fileChooser.setDialogTitle("Chọn hình ảnh thuốc");
+	    
+	    // Filter for image files only
+	    fileChooser.setAcceptAllFileFilterUsed(false);
+	    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter(
+	        "Image files", ImageIO.getReaderFileSuffixes()));
+	    
+	    int returnValue = fileChooser.showOpenDialog(this);
+	    if (returnValue == JFileChooser.APPROVE_OPTION) {
+	        File selectedFile = fileChooser.getSelectedFile();
+	        try {
+	            // Create and scale the image for preview
+	            ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
+	            Image scaledImage = icon.getImage().getScaledInstance(
+	                150, 150, Image.SCALE_SMOOTH);
+	            lblImagePreview.setIcon(new ImageIcon(scaledImage));
+	            
+	            // Optional: Store the original file path if needed
+	            // button_hinhanh.setText(selectedFile.getAbsolutePath());
+	        } catch (Exception ex) {
+	            JOptionPane.showMessageDialog(this, 
+	                "Không thể tải hình ảnh: " + ex.getMessage(), 
+	                "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        }
+	    }
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
@@ -670,6 +827,8 @@ public class NhapThuocGUI extends javax.swing.JFrame {
 
     private void button_hinhanhActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
+    	
+    	
     }                                              
 
     private void button_hinhanhMouseClicked(java.awt.event.MouseEvent evt) {                                            
@@ -717,7 +876,7 @@ public class NhapThuocGUI extends javax.swing.JFrame {
     private javax.swing.JButton button_hinhanh;
     private javax.swing.JButton button_hoantac;
     private javax.swing.JButton button_search;
-    private javax.swing.JButton button_taohaodon;
+    private javax.swing.JButton button_them;
     private javax.swing.JButton button_thoat;
     private javax.swing.JButton button_xoa;
     private javax.swing.JComboBox<String> cb_filter;
@@ -762,6 +921,11 @@ public class NhapThuocGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_thanhsearch_button;
     private javax.swing.JPanel panel_thongtin;
     private javax.swing.JPanel panel_title;
+    
+    private QuanLyThuocController quanLyThuocController;
+    private DefaultTableModel tableModel;
+    
+    private javax.swing.JLabel lblImagePreview;
     
     
     // End of variables declaration 
