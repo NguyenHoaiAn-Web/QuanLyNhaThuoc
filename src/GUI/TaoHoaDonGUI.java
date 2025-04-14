@@ -4,14 +4,21 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 import Controller.QuanLyThuocController;
 import Models.Thuoc;
@@ -60,7 +67,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_hoadon = new javax.swing.JPanel();
         panel_taohoadon = new javax.swing.JPanel();
         panel_contain_button = new javax.swing.JPanel();
-        button_taohaodon = new javax.swing.JButton();
+        button_them = new javax.swing.JButton();
         button_xoa = new javax.swing.JButton();
         button_hoantac = new javax.swing.JButton();
         cb_soluong = new javax.swing.JComboBox<>();
@@ -102,9 +109,15 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         field_ngayban = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        panel_table = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        panel_table_thuoc_hoadon = new javax.swing.JPanel();
+        scroll_thuoc_hoadon = new javax.swing.JScrollPane();
+        table_thuoc_hoadon = new javax.swing.JTable();
+        panel_table_listthuoc = new JPanel();
+        table_listthuoc = new javax.swing.JTable();
+        
+       
+        
+        scroll_panel_listthuoc = new javax.swing.JScrollPane();
         
         quanLyThuocController = new QuanLyThuocController();
 
@@ -250,24 +263,24 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_contain_button.setPreferredSize(new java.awt.Dimension(470, 50));
         panel_contain_button.setLayout(new java.awt.GridBagLayout());
 
-        button_taohaodon.setText("Thêm ");
-        button_taohaodon.setActionCommand("Thêm");
-        button_taohaodon.setPreferredSize(new java.awt.Dimension(120, 26));
-        button_taohaodon.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_them.setText("Thêm ");
+        button_them.setActionCommand("Thêm");
+        button_them.setPreferredSize(new java.awt.Dimension(120, 26));
+        button_them.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_taohaodonMouseClicked(evt);
+                button_themMouseClicked(evt);
             }
         });
-        button_taohaodon.addActionListener(new java.awt.event.ActionListener() {
+        button_them.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_taohaodonActionPerformed(evt);
+                button_themActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        panel_contain_button.add(button_taohaodon, gridBagConstraints);
+        panel_contain_button.add(button_them, gridBagConstraints);
 
         button_xoa.setText("Xóa");
         button_xoa.setPreferredSize(new java.awt.Dimension(120, 26));
@@ -334,9 +347,25 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_chitiethoadon.setLayout(new java.awt.BorderLayout());
 
         panel_table_thongtinthuoc.setLayout(new java.awt.GridLayout(1, 2));
+        
+        
 
-        panel_sanpham.setLayout(new java.awt.GridLayout(2, 1));
-
+        panel_sanpham.setLayout(new java.awt.GridLayout(3, 1)); // edit this line
+        
+        String[] colname = {"Mã Thuốc", "Tên Thuốc", "Thành Phần Chính", "Hàm Lượng"};
+        Object[][] rawdata = {
+        		{null,null,null,null},
+        		{null,null,null,null},
+        		{null,null,null,null}
+        };
+        
+        tablemodel_thuoc_search = new DefaultTableModel(rawdata, colname);
+        
+        table_listthuoc.setModel(tablemodel_thuoc_search);
+        scroll_panel_listthuoc.setViewportView(table_listthuoc);
+        panel_sanpham.add(scroll_panel_listthuoc);
+        
+        
         panel_thongtinsanpham.setBackground(new java.awt.Color(255, 255, 255));
         panel_thongtinsanpham.setLayout(new java.awt.GridBagLayout());
 
@@ -493,6 +522,9 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         panel_hinhanhsanpham.add(jLabel18, java.awt.BorderLayout.CENTER);
 
         panel_sanpham.add(panel_hinhanhsanpham);
+        
+        
+        
 
         panel_table_thongtinthuoc.add(panel_sanpham);
 
@@ -610,9 +642,33 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
         jPanel2.add(panel_thongtin1);
 
-        panel_table.setLayout(new java.awt.BorderLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        
+        
+        
+        
+        panel_table_thuoc_hoadon.setLayout(new java.awt.BorderLayout());
+        
+        
+        
+        String[] col = {"Mã Thuốc", "Tên Thuốc", "Số Lượng", "Giá"};
+        
+        Object[][] data = {
+        		
+        		{null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+        		
+        };
+        DefaultTableModel  model_thuoc_hoadon = new DefaultTableModel(data,col);
+        
+        table_thuoc_hoadon.setModel(model_thuoc_hoadon);
+        
+        
+        scroll_thuoc_hoadon.setViewportView(table_thuoc_hoadon);
+        panel_table_thuoc_hoadon.add(scroll_thuoc_hoadon, java.awt.BorderLayout.CENTER);
+        jPanel2.add(panel_table_thuoc_hoadon);
+        /*table_thuoc_hoadon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -623,11 +679,16 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
                 "Mã Thuốc", "Tên Thuốc", "Số Lượng", "Giá"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        scroll_thuoc_hoadon.setViewportView(table_thuoc_hoadon);
 
-        panel_table.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        panel_table_thuoc_hoadon.add(scroll_thuoc_hoadon, java.awt.BorderLayout.CENTER);
 
-        jPanel2.add(panel_table);
+        jPanel2.add(panel_table_thuoc_hoadon);*/
+        
+        
+        
+        
+        
 
         panel_table_thongtinthuoc.add(jPanel2);
 
@@ -732,32 +793,30 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
+    	
+    	tablemodel_thuoc_search.setRowCount(0);
+    	
     	quanLyThuocController =new  QuanLyThuocController();
     	if(cb_filter.getSelectedIndex()==0) {
     		String tenColDB = "tenThuoc";
     		String tenThuoc = field_search.getText();
-    		Thuoc thuoc =  quanLyThuocController.timThuocbyName(tenColDB,tenThuoc);
-    		giatri_mathuoc.setText(thuoc.getMaThuoc());
-    		giatri_giatien.setText(Double.toString(thuoc.getdonGia()));
-    		giatri_donvi.setText(thuoc.getDonViTinh());
-    		giatri_hamluong.setText(Double.toString(thuoc.getHamLuong()));
-    		giatri_tenthuoc.setText(thuoc.getTenThuoc());
-    		giatri_ngayhethan.setText(thuoc.getNgayHetHan().toString());
-    		giatri_phanloai.setText(thuoc.getPhanLoai());
+    		List<Thuoc> listthuoc =  quanLyThuocController.timThuocbyField(tenColDB,tenThuoc);
+    		for(Thuoc thuoc: listthuoc) {
+    			Object[] data = {thuoc.getMaThuoc(), thuoc.getTenThuoc(), null, thuoc.getHamLuong()};
+    			tablemodel_thuoc_search.addRow(data);
+    		}
     		
     	}
     	if(cb_filter.getSelectedIndex()==1) {
     		String tenColDB = "phanLoai";
-    		String tenThuoc = field_search.getText();
+    		String phanloai = field_search.getText();
     		
-    		Thuoc thuoc =  quanLyThuocController.timThuocbyName(tenColDB,tenThuoc);
-    		giatri_mathuoc.setText(thuoc.getMaThuoc());
-    		giatri_giatien.setText(Double.toString(thuoc.getdonGia()));
-    		giatri_donvi.setText(thuoc.getDonViTinh());
-    		giatri_hamluong.setText(Double.toString(thuoc.getHamLuong()));
-    		giatri_tenthuoc.setText(thuoc.getTenThuoc());
-    		giatri_ngayhethan.setText(thuoc.getNgayHetHan().toString());
-    		giatri_phanloai.setText(thuoc.getPhanLoai());
+    		List<Thuoc> listthuoc =  quanLyThuocController.timThuocbyField(tenColDB,phanloai);
+    		for(Thuoc thuoc: listthuoc) {
+    			Object[] data = {thuoc.getMaThuoc(), thuoc.getTenThuoc(), null, thuoc.getHamLuong()};
+    			tablemodel_thuoc_search.addRow(data);
+    		}
+    		
     	}
     	
     	
@@ -767,12 +826,14 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                          
 
-    private void button_taohaodonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void button_themActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // TODO add your handling code here:
     }                                                
 
-    private void button_taohaodonMouseClicked(java.awt.event.MouseEvent evt) {                                              
+    private void button_themMouseClicked(java.awt.event.MouseEvent evt) {                                              
         // TODO add your handling code here:
+    	
+    	
     }                                             
 
     private void button_xoaActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -854,7 +915,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JButton button_hoantac;
     private javax.swing.JButton button_quaylai;
     private javax.swing.JButton button_search;
-    private javax.swing.JButton button_taohaodon;
+    private javax.swing.JButton button_them;
     private javax.swing.JButton button_xoa;
     private javax.swing.JComboBox<String> cb_filter;
     private javax.swing.JComboBox<String> cb_soluong;
@@ -878,8 +939,8 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane scroll_thuoc_hoadon;
+    private javax.swing.JTable table_thuoc_hoadon;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel label_close;
     private javax.swing.JLabel label_diachi;
@@ -907,7 +968,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_hoadon;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_sanpham;
-    private javax.swing.JPanel panel_table;
+    private javax.swing.JPanel panel_table_thuoc_hoadon;
     private javax.swing.JPanel panel_table_thongtinthuoc;
     private javax.swing.JPanel panel_taohoadon;
     private javax.swing.JPanel panel_thanhsearch_button;
@@ -915,6 +976,10 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     private javax.swing.JPanel panel_thongtin1;
     private javax.swing.JPanel panel_thongtinsanpham;
     private javax.swing.JPanel panel_title;
+    private javax.swing.JPanel panel_table_listthuoc;
+    private javax.swing.JTable table_listthuoc;
+    private javax.swing.JScrollPane scroll_panel_listthuoc;
+    private DefaultTableModel tablemodel_thuoc_search;
     
     private QuanLyThuocController quanLyThuocController;
     

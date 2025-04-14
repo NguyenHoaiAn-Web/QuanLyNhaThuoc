@@ -3,6 +3,8 @@ package Service;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -100,7 +102,8 @@ public class QuanLyThuocService {
 	}
 	
 	
-	public Thuoc getThuoc(String tenColDB, String value) {
+	public List<Thuoc> getListThuocbyField(String tenColDB, String value) {
+		List<Thuoc> listThuoc = new ArrayList<Thuoc>();
 		
 		String sql = "SELECT * FROM Thuoc WHERE "+ tenColDB + "=?";
 		
@@ -114,9 +117,9 @@ public class QuanLyThuocService {
 			stmt.setString(1,  value);
 			ResultSet rs = stmt.executeQuery();
 			
-			Thuoc thuoc = new Thuoc();
-			if(rs.next()) {
-				
+			
+			while(rs.next()) {
+				Thuoc thuoc = new Thuoc();
 						thuoc.setMaThuoc(rs.getString("maThuoc"));
 						thuoc.setTenThuoc(rs.getString("tenThuoc"));
 						thuoc.setDonViTinh(rs.getString("donViTinh"));
@@ -127,18 +130,20 @@ public class QuanLyThuocService {
 						thuoc.setdonGia(rs.getDouble("donGia"));
 						thuoc.setSoLuong(rs.getInt("soLuong"));
 						thuoc.setHamLuong((float)rs.getDouble("hamLuong"));
-						;
+						
+						listThuoc.add(thuoc);
 							
 			}
-			return thuoc;
 			
+			System.out.println(sql);
 		} catch (Exception e) {
 			// TODO: handle exception
-			return null;
+			e.printStackTrace();
+			return Collections.emptyList();
 		}finally {
 			connectDB.disconnect();
 		}
-		
+		return listThuoc;
 	}
 	
 	

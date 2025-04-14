@@ -72,9 +72,10 @@ public class QuanLyThuocController {
 	}
 	
 	
-	public Thuoc timThuocbyName(String tenColDB, String value) {
+	public List<Thuoc> timThuocbyField(String tenColDB, String value) {
 		quanLyThuocService = new QuanLyThuocService();
-		return quanLyThuocService.getThuoc(tenColDB,value);
+		List<Thuoc> listThuoc = quanLyThuocService.getListThuocbyField(tenColDB,value);
+		return listThuoc;
 	}
 
 }
