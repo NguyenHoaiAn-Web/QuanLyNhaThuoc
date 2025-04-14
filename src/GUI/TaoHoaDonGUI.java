@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
@@ -363,6 +364,29 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
         
         table_listthuoc.setModel(tablemodel_thuoc_search);
         scroll_panel_listthuoc.setViewportView(table_listthuoc);
+        
+        table_listthuoc.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		int row  = table_listthuoc.rowAtPoint(e.getPoint());
+        		//int col = table_listthuoc.columnAtPoint(e.getPoint());
+        		
+        		if(row>=0) {
+        			String mathuoc = (String) table_listthuoc.getValueAt(row, 0);
+        			Thuoc thuoc = quanLyThuocController.timThuocbyField("maThuoc", mathuoc);
+        			giatri_mathuoc.setText(thuoc.getMaThuoc());
+        			giatri_donvi.setText(thuoc.getDonViTinh());
+        			giatri_giatien.setText(Double.toString(thuoc.getdonGia()));
+        			giatri_ngayhethan.setText(thuoc.getNgayHetHan().toString());
+        			giatri_phanloai.setText(thuoc.getPhanLoai());
+        			giatri_hamluong.setText(Double.toString(thuoc.getHamLuong()));
+        			giatri_thanhphanchinh.setText("Null");
+        			giatri_tenthuoc.setText(thuoc.getTenThuoc());
+        			
+        		}
+        	
+        	}
+		});
         panel_sanpham.add(scroll_panel_listthuoc);
         
         
@@ -800,7 +824,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     	if(cb_filter.getSelectedIndex()==0) {
     		String tenColDB = "tenThuoc";
     		String tenThuoc = field_search.getText();
-    		List<Thuoc> listthuoc =  quanLyThuocController.timThuocbyField(tenColDB,tenThuoc);
+    		List<Thuoc> listthuoc =  quanLyThuocController.timListThuocbyField(tenColDB,tenThuoc);
     		for(Thuoc thuoc: listthuoc) {
     			Object[] data = {thuoc.getMaThuoc(), thuoc.getTenThuoc(), null, thuoc.getHamLuong()};
     			tablemodel_thuoc_search.addRow(data);
@@ -811,7 +835,7 @@ public class TaoHoaDonGUI extends javax.swing.JFrame {
     		String tenColDB = "phanLoai";
     		String phanloai = field_search.getText();
     		
-    		List<Thuoc> listthuoc =  quanLyThuocController.timThuocbyField(tenColDB,phanloai);
+    		List<Thuoc> listthuoc =  quanLyThuocController.timListThuocbyField(tenColDB,phanloai);
     		for(Thuoc thuoc: listthuoc) {
     			Object[] data = {thuoc.getMaThuoc(), thuoc.getTenThuoc(), null, thuoc.getHamLuong()};
     			tablemodel_thuoc_search.addRow(data);

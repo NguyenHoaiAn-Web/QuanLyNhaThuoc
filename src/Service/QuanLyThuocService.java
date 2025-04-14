@@ -135,7 +135,7 @@ public class QuanLyThuocService {
 							
 			}
 			
-			System.out.println(sql);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -145,6 +145,53 @@ public class QuanLyThuocService {
 		}
 		return listThuoc;
 	}
+	
+	
+	public Thuoc getThuocbyField(String tenColDB, String value) {
+		//List<Thuoc> listThuoc = new ArrayList<Thuoc>();
+		
+		String sql = "SELECT * FROM Thuoc WHERE "+ tenColDB + "=?";
+		
+		ConnectDB  connectDB = ConnectDB.getInstance();
+		connectDB.connect();
+		
+		try (Connection con = connectDB.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			
+			
+			stmt.setString(1,  value);
+			ResultSet rs = stmt.executeQuery();
+			
+			Thuoc thuoc = new Thuoc();
+			if(rs.next()) {
+				
+						thuoc.setMaThuoc(rs.getString("maThuoc"));
+						thuoc.setTenThuoc(rs.getString("tenThuoc"));
+						thuoc.setDonViTinh(rs.getString("donViTinh"));
+						thuoc.setPhanLoai(rs.getString("phanLoai"));
+						thuoc.setHinhAnh(rs.getString("hinhAnh"));
+						thuoc.setNgayNhap(rs.getDate("ngayNhap").toLocalDate());
+						thuoc.setNgayHetHan(rs.getDate("ngayHetHan").toLocalDate());
+						thuoc.setdonGia(rs.getDouble("donGia"));
+						thuoc.setSoLuong(rs.getInt("soLuong"));
+						thuoc.setHamLuong((float)rs.getDouble("hamLuong"));
+						
+						
+							
+			}
+			return thuoc;
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}finally {
+			connectDB.disconnect();
+		}
+		
+	}
+	
 	
 	
 
